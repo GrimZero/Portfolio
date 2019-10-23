@@ -1,0 +1,6 @@
+<div *ngFor="let project of projects">
+    <app-project 
+    [title]="project.name" 
+    [preview]="project.preview" 
+    [text]="project.text"></app-project>
+</div>

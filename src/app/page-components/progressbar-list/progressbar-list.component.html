@@ -3,8 +3,8 @@
         <h4 *ngIf="header!==undefined">{{header}}</h4>
         <li *ngFor="let item of data">
             <div class="row" style="margin-right: 5px;">
-                <div class="col-1 text-size-about">{{item.name}}</div>
-                <app-percentagebar class="flex-sm-fill" style="margin-top: 5px;" [percentage]="item.amount"></app-percentagebar>
+                <div class="text-size-about min-width col-2">{{item.name}}</div>
+                <app-percentagebar class="col" style="margin-top: 5px;" [percentage]="item.amount"></app-percentagebar>
             </div>
         </li>
     </ul>

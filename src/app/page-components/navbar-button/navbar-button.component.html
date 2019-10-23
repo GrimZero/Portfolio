@@ -1,3 +1,6 @@
 <div>
-    <a class="nav-link" routerLinkActive="active" [routerLink]="[text]">{{text}}</a>
+    <button class="button button-clear" routerLinkActive="active" [routerLink]="[route]">
+        <img *ngIf="icon!==undefined" [src]=icon>
+        <a *ngIf="text!==undefined">{{text}}</a>
+    </button>
 </div>

@@ -1,6 +1,6 @@
-<div *ngFor="let project of projects">
-    <app-project
-    [title]="project.name" 
-    [preview]="project.preview" 
-    [text]="project.text"></app-project>
+<div style="margin-left: 10px; margin-top: 0px;" class="row">
+    <div *ngFor="let project of projects">
+        <app-project [title]="project.name" [preview]="project.preview" [text]="project.text" class="col">
+        </app-project>
+    </div>
 </div>

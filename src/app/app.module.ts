@@ -16,6 +16,7 @@ import { ProjectComponent } from './page-components/project/project.component';
 import { PercentagebarComponent } from './page-components/percentagebar/percentagebar.component';
 import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
 import { HeroComponent } from './page-components/hero/hero.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { HeroComponent } from './page-components/hero/hero.component';
     PercentagebarComponent,
     ProgressbarListComponent,
     HeroComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

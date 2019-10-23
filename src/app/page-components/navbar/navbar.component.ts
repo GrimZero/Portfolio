@@ -10,7 +10,8 @@ export class NavbarComponent implements OnInit {
   @Input() icon: string;
 
   menuItems = [
-    'Projects', 'About'
+    { name: 'Projects', icon: '../../assets/sprites/gamepad.png' },
+    { name: 'About', icon: '../../assets/sprites/singleplayer.png'}
   ];
 
   constructor() { }

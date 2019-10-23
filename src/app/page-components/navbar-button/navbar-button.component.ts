@@ -9,6 +9,7 @@ export class NavbarButtonComponent implements OnInit {
 
   @Input() text: string;
   @Input() route: string;
+  @Input() icon: string;
 
   constructor() { }
 

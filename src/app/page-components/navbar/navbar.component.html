@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-sm bg-light">
+<nav class="navbar navbar-expand-sm bg-dark fixed-top" style="height: 70px;">
     <!-- Brand/logo -->
     <a class="navbar-brand" [routerLink]="['/Home']" >
-        <img src="../../favicon.ico" alt="logo" style="width:40px;">
+        <img [src]="icon" alt="logo" style="width:40px;">
     </a>
 
     <!-- Links -->
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-auto">
         <li class="nav-item" *ngFor="let itemName of menuItems">
             <app-navbar-button [text]="itemName" [route]="itemName"></app-navbar-button>
         </li>

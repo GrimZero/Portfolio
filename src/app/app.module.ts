@@ -1,19 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-
 import {RoutingModule} from './routing/routing.module';
-import { HomepageComponent } from './homepage/homepage.component';
 import { RouterModule } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { AboutComponent } from './about/about.component';
-import { NavbarButtonComponent } from './navbar-button/navbar-button.component';
-import { ProjectComponent } from './project/project.component';
+
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { ProjectsComponent } from './pages/projects/projects.component';
+import { AboutComponent } from './pages/about/about.component';
+import { NavbarComponent } from './page-components/navbar/navbar.component';
+import { NavbarButtonComponent } from './page-components/navbar-button/navbar-button.component';
+import { ProjectComponent } from './page-components/project/project.component';
+import { PercentagebarComponent } from './page-components/percentagebar/percentagebar.component';
+import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
+import { HeroComponent } from './page-components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,10 @@ import { ProjectComponent } from './project/project.component';
     ProjectsComponent,
     AboutComponent,
     NavbarButtonComponent,
-    ProjectComponent
+    ProjectComponent,
+    PercentagebarComponent,
+    ProgressbarListComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,

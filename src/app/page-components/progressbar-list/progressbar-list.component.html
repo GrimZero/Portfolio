@@ -1,0 +1,11 @@
+<div>
+    <ul>
+        <h4 *ngIf="header!==undefined">{{header}}</h4>
+        <li *ngFor="let item of data">
+            <div class="row" style="margin-right: 5px;">
+                <div class="col-1 text-size-about">{{item.name}}</div>
+                <app-percentagebar class="flex-sm-fill" style="margin-top: 5px;" [percentage]="item.amount"></app-percentagebar>
+            </div>
+        </li>
+    </ul>
+</div>

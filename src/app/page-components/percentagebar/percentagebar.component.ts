@@ -8,6 +8,7 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 export class PercentagebarComponent implements OnInit {
 
   @Input() percentage: number;
+  @Input() color: string;
   stateChanged: EventEmitter<number> = new EventEmitter();
 
   constructor() { }

@@ -17,6 +17,9 @@ import { PercentagebarComponent } from './page-components/percentagebar/percenta
 import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
 import { HeroComponent } from './page-components/hero/hero.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { ScrollviewComponent } from './page-components/scrollview/scrollview.component';
+import { SearchComponent } from './page-components/search/search.component';
+import { SearchService } from './search.service';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     ProgressbarListComponent,
     HeroComponent,
     FooterComponent,
+    ScrollviewComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,7 @@ import { FooterComponent } from './pages/footer/footer.component';
     RoutingModule,
     RouterModule
   ],
-  providers: [],
+  providers: [SearchService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

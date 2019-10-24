@@ -1,6 +1,6 @@
-<div style="margin-left: 10px; margin-top: 0px;" class="row">
-    <div *ngFor="let project of projects">
-        <app-project [title]="project.name" [preview]="project.preview" [text]="project.text" class="col">
-        </app-project>
+<app-search></app-search>
+<div class="card-group justify-content-center">
+    <div *ngFor="let project of filtered | async" class="card-group justify-content-center">
+        <app-project class="m-3" [project]="project"></app-project>
     </div>
 </div>

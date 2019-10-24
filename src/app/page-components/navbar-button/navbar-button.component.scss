@@ -1,0 +1,15 @@
+.active {
+  border: white 3px;
+  background: rgb(83, 92, 102);
+  border-radius: 15px;
+  transform: scale(1.2, 1.2);
+}
+
+button:focus {
+  outline: 0;
+  transform: scale(1.2, 1.2);
+}
+
+button:not(.active):hover {
+  transform: scale(1.2, 1.2);
+}

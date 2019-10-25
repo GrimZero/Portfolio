@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProgressbarData } from 'src/app/progressbarData';
+import { ProgressbarData } from 'src/app/interfaces/progressbarData';
 
 @Component({
   selector: 'app-about',

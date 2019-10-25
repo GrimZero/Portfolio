@@ -16,10 +16,10 @@ import { ProjectComponent } from './page-components/project/project.component';
 import { PercentagebarComponent } from './page-components/percentagebar/percentagebar.component';
 import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
 import { HeroComponent } from './page-components/hero/hero.component';
-import { FooterComponent } from './pages/footer/footer.component';
 import { ScrollviewComponent } from './page-components/scrollview/scrollview.component';
 import { SearchComponent } from './page-components/search/search.component';
-import { SearchService } from './search.service';
+import { SearchService } from './services/search.service';
+import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
 
 @NgModule({
   declarations: [
@@ -34,9 +34,9 @@ import { SearchService } from './search.service';
     PercentagebarComponent,
     ProgressbarListComponent,
     HeroComponent,
-    FooterComponent,
     ScrollviewComponent,
     SearchComponent,
+    TypewriteComponent,
   ],
   imports: [
     BrowserModule,

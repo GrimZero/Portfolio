@@ -1,6 +1,5 @@
-<app-search></app-search>
+<app-search class="m-1"></app-search>
 <div class="card-group justify-content-center">
-    <div *ngFor="let project of filtered | async" class="justify-content-center">
-        <app-project class="m-3" [project]="project"></app-project>
-    </div>
+    <app-project class="m-1" *ngFor="let project of filtered | async"
+        [project]="project"></app-project>
 </div>

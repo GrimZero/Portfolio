@@ -43,7 +43,7 @@ import { TypewriteComponent } from './page-components/typewrite/typewrite.compon
     AppRoutingModule,
     NgbModule,
     RoutingModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]

@@ -12,9 +12,6 @@ export class AboutComponent implements OnInit {
   age: number;
 
   constructor(private userdata: UserDataService) {
-    userdata.competences = userdata.competences.sort((x, x2) => x2.amount - x.amount);
-    userdata.languages =  userdata.languages.sort((x, x2) => x2.amount - x.amount);
-
     this.hostData = userdata;
   }
 

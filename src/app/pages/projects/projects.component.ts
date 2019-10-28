@@ -17,20 +17,24 @@ export class ProjectsComponent implements OnInit {
       text: 'Portfolio made in Angular, while learning typscript I decided to update my portfolio as a research project.'
     },
     {
-      title: 'Color correction', preview: 'https://via.placeholder.com/300',
+      title: 'Color correction', preview: 'assets/Projects/TextureEditor.jpg',
       text: 'Project to make color adjustments in WPF using OpenCV C# (EmguCV).'
     },
     {
-      title: 'Deputy Donut', preview: 'https://via.placeholder.com/300',
+      title: 'Deputy Donut', preview: 'assets/Projects/DeputyDonut.jpg',
       text: 'Cop-and-robbers chasing game where you try and take out the other player in a power-up base battle!'
     },
     {
-      title: '"VR" Kinect Shooter', preview: 'https://via.placeholder.com/300',
+      title: '"VR" Kinect Shooter', preview: 'assets/Projects/VR-Dome.jpg',
       text: 'Game using the kinect to create a VR experience without the need for a headset.'
     },
     {
-      title: '3D-Printing', preview: './assets/K8800-2-WHITE-SMALL.jpg',
+      title: '3D-Printing', preview: 'assets/Projects/VertexDelta.jpg',
       text: 'After acquiring a 3D-Printer I started doing some prints for concepts!'
+    },
+    {
+      title: 'PBR', preview: 'assets/Projects/Gun.png',
+      text: 'I try to make 3D models from time to time.'
     }
   ];
 

@@ -1,6 +1,6 @@
-<div class="container mt-3 card">
+<div class="mt-3 card m-1">
     <div class="row m-2 justify-content-around">
-        <img src="{{hostData.pictureURL}}" class="flex-column img-fluid">
+        <img src="{{hostData.pictureURL}}" class="flex-column img-fluid ml-3">
         <div class="col-9">
             <div class="row">
                 <fa-icon icon="code"></fa-icon>
@@ -11,14 +11,14 @@
                 <p class="headline">{{hostData.headline}}</p>
             </div>
             <div class="row-12">
-                <div style="padding:0px;">
+                <div class="p-0">
                     <app-progressbar-list [data]="hostData.competences"></app-progressbar-list>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row justify-content-around">
+    <div class="row justify-content-around mx-2">
         <div class="col-8 card p-0 mb-2 mx-1">
             <h6 class="card-header p-0 pl-3 py-2 text-center">Languages</h6>
             <app-progressbar-list class="mb-2" [data]="hostData.languages"></app-progressbar-list>

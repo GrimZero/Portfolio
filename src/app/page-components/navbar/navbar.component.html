@@ -2,13 +2,14 @@
     <!-- Brand/logo -->
     <button class="navbar-brand button-clear" [routerLink]="['/Home']">
         <img [src]="icon" alt="logo" style="width:40px;" class="hidden-xs-down">
-        <a style="font-size: 100%; color: white; padding-left: 5%;">{{hostData.name}}</a>
+        <a style="color: azure;">{{hostData.name}}</a>
     </button>
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item" *ngFor="let item of menuItems">
-            <app-navbar-button [route]="item.name" [icon]="item.icon"></app-navbar-button>
+            <app-navbar-button [route]="item.name" [icon]="item.icon">
+            </app-navbar-button>
         </li>
     </ul>
 </nav>

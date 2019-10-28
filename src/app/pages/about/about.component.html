@@ -1,25 +1,31 @@
 <div class="container mt-3 card">
-    <div class="row m-2">
-        <img src="{{hostData.pictureURL}}" class="col-3">
-        <div class="col">
+    <div class="row m-2 justify-content-around">
+        <img src="{{hostData.pictureURL}}" class="flex-column img-fluid">
+        <div class="col-9">
             <div class="row">
                 <div class="fas fa-code my-auto"></div>
                 <p class="my-auto px-1">Lv {{ hostData.age }}</p>
                 <p class="my-auto pl-2">{{ hostData.name }}</p>
             </div>
             <div class="row card bg-dark mt-2">
-                <p style="color: white; margin: 0; margin-left: 5px;">{{hostData.headline}}</p>
+                <p class="headline">{{hostData.headline}}</p>
             </div>
-            <div class="row">
-                <div class="col-6" style="padding:0px;">
+            <div class="row-12">
+                <div style="padding:0px;">
                     <app-progressbar-list [data]="hostData.competences"></app-progressbar-list>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="col-6 card p-0 mb-2">
-        <h6 class="card-header p-0 pl-3 pb-2">Languages</h6>
-        <app-progressbar-list class="mb-2" [data]="hostData.languages"></app-progressbar-list>
+    <div class="row justify-content-around">
+        <div class="col-8 card p-0 mb-2 mx-1">
+            <h6 class="card-header p-0 pl-3 py-2 text-center">Languages</h6>
+            <app-progressbar-list class="mb-2" [data]="hostData.languages"></app-progressbar-list>
+        </div>
+        <div class="col-3 card p-0 mb-2">
+            <h6 class="card-header p-0 pl-3 py-2 text-center">Hobbies</h6>
+            <div class="mb-2 text-center" *ngFor="let item of hostData.hobbies">{{item.name}}</div>
+        </div>
     </div>
 </div>

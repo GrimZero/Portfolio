@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserDataService } from 'src/app/interfaces/user-data.service';
+import { NavbarButtonData } from 'src/app/interfaces/navbar-button-data';
 
 @Component({
   selector: 'app-navbar',
@@ -11,9 +12,9 @@ export class NavbarComponent implements OnInit {
   @Input() icon: string;
   hostData: UserDataService;
 
-  menuItems = [
-    { name: 'Projects', icon: '../../assets/sprites/gamepad.png' },
-    { name: 'About', icon: '../../assets/sprites/singleplayer.png' }
+  menuItems: NavbarButtonData[] = [
+    { icon: 'gamepad', route: 'Projects' },
+    { icon: 'address-book', route: 'About' }
   ];
 
   constructor(private service: UserDataService) {

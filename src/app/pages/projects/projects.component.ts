@@ -28,6 +28,10 @@ export class ProjectsComponent implements OnInit {
       title: '"VR" Kinect Shooter', preview: 'https://via.placeholder.com/300',
       text: 'Game using the kinect to create a VR experience without the need for a headset.'
     },
+    {
+      title: '3D-Printing', preview: './assets/K8800-2-WHITE-SMALL.jpg',
+      text: 'After acquiring a 3D-Printer I started doing some prints for concepts!'
+    }
   ];
 
   constructor(private searchService: SearchService) { }

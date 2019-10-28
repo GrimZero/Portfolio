@@ -10,3 +10,8 @@
   border: unset;
   background: transparent;
 }
+
+html {
+  //Make sure screen stays the same with and without scrollbar
+  overflow-y: scroll;
+}

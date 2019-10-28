@@ -3,8 +3,11 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import {RoutingModule} from './routing/routing.module';
+import { RoutingModule } from './routing/routing.module';
 import { RouterModule } from '@angular/router';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
+import { fas } from '@fortawesome/free-solid-svg-icons';
 
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -20,6 +23,7 @@ import { ScrollviewComponent } from './page-components/scrollview/scrollview.com
 import { SearchComponent } from './page-components/search/search.component';
 import { SearchService } from './services/search.service';
 import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
+import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,7 @@ import { TypewriteComponent } from './page-components/typewrite/typewrite.compon
     ScrollviewComponent,
     SearchComponent,
     TypewriteComponent,
+    TooltipComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +49,13 @@ import { TypewriteComponent } from './page-components/typewrite/typewrite.compon
     NgbModule,
     RoutingModule,
     RouterModule,
+    FontAwesomeModule
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(library: FaIconLibrary) {
+    library.addIconPacks(fas);
+  }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NavbarButtonData } from 'src/app/interfaces/navbar-button-data';
 
 @Component({
   selector: 'app-navbar-button',
@@ -7,9 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class NavbarButtonComponent implements OnInit {
 
-  @Input() text: string;
-  @Input() route: string;
-  @Input() icon: string;
+  @Input() buttonData: NavbarButtonData;
 
   constructor() { }
 

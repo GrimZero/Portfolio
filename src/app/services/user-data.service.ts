@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ProgressbarData } from './progressbarData';
+import { ProgressbarData } from '../interfaces/progressbarData';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +10,7 @@ export class UserDataService {
   birthDate = new Date(1995, 10, 21);
   age: number;
 
-  pictureURL = 'https://via.placeholder.com/200';
+  pictureURL = 'https://avatars2.githubusercontent.com/u/38832704?s=460&v=4';
   headline = 'Programmer and 3D enthusiast.';
 
   competences: ProgressbarData[] = [

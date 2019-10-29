@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserDataService } from 'src/app/interfaces/user-data.service';
+import { UserDataService } from 'src/app/services/user-data.service';
 import { NavbarButtonData } from 'src/app/interfaces/navbar-button-data';
 
 @Component({

@@ -6,12 +6,12 @@
   font-size: 14px;
 }
 
-.button-clear{
+.button-clear {
   border: unset;
   background: transparent;
 }
 
 html {
   //Make sure screen stays the same with and without scrollbar
-  overflow-y: scroll;
+  overflow: hidden;
 }

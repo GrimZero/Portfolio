@@ -21,6 +21,10 @@ export class NavbarComponent implements OnInit {
     this.hostData = service;
   }
 
+  hasScrollBar = () => {
+    
+  }
+
   ngOnInit() {
   }
 

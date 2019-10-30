@@ -8,6 +8,7 @@ import { RouterModule } from '@angular/router';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -16,7 +17,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { NavbarComponent } from './page-components/navbar/navbar.component';
 import { NavbarButtonComponent } from './page-components/navbar-button/navbar-button.component';
 import { ProjectComponent } from './page-components/project/project.component';
-import { PercentagebarComponent } from './page-components/percentagebar/percentagebar.component';
+import { ProgressbarComponent } from './page-components/progressbar/progressbar.component';
 import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
 import { HeroComponent } from './page-components/hero/hero.component';
 import { ScrollviewComponent } from './page-components/scrollview/scrollview.component';
@@ -24,6 +25,7 @@ import { SearchComponent } from './page-components/search/search.component';
 import { SearchService } from './services/search.service';
 import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
 import { TooltipComponent } from './page-components/tooltip/tooltip.component';
+import { SkillsComponent } from './page-components/skills/skills.component';
 
 @NgModule({
   declarations: [
@@ -35,13 +37,14 @@ import { TooltipComponent } from './page-components/tooltip/tooltip.component';
     AboutComponent,
     NavbarButtonComponent,
     ProjectComponent,
-    PercentagebarComponent,
+    ProgressbarComponent,
     ProgressbarListComponent,
     HeroComponent,
     ScrollviewComponent,
     SearchComponent,
     TypewriteComponent,
     TooltipComponent,
+    SkillsComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +59,6 @@ import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    library.addIconPacks(fas);
+    library.addIconPacks(fas, fab);
   }
 }

@@ -4,7 +4,7 @@
         <li *ngFor="let item of data">
             <div class="row">
                 <div class="text-size-about min-width col-3">{{item.name}}</div>
-                <app-percentagebar class="col" style="margin-top: 5px;" [percentage]="item.amount" [color]="item.color"></app-percentagebar>
+                <app-progressbar class="col" style="margin-top: 5px;" [percentage]="item.amount" [color]="item.color"></app-progressbar>
             </div>
         </li>
     </ul>

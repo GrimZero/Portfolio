@@ -1,11 +1,11 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'app-percentagebar',
-  templateUrl: './percentagebar.component.html',
-  styleUrls: ['./percentagebar.component.scss']
+  selector: 'app-progressbar',
+  templateUrl: './progressbar.component.html',
+  styleUrls: ['./progressbar.component.scss']
 })
-export class PercentagebarComponent implements OnInit {
+export class ProgressbarComponent implements OnInit {
 
   @Input() percentage: number;
   @Input() color: string;

@@ -47,12 +47,12 @@ import { SkillsComponent } from './page-components/skills/skills.component';
     SkillsComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     NgbModule,
     RoutingModule,
     RouterModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [SearchService],
   bootstrap: [AppComponent]

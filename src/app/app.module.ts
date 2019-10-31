@@ -47,7 +47,7 @@ import { SkillsComponent } from './page-components/skills/skills.component';
     SkillsComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     NgbModule,
     RoutingModule,

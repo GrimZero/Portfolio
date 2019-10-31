@@ -1,5 +1,7 @@
 <div class="card" style="max-width: 350px">
     <h4 class="card-title text-center card-header">{{project.title}}</h4>
-    <img class="card-img-top p-2" [src]="project.preview" alt="Card image" style="max-height: 348px;">
+    <div [routerLink]="project.route" routerLinkActive="active" >
+        <img class="card-img-top p-2" [src]="project.preview" alt="Card image" style="max-height: 348px;">
+    </div>
     <div class="align-content-center card-margin card-text text-justify">{{project.text}}</div>
 </div>

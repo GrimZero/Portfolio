@@ -14,11 +14,12 @@ export class HeroComponent implements OnInit {
 
   constructor() {
     window.onresize = () => this.ngOnInit();
-   }
+  }
 
   ngOnInit() {
     this.width = window.innerWidth;
-    this.height = window.innerHeight - 163;
+    console.log(window.innerHeight);
+    this.height = window.innerHeight - 70 + 16 - 100;
 
     this.path = 'https://via.placeholder.com/' + this.width + 'x' + this.height;
   }

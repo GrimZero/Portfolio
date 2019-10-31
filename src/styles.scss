@@ -12,6 +12,6 @@
 }
 
 html {
-  //Make sure screen stays the same with and without scrollbar
-  overflow: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-skills',
@@ -7,12 +7,9 @@ import { Component, OnInit, ElementRef, Output } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  constructor(private el: ElementRef) { }
-
-  height: number;
+  constructor() { }
 
   ngOnInit() {
-    this.height = this.el.nativeElement.offsetHeight;
   }
 
 }

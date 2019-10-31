@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SearchService } from 'src/app/services/search.service';
 import { Observable, of, combineLatest } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { IProject } from 'src/app/interfaces/iproject';
 
 @Component({
   selector: 'app-projects',
@@ -11,9 +12,9 @@ import { map, startWith } from 'rxjs/operators';
 export class ProjectsComponent implements OnInit {
   filtered: Observable<any>;
 
-  projects = [
+  projects: IProject[] = [
     {
-      title: 'Portfolio', preview: 'https://via.placeholder.com/300',
+      title: 'Portfolio', preview: 'https://via.placeholder.com/300', route: 'portfolio',
       text: 'Portfolio made in Angular, while learning typscript I decided to update my portfolio as a research project.'
     },
     {

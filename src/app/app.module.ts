@@ -26,6 +26,7 @@ import { SearchService } from './services/search.service';
 import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
 import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 import { SkillsComponent } from './page-components/skills/skills.component';
+import { ProjectInfoComponent } from './page-components/project-info/project-info.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { SkillsComponent } from './page-components/skills/skills.component';
     TypewriteComponent,
     TooltipComponent,
     SkillsComponent,
+    ProjectInfoComponent,
   ],
   imports: [
     BrowserModule,

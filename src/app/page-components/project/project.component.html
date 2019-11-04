@@ -1,7 +1,4 @@
-<div class="card" style="max-width: 350px">
-    <h4 class="card-title text-center card-header">{{project.title}}</h4>
-    <div [routerLink]="project.route" routerLinkActive="active" >
-        <img class="card-img-top p-2" [src]="project.preview" alt="Card image" style="max-height: 348px;">
-    </div>
-    <div class="align-content-center card-margin card-text text-justify">{{project.text}}</div>
+<div [routerLink]="project.route" routerLinkActive="active" class="container p-0">
+    <img [src]="project.preview" style="max-width: 300px; max-height: 300px;" class="hover">
+    <div class="overlay">{{project.title}}</div>
 </div>

@@ -19,7 +19,6 @@ import { NavbarButtonComponent } from './page-components/navbar-button/navbar-bu
 import { ProjectComponent } from './page-components/project/project.component';
 import { ProgressbarComponent } from './page-components/progressbar/progressbar.component';
 import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
-import { HeroComponent } from './page-components/hero/hero.component';
 import { ScrollviewComponent } from './page-components/scrollview/scrollview.component';
 import { SearchComponent } from './page-components/search/search.component';
 import { SearchService } from './services/search.service';
@@ -27,6 +26,7 @@ import { TypewriteComponent } from './page-components/typewrite/typewrite.compon
 import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 import { SkillsComponent } from './page-components/skills/skills.component';
 import { ProjectInfoComponent } from './page-components/project-info/project-info.component';
+import { ThreejsComponent } from './page-components/threejs/threejs.component';
 
 @NgModule({
   declarations: [
@@ -40,13 +40,13 @@ import { ProjectInfoComponent } from './page-components/project-info/project-inf
     ProjectComponent,
     ProgressbarComponent,
     ProgressbarListComponent,
-    HeroComponent,
     ScrollviewComponent,
     SearchComponent,
     TypewriteComponent,
     TooltipComponent,
     SkillsComponent,
     ProjectInfoComponent,
+    ThreejsComponent,
   ],
   imports: [
     BrowserModule,

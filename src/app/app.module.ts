@@ -4,7 +4,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 
 import { fas } from '@fortawesome/free-solid-svg-icons';
@@ -60,7 +60,7 @@ import { ThreejsComponent } from './page-components/threejs/threejs.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
+  constructor(library: FaIconLibrary, private router: Router) {
     library.addIconPacks(fas, fab);
   }
 }

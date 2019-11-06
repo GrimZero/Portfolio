@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
 import { Scene } from 'src/app/classes/Scene';
 import { Composer } from 'src/app/classes/composer';
@@ -13,7 +13,9 @@ import { Vector3 } from 'three';
   templateUrl: './threejs.component.html',
   styleUrls: ['./threejs.component.scss']
 })
-export class ThreejsComponent implements AfterViewInit {
+export class ThreejsComponent implements OnInit {
+  width: number;
+  height: number;
 
   canvas: HTMLCanvasElement;
 
@@ -29,11 +31,15 @@ export class ThreejsComponent implements AfterViewInit {
 
   constructor() { }
 
-  ngAfterViewInit() {
+  ngOnInit() {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight - 170;
+
     this.canvas = document.getElementById('threejs') as HTMLCanvasElement;
+    window.addEventListener('resize', this.onResize);
 
     // Camera
-    const aspect = this.canvas.clientWidth / this.canvas.clientHeight;
+    const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
     this.perspectiveCamera.position.set(2101, 1181, -116);
 
@@ -42,6 +48,7 @@ export class ThreejsComponent implements AfterViewInit {
 
     // Renderer
     this.composer = new Composer(this.scene, this.perspectiveCamera, this.canvas);
+    this.composer.renderer.setSize(this.width, this.height);
 
     // Orbit
     this.orbit = new OrbitControls(this.perspectiveCamera, this.canvas);
@@ -51,17 +58,21 @@ export class ThreejsComponent implements AfterViewInit {
     this.materialLibrary = new MaterialLibrary();
     this.loader = new MeshLoader();
 
-    const material = new Material('../../assets/textures');
-    this.loader.loadFBX('SM_House_1', material, this.scene);
-
-    const ambientLight = new THREE.AmbientLight(0xFFFFFF, 0.6);
-    this.scene.add(ambientLight);
-
-    const dirLight = new THREE.DirectionalLight(0xFFFFFF, 1);
-    dirLight.castShadow = true;
-    this.scene.add(dirLight);
+    // const material = new Material('../../assets/textures');
+    // this.loader.loadFBX('SM_House_1', material, this.scene);
 
     this.update();
+  }
+
+  onResize = () => {
+    this.width = window.innerWidth;
+    this.height = window.innerHeight - 170;
+
+    this.composer.renderer.setSize(this.width, this.height);
+    this.composer.updateRaycaster(this.width, this.height);
+
+    this.perspectiveCamera.aspect = this.width / this.height;
+    this.perspectiveCamera.updateProjectionMatrix();
   }
 
   update = () => {

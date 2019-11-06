@@ -13,8 +13,8 @@ export class NavbarComponent implements OnInit {
   hostData: UserDataService;
 
   menuItems: NavbarButtonData[] = [
-    { icon: 'gamepad', route: 'Projects' },
-    { icon: 'address-book', route: 'About' }
+    { icon: 'gamepad', route: 'Projects', highlightColor: '#FF0000' },
+    { icon: 'address-book', route: 'About', highlightColor: '#FF0000' }
   ];
 
   constructor(private service: UserDataService) {

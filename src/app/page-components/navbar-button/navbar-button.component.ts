@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { NavbarButtonData } from 'src/app/interfaces/navbar-button-data';
-import { hexToCSSFilter } from 'hex-to-css-filter';
 
 @Component({
   selector: 'app-navbar-button',

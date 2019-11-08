@@ -6,7 +6,7 @@ import { MaterialLibrary } from 'src/app/classes/material-library';
 import { MeshLoader } from 'src/app/classes/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Material } from 'src/app/classes/material';
-import { Vector3 } from 'three';
+import { Vector3, DirectionalLight, AmbientLight } from 'three';
 
 @Component({
   selector: 'app-threejs',
@@ -41,7 +41,7 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(2101, 1181, -116);
+    this.perspectiveCamera.position.set(50, 20, 0);
 
     // Scene
     this.scene = new Scene();
@@ -58,8 +58,10 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary = new MaterialLibrary();
     this.loader = new MeshLoader();
 
-    // const material = new Material('../../assets/textures');
-    // this.loader.loadFBX('SM_House_1', material, this.scene);
+    const material = new Material('../../assets/textures');
+    this.loader.loadFBX('Showcase', material, this.scene);
+
+    this.scene.add(new AmbientLight('#FFFFFF', 1.3));
 
     this.update();
   }

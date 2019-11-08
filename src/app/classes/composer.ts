@@ -26,7 +26,7 @@ export class Composer extends EffectComposer {
     constructor(scene: THREE.Scene, perspectiveCamera: THREE.PerspectiveCamera, canvas: HTMLCanvasElement) {
         super(new Renderer(canvas));
 
-        const size = new THREE.Vector2(canvas.clientWidth, canvas.clientHeight);
+        const size = new THREE.Vector2(this.renderer.domElement.clientWidth, this.renderer.domElement.clientHeight);
 
         this.renderer.setSize(size.x, size.y);
         this.outlinePass = new OutlinePass(size, scene, perspectiveCamera);

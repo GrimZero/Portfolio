@@ -13,7 +13,7 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run Portfolio:server:production",
-    "build-and-deploy-gh-pages": "ng build --prod --base-href  https://grimzero.github.io/Portfolio/ && npx ngh --dir docs"
+    "build-and-deploy-gh-pages": "ng build --prod --base-href  https://grimzero.github.io/Portfolio/"
   },
   "private": true,
   "dependencies": {

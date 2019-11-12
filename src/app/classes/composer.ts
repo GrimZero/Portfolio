@@ -4,15 +4,12 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import * as THREE from 'three';
-import { Vector2 } from 'three';
 
 export class Renderer extends THREE.WebGLRenderer {
-    constructor(threeCanvas: HTMLCanvasElement) {
-        super({ canvas: threeCanvas });
+    constructor(htmlCanvas: HTMLCanvasElement) {
+        super({ canvas: htmlCanvas, alpha: true });
 
         this.setPixelRatio(window.devicePixelRatio);
-        this.setSize(threeCanvas.clientWidth, threeCanvas.clientHeight);
-        this.setClearColor('#777777');
         this.shadowMap.enabled = true;
         this.shadowMap.type = THREE.PCFSoftShadowMap;
     }
@@ -23,17 +20,18 @@ export class Composer extends EffectComposer {
     private renderPass: RenderPass;
     private FXAAPass: ShaderPass;
 
-    constructor(scene: THREE.Scene, perspectiveCamera: THREE.PerspectiveCamera, canvas: HTMLCanvasElement) {
-        super(new Renderer(canvas));
+    constructor(scene: THREE.Scene, perspectiveCamera: THREE.PerspectiveCamera, renderer: Renderer) {
+        super(renderer);
 
-        const size = new THREE.Vector2(this.renderer.domElement.clientWidth, this.renderer.domElement.clientHeight);
+        const size = new THREE.Vector2();
+        this.renderer.getDrawingBufferSize(size);
 
-        this.renderer.setSize(size.x, size.y);
         this.outlinePass = new OutlinePass(size, scene, perspectiveCamera);
         this.renderPass = new RenderPass(scene, perspectiveCamera);
         this.FXAAPass = new ShaderPass(FXAAShader);
+
         // tslint:disable-next-line: no-string-literal
-        this.FXAAPass.uniforms['resolution'].value.set(1 / canvas.clientWidth, 1 / canvas.clientHeight);
+        this.FXAAPass.uniforms['resolution'].value.set(1 / size.x, 1 / size.y);
 
         this.addPass(this.renderPass);
         // this.addPass(this.outlinePass);
@@ -41,7 +39,7 @@ export class Composer extends EffectComposer {
     }
 
     updateRaycaster(sizeX: number, sizeY: number) {
-        this.outlinePass.resolution = new Vector2(sizeX, sizeY);
+        this.outlinePass.resolution = new THREE.Vector2(sizeX, sizeY);
     }
 
     toggleAntiAliasing() {

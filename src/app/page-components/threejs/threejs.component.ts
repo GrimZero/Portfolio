@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import * as THREE from 'three';
 import { Scene } from 'src/app/classes/Scene';
-import { Composer } from 'src/app/classes/composer';
+import { Composer, Renderer } from 'src/app/classes/composer';
 import { MaterialLibrary } from 'src/app/classes/material-library';
 import { MeshLoader } from 'src/app/classes/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Material } from 'src/app/classes/material';
-import { Vector3, DirectionalLight, AmbientLight } from 'three';
+import { Vector3, AmbientLight, DirectionalLight } from 'three';
 
 @Component({
   selector: 'app-threejs',
@@ -23,6 +23,7 @@ export class ThreejsComponent implements OnInit {
   perspectiveCamera: THREE.PerspectiveCamera;
   materialLibrary: MaterialLibrary;
   loader: MeshLoader;
+  renderer: Renderer;
   composer: Composer;
   scene: Scene;
   orbit: OrbitControls;
@@ -41,27 +42,41 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(50, 20, 0);
+    this.perspectiveCamera.position.set(1.6, 1.6, 0);
 
     // Scene
     this.scene = new Scene();
 
     // Renderer
-    this.composer = new Composer(this.scene, this.perspectiveCamera, this.canvas);
-    this.composer.renderer.setSize(this.width, this.height);
+    this.renderer = new Renderer(this.canvas);
+    this.renderer.setSize(this.width, this.height);
+
+    this.composer = new Composer(this.scene, this.perspectiveCamera, this.renderer);
+    this.renderer.setSize(this.width, this.height);
+    this.composer.setSize(this.width, this.height);
 
     // Orbit
-    this.orbit = new OrbitControls(this.perspectiveCamera, this.canvas);
+    this.orbit = new OrbitControls(this.perspectiveCamera, this.composer.renderer.domElement);
     this.orbit.target = this.initLookat;
+    this.orbit.enablePan = false;
+    this.orbit.enableZoom = false;
 
     // Materials
     this.materialLibrary = new MaterialLibrary();
     this.loader = new MeshLoader();
 
-    const material = new Material('assets/textures');
-    this.loader.loadFBX('Showcase', material, this.scene);
+    this.materialLibrary.add('none', new Material(undefined, { color: 'red' }));
 
-    this.scene.add(new AmbientLight('#FFFFFF', 1.3));
+    const mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), this.materialLibrary.getMaterial('none'));
+    mesh.rotation.setFromVector3(new Vector3(0, 45, 0));
+    this.scene.add(mesh);
+
+    const light = new DirectionalLight('#F1DAA4');
+    light.position.set(0, 2, 3);
+    light.castShadow = true;
+    this.scene.add(light);
+
+    this.scene.add(new AmbientLight('#F1DAA4', 0.6));
 
     this.update();
   }
@@ -70,7 +85,8 @@ export class ThreejsComponent implements OnInit {
     this.width = window.innerWidth;
     this.height = window.innerHeight - 170;
 
-    this.composer.renderer.setSize(this.width, this.height);
+    this.renderer.setSize(this.width, this.height);
+    this.composer.setSize(this.width, this.height);
     this.composer.updateRaycaster(this.width, this.height);
 
     this.perspectiveCamera.aspect = this.width / this.height;

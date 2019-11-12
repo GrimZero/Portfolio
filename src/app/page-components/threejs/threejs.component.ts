@@ -58,7 +58,7 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary = new MaterialLibrary();
     this.loader = new MeshLoader();
 
-    const material = new Material('../../assets/textures');
+    const material = new Material('assets/textures');
     this.loader.loadFBX('Showcase', material, this.scene);
 
     this.scene.add(new AmbientLight('#FFFFFF', 1.3));

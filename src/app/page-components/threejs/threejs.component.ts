@@ -22,7 +22,6 @@ export class ThreejsComponent implements OnInit {
   // ThreeJS properties
   perspectiveCamera: THREE.PerspectiveCamera;
   materialLibrary: MaterialLibrary;
-  loader: MeshLoader;
   renderer: Renderer;
   composer: Composer;
   scene: Scene;
@@ -42,7 +41,7 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(1.6, 1.6, 0);
+    this.perspectiveCamera.position.set(2.3, 1.2, 0);
 
     // Scene
     this.scene = new Scene();
@@ -55,6 +54,13 @@ export class ThreejsComponent implements OnInit {
     this.renderer.setSize(this.width, this.height);
     this.composer.setSize(this.width, this.height);
 
+    // Lights
+    this.scene.add(new AmbientLight('#F1DAA4', 0.3));
+    const light = new DirectionalLight('#F1DAA4');
+    light.position.set(0, 2, 3);
+    light.castShadow = true;
+    this.scene.add(light);
+
     // Orbit
     this.orbit = new OrbitControls(this.perspectiveCamera, this.composer.renderer.domElement);
     this.orbit.target = this.initLookat;
@@ -63,20 +69,13 @@ export class ThreejsComponent implements OnInit {
 
     // Materials
     this.materialLibrary = new MaterialLibrary();
-    this.loader = new MeshLoader();
 
-    this.materialLibrary.add('none', new Material(undefined, { color: 'red' }));
+    // Material definition
+    this.materialLibrary.add('planetCore', new Material({ color: '#010101' }));
 
-    const mesh = new THREE.Mesh(new THREE.BoxGeometry(1, 1, 1), this.materialLibrary.getMaterial('none'));
-    mesh.rotation.setFromVector3(new Vector3(0, 45, 0));
-    this.scene.add(mesh);
-
-    const light = new DirectionalLight('#F1DAA4');
-    light.position.set(0, 2, 3);
-    light.castShadow = true;
-    this.scene.add(light);
-
-    this.scene.add(new AmbientLight('#F1DAA4', 0.6));
+    // Mesh creation
+    const innerSphere = new THREE.Mesh(new THREE.SphereBufferGeometry(0.3, 50, 50), this.materialLibrary.getMaterial('planetCore'));
+    this.scene.create(innerSphere, 'planetCore');
 
     this.update();
   }

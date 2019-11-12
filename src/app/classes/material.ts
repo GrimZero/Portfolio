@@ -8,23 +8,12 @@ export class Material extends THREE.MeshPhysicalMaterial {
     private folderPath: string;
     isVisible: boolean;
 
-    constructor(folderPath: string, params: MeshToonMaterialParameters = {}) {
+    constructor(params: MeshToonMaterialParameters = {}) {
         super(params);
-
-        if (folderPath === undefined) {
-            return;
-        }
 
         if (!Material.textureLoader) {
             Material.textureLoader = new THREE.TextureLoader();
         }
-
-        this.folderPath = folderPath + '/';
-
-        Material.textureLoader = Material.textureLoader.setPath(this.folderPath);
-
-        // Set textures
-        this.map = this.LoadTexture('tex');
     }
 
     protected LoadTexture(fileName: string, extension: string = '.png'): THREE.Texture {

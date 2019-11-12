@@ -1,31 +1,12 @@
-<div class="mt-3 card m-1">
-    <div class="row m-2 justify-content-around">
-        <img src="{{hostData.pictureURL}}" class="flex-column img-fluid ml-3" style="max-width: 200px;">
-        <div class="col-9">
-            <div class="row">
-                <fa-icon icon="code"></fa-icon>
-                <p class="my-auto px-1">Lv {{ hostData.age }}</p>
-                <p class="my-auto pl-2">{{ hostData.name }}</p>
-            </div>
-            <div class="row card bg-dark mt-2">
-                <p class="headline">{{hostData.headline}}</p>
-            </div>
-            <div class="row-12">
-                <div class="p-0">
-                    <app-progressbar-list [data]="hostData.competences"></app-progressbar-list>
-                </div>
-            </div>
+<div class="parallax">
+    <div class="row">
+        <div class="col">
+            <h1 style="color: white;">about me</h1>
+            <p>I am a Game developer and 3D enthusiast from Belgium.</p>
+            <p>I enjoy both 3D as well as working with code</p>
         </div>
-    </div>
-
-    <div class="row justify-content-around mx-2">
-        <div class="col-8 card p-0 mb-2 mx-1">
-            <h6 class="card-header p-0 pl-3 py-2 text-center">Languages</h6>
-            <app-progressbar-list class="mb-2" [data]="hostData.languages"></app-progressbar-list>
-        </div>
-        <div class="col-3 card p-0 mb-2">
-            <h6 class="card-header p-0 pl-3 py-2 text-center">Hobbies</h6>
-            <div class="mb-2 text-center" *ngFor="let item of hostData.hobbies">{{item.name}}</div>
+        <div class="col d-block">
+            <img [src]=[hostData.pictureURL]>
         </div>
     </div>
 </div>

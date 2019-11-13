@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { Object3D } from 'three';
+import { Callback } from '../interfaces/callback';
 
 export class Scene extends THREE.Scene {
   shadowMapSize: THREE.Vector2 = new THREE.Vector2(1024, 1024);
@@ -21,17 +22,21 @@ export class Scene extends THREE.Scene {
     return objects;
   }
 
-  create(object: Object3D, name?: string): any {
-    if (name !== undefined) {
-      object.name = name;
-    }
-    this.sceneData.set(object.name, object);
+  addObject(name: string, object: THREE.Object3D, callback?: Callback): THREE.Object3D {
+    this.sceneData.set(name, object);
     super.add(object);
+
+    if (callback) {
+      THREE.EventDispatcher.call(object);
+      object.addEventListener(callback.type, callback.event);
+    }
+
+    return object;
   }
 
-  addRange(objects: THREE.Object3D[]) {
-    objects.forEach(element => {
-      this.create(element, name);
+  dispatch(event: string) {
+    this.sceneData.forEach(element => {
+      element.dispatchEvent({ type: event });
     });
   }
 }

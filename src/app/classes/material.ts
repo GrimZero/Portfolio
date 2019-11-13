@@ -1,14 +1,13 @@
 import * as THREE from 'three';
-import { MeshToonMaterialParameters } from 'three';
+import { MeshPhongMaterialParameters } from 'three';
 
-export class Material extends THREE.MeshPhysicalMaterial {
+export class Material extends THREE.MeshPhongMaterial {
 
     private static textureLoader: THREE.TextureLoader;
     textureTiling: THREE.Vector2 = new THREE.Vector2(1, 1);
-    private folderPath: string;
     isVisible: boolean;
 
-    constructor(params: MeshToonMaterialParameters = {}) {
+    constructor(params: MeshPhongMaterialParameters = {}) {
         super(params);
 
         if (!Material.textureLoader) {

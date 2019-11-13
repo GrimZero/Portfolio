@@ -3,7 +3,7 @@ import { Material } from './material';
 
 export class MaterialLibrary {
     private data: Map<string, Material> = new Map<string, Material>();
-    activeMaterials: THREE.MeshPhysicalMaterial[] = [];
+    activeMaterials: Material[] = [];
 
     getMaterial = (name: string) => {
         if (this.data.has(name)) {

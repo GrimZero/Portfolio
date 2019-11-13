@@ -102,7 +102,7 @@ export class ThreejsComponent implements OnInit {
           target.rotateY(0.002);
         }
       });
-
+      
     this.update();
   }
 

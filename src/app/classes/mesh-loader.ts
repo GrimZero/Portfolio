@@ -17,7 +17,7 @@ export class MeshLoader {
     }
 
     loadFBX = (fileName: string) => {
-        MeshLoader.loader.load('../../assets/meshes/' + fileName + '.FBX', (object: THREE.Group) => {
+        MeshLoader.loader.load('assets/meshes/' + fileName + '.FBX', (object: THREE.Group) => {
             this.data.next(object);
         });
     }

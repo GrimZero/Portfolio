@@ -22,13 +22,15 @@ export class Scene extends THREE.Scene {
     return objects;
   }
 
-  addObject(name: string, object: THREE.Object3D, callback?: Callback): THREE.Object3D {
+  addObject(name: string, object: THREE.Object3D, callbacks?: Callback[]): THREE.Object3D {
     this.sceneData.set(name, object);
     super.add(object);
 
-    if (callback) {
+    if (callbacks) {
       THREE.EventDispatcher.call(object);
-      object.addEventListener(callback.type, callback.event);
+      callbacks.forEach(callback => {
+        object.addEventListener(callback.type, callback.event);
+      });
     }
 
     return object;

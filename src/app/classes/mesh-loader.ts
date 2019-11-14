@@ -1,28 +1,24 @@
 import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { Material } from './material';
-import { Scene } from './Scene';
+import { BehaviorSubject } from 'rxjs';
 
 export class MeshLoader {
+    static loader: FBXLoader = new FBXLoader();
+    data = new BehaviorSubject<any>(undefined);
 
-  static loader: FBXLoader = new FBXLoader();
+    constructor() {
+    }
 
-  constructor() { }
+    static SetMaterial(mesh: THREE.Mesh, material: Material) {
+        if(material && mesh) {
+            material.isVisible = true;
+            mesh.material = material;
+        }
+    }
 
-  loadFBX = (name: string, material: Material, scene: Scene) => {
-    scene.sceneData.set(name, undefined);
-    MeshLoader.loader.load('assets/meshes/' + name + '.FBX', (object: THREE.Group) => {
-        object.traverse((child: THREE.Mesh) => {
-            if (child.isMesh) {
-                child.material = material;
-                child.castShadow = true;
-                child.receiveShadow = true;
-
-                material.isVisible = true;
-            }
+    loadFBX = (fileName: string) => {
+        MeshLoader.loader.load('../../assets/meshes/' + fileName + '.FBX', (object: THREE.Group) => {
+            this.data.next(object);
         });
-        object.name = name;
-        scene.add(object);
-    });
-}
-
+    }
 }

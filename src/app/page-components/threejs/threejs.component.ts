@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import { Scene } from 'src/app/classes/Scene';
 import { Composer, Renderer } from 'src/app/classes/composer';
@@ -17,6 +17,7 @@ import { tap, filter } from 'rxjs/operators';
 })
 export class ThreejsComponent implements OnInit {
   width: number;
+  @Input() occupiedHeight: number;
   height: number;
 
   canvas: HTMLCanvasElement;
@@ -30,6 +31,7 @@ export class ThreejsComponent implements OnInit {
   orbit: OrbitControls;
   meshLoader: MeshLoader;
   initLookat: THREE.Vector3 = new Vector3(0, 0, 0);
+  mouse: THREE.Vector2;
 
   raycaster: THREE.Raycaster = new THREE.Raycaster();
 
@@ -37,7 +39,7 @@ export class ThreejsComponent implements OnInit {
 
   ngOnInit() {
     this.width = window.innerWidth;
-    this.height = window.innerHeight - 170;
+    this.height = window.innerHeight - this.occupiedHeight;
 
     this.canvas = document.getElementById('threejs') as HTMLCanvasElement;
     window.addEventListener('resize', this.onResize);
@@ -153,11 +155,9 @@ export class ThreejsComponent implements OnInit {
     this.scene.dispatch('start');
   }
 
-
-
   onResize = () => {
     this.width = window.innerWidth;
-    this.height = window.innerHeight - 170;
+    this.height = window.innerHeight - this.occupiedHeight;
 
     this.perspectiveCamera.aspect = this.width / this.height;
     this.renderer.setSize(this.width, this.height);
@@ -171,14 +171,14 @@ export class ThreejsComponent implements OnInit {
     const x = event.clientX - rect.left;
     const y = event.clientY - rect.top;
 
-    const mouse = new THREE.Vector2((x / this.canvas.clientWidth) * 2 - 1,
+    this.mouse = new THREE.Vector2((x / this.canvas.clientWidth) * 2 - 1,
       (y / this.canvas.clientHeight) * - 2 + 1);
 
     this.perspectiveCamera.updateMatrixWorld();
-    this.raycaster.setFromCamera(mouse, this.perspectiveCamera);
   }
 
   onMouseDown = () => {
+    this.raycaster.setFromCamera(this.mouse, this.perspectiveCamera);
     const intersects = this.raycaster.intersectObjects(this.scene.children, true);
     if (intersects.length > 0) {
       console.log(intersects[0].object.name);

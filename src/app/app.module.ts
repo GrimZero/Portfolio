@@ -27,6 +27,7 @@ import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 import { SkillsComponent } from './page-components/skills/skills.component';
 import { ProjectInfoComponent } from './page-components/project-info/project-info.component';
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
+import { InfopanelComponent } from './pages/infopanel/infopanel.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ThreejsComponent } from './page-components/threejs/threejs.component';
     SkillsComponent,
     ProjectInfoComponent,
     ThreejsComponent,
+    InfopanelComponent,
   ],
   imports: [
     BrowserModule,

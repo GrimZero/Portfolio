@@ -1,9 +1,7 @@
-.img-config {
+img {
   color: white;
-  width: 100px;
-  height: 100px;
-  padding: 25px;
-  pointer-events: none;
+  width: 75%;
+  margin-top: 15px;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -13,15 +11,11 @@
   user-select: none;
 }
 
-.scaled {
-  transform: scale(3);
+.img-parent {
+  width: 10%;
+  text-align: center;
 }
 
-.icon {
-  font-size: 40px;
-  line-height: 100px;
-  color: white;
-  text-align: center;
-  padding-left: 25px;
-  padding-right: 25px;
+.scale {
+  transform: scale(3.5);
 }

@@ -1,16 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CarrouselElementItem } from 'src/app/interfaces/carrousel-element-item';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements OnInit {
-  iconList: CarrouselElementItem[] = [
-    { icon: 'angular', text: 'Angular' }
-  ];
-
-  ngOnInit() {
-  }
+export class HomepageComponent {
 }

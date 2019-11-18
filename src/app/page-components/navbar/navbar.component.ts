@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NavbarButtonData } from 'src/app/interfaces/navbar-button-data';
+import { ComponentNavigationService } from 'src/app/component-navigation.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,14 +12,19 @@ export class NavbarComponent implements OnInit {
 
   @Input() icon: string;
   hostData: UserDataService;
+  navigationService: ComponentNavigationService;
 
   menuItems: NavbarButtonData[] = [
-    { icon: 'gamepad', route: 'Projects', highlightColor: '#FF0000' },
-    { icon: 'address-book', route: 'About', highlightColor: '#FF0000' }
+    { icon: 'gamepad', highlightColor: '#FF0000', text: 'Projects' },
+    {
+      icon: 'address-book', highlightColor: '#FF0000', text: 'About', click: () => {
+        this.navigation.toggleShowInfo();
+      }
+    }
   ];
 
-  constructor(private service: UserDataService) {
-    this.hostData = service;
+  constructor(private user: UserDataService, private navigation: ComponentNavigationService) {
+    this.hostData = user;
   }
 
   ngOnInit() {

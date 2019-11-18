@@ -1,6 +1,6 @@
-<div>
-    <canvas id="threejs" class="parallax" #threejs>
-        <app-threejs [occupiedHeight]=120></app-threejs>
+<div class="parallax row align-content-between">
+    <canvas id="threejs" #threejs class="col-8" style="padding: 0px;">
+        <app-threejs [occupiedHeight]=120 [width]="renderWidth"></app-threejs>
     </canvas>
-    <app-skills></app-skills>
+    <app-about *ngIf="enable" class="col-4"></app-about>
 </div>

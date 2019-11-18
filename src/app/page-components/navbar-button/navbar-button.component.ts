@@ -15,4 +15,10 @@ export class NavbarButtonComponent implements OnInit {
   ngOnInit() {
   }
 
+  onClick(model: NavbarButtonData) {
+    if (model.click !== undefined) {
+      model.click();
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as THREE from 'three';
 import { Scene } from 'src/app/classes/Scene';
 import { Composer, Renderer } from 'src/app/classes/composer';
@@ -16,7 +16,7 @@ import { tap, filter } from 'rxjs/operators';
   styleUrls: ['./threejs.component.scss']
 })
 export class ThreejsComponent implements OnInit {
-  width: number;
+  @Input() width: number;
   @Input() occupiedHeight: number;
   height: number;
 
@@ -38,7 +38,7 @@ export class ThreejsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.width = window.innerWidth;
+    this.width = (window.innerWidth / 12) * 8;
     this.height = window.innerHeight - this.occupiedHeight;
 
     this.canvas = document.getElementById('threejs') as HTMLCanvasElement;
@@ -156,7 +156,7 @@ export class ThreejsComponent implements OnInit {
   }
 
   onResize = () => {
-    this.width = window.innerWidth;
+    this.width = window.innerWidth / 2;
     this.height = window.innerHeight - this.occupiedHeight;
 
     this.perspectiveCamera.aspect = this.width / this.height;

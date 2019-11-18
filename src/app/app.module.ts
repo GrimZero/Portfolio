@@ -28,6 +28,7 @@ import { SkillsComponent } from './page-components/skills/skills.component';
 import { ProjectInfoComponent } from './page-components/project-info/project-info.component';
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { InfopanelComponent } from './pages/infopanel/infopanel.component';
+import { ComponentNavigationService } from './component-navigation.service';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { InfopanelComponent } from './pages/infopanel/infopanel.component';
     RouterModule,
     FontAwesomeModule,
   ],
-  providers: [SearchService],
+  providers: [SearchService, ComponentNavigationService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

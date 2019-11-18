@@ -10,7 +10,7 @@ export class UserDataService {
   birthDate = new Date(1995, 10, 21);
   age: number;
 
-  pictureURL = 'https://avatars2.githubusercontent.com/u/38832704?s=460&v=4';
+  pictureURL = 'assets/sprites/chibi.png';
   headline = 'Programmer and 3D enthusiast.';
 
   competences: ProgressbarData[] = [

@@ -14,7 +14,7 @@
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run Portfolio:server:production",
     "build-ghp": "ng build --prod --base-href  https://grimzero.github.io/Portfolio/",
-    "copy-index": "Copy-Item -Path ./docs/index.html -Destination ./docs/404.html"
+    "copy-index": "Copy-Item ./docs/index.html -Destination ./docs/404.html"
   },
   "private": true,
   "dependencies": {

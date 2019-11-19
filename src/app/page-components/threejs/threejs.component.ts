@@ -6,9 +6,11 @@ import { MaterialLibrary } from 'src/app/classes/material-library';
 import { MeshLoader } from 'src/app/classes/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Material } from 'src/app/classes/material';
-import { Vector3, AmbientLight, DirectionalLight, DoubleSide } from 'three';
+import { Vector3, AmbientLight, DirectionalLight, DoubleSide, Object3D } from 'three';
 import { Callback } from 'src/app/interfaces/callback';
 import { tap, filter } from 'rxjs/operators';
+import { SolarSystem } from 'src/app/classes/solar-system';
+import { SolarBody } from 'src/app/classes/solar-body';
 
 @Component({
   selector: 'app-threejs',
@@ -27,7 +29,7 @@ export class ThreejsComponent implements OnInit {
   materialLibrary: MaterialLibrary;
   renderer: Renderer;
   composer: Composer;
-  scene: Scene;
+  scene: SolarSystem;
   orbit: OrbitControls;
   meshLoader: MeshLoader;
   initLookat: THREE.Vector3 = new Vector3(0, 0, 0);
@@ -49,10 +51,10 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(2.3, 1.2, 0);
+    this.perspectiveCamera.position.set(20, 6, 0);
 
     // Scene
-    this.scene = new Scene();
+    this.scene = new SolarSystem();
 
     // Meshloader
     this.meshLoader = new MeshLoader();
@@ -108,51 +110,25 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary.add('Guitar', new Material({ color: '#9b849c' }));
     this.materialLibrary.add('Gaming', new Material({ color: '#734575' }));
 
-    // Mesh creation
-    this.meshLoader.loadFBX('polyhedronDivided');
-    this.meshLoader.data.pipe(
-      filter(x => x),
-      tap(mesh => {
-        this.scene.addObject('sphere', mesh, [{
-          type: 'update', event: (callback: Callback) => {
-            const target = callback.target as THREE.Object3D;
-          }
-        }]);
-        mesh.children[0].children.forEach(element => {
-          element.traverse((child: THREE.Mesh) => {
-            MeshLoader.SetMaterial(child, this.materialLibrary.getMaterial(child.name));
-          });
-        });
-      })).subscribe();
+    // Create Solar system
+    this.scene.addBody(new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe')), [{
+      type: 'orbit', event: (callback: Callback) => {
+        this.rotate(callback.target as THREE.Object3D, 1);
+      }
+    }]);
 
-    this.scene.addObject('planetCore',
-      new THREE.Mesh(
-        new THREE.IcosahedronBufferGeometry(0.3, 1),
-        this.materialLibrary.getMaterial('planetCore')),
-      [{
-        type: 'update', event: (callback: Callback) => {
-          const target = callback.target as THREE.Object3D;
-
-          target.rotateX(-0.002);
-          target.rotateY(-0.003);
-        }
-      }]);
-
-    this.scene.addObject('planetWire',
-      new THREE.Mesh(
-        new THREE.IcosahedronBufferGeometry(0.35, 1),
-        this.materialLibrary.getMaterial('planetWireframe')),
-      [{
-        type: 'update', event: (callback: Callback) => {
-          const target = callback.target as THREE.Object3D;
-
-          target.rotateX(-0.003);
-          target.rotateY(0.002);
-        }
-      }]);
-
+    this.scene.addBody(new SolarBody('Languages', this.materialLibrary.getMaterial('planetWireframe'), 5), [{
+      type: 'orbit', event: (callback: Callback) => {
+        this.rotate(callback.target as THREE.Object3D, 2);
+      }
+    }]);
     this.update();
-    this.scene.dispatch('start');
+
+    console.log(this.scene);
+  }
+
+  rotate(pivot: Object3D, speed: number) {
+    (pivot.rotateY(THREE.Math.degToRad(speed)));
   }
 
   onResize = () => {
@@ -181,7 +157,6 @@ export class ThreejsComponent implements OnInit {
     this.raycaster.setFromCamera(this.mouse, this.perspectiveCamera);
     const intersects = this.raycaster.intersectObjects(this.scene.children, true);
     if (intersects.length > 0) {
-      console.log(intersects[0].object.name);
     }
   }
 
@@ -189,6 +164,6 @@ export class ThreejsComponent implements OnInit {
     requestAnimationFrame(this.update);
     this.composer.render();
 
-    this.scene.dispatch('update');
+    this.scene.dispatch('orbit');
   }
 }

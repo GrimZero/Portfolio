@@ -1,6 +1,7 @@
 import { SolarBody } from './solar-body';
 import * as THREE from 'three';
 import { Callback } from '../interfaces/callback';
+import { Mesh } from 'three';
 
 export class SolarSystem extends THREE.Scene {
     sceneData: Map<string, SolarBody> = new Map<string, SolarBody>();
@@ -18,7 +19,7 @@ export class SolarSystem extends THREE.Scene {
     }
 
     addBody(body: SolarBody, callbacks?: Callback[]) {
-        this.addToScene(body.name, body);
+        this.addToScene(body.children[0].children[0].name, body);
 
         THREE.EventDispatcher.call(body);
         if (callbacks) {

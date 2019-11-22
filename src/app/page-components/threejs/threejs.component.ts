@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as THREE from 'three';
-import { Scene } from 'src/app/classes/Scene';
 import { Composer, Renderer } from 'src/app/classes/composer';
 import { MaterialLibrary } from 'src/app/classes/material-library';
 import { MeshLoader } from 'src/app/classes/mesh-loader';
@@ -8,7 +7,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Material } from 'src/app/classes/material';
 import { Vector3, AmbientLight, DirectionalLight, DoubleSide, Object3D } from 'three';
 import { Callback } from 'src/app/interfaces/callback';
-import { tap, filter } from 'rxjs/operators';
 import { SolarSystem } from 'src/app/classes/solar-system';
 import { SolarBody } from 'src/app/classes/solar-body';
 
@@ -51,7 +49,7 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(20, 6, 0);
+    this.perspectiveCamera.position.set(0, 0, 60);
 
     // Scene
     this.scene = new SolarSystem();
@@ -113,22 +111,38 @@ export class ThreejsComponent implements OnInit {
     // Create Solar system
     this.scene.addBody(new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe')), [{
       type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target as THREE.Object3D, 1);
+        this.rotate(callback.target.children[0] as THREE.Object3D, 0.1);
       }
     }]);
 
-    this.scene.addBody(new SolarBody('Languages', this.materialLibrary.getMaterial('planetWireframe'), 5), [{
+    this.scene.addBody(new SolarBody('Languages', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 140), [{
       type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target as THREE.Object3D, 2);
+        this.rotate(callback.target.children[0] as THREE.Object3D, 0.1);
+      }
+    }]);
+
+    this.scene.addBody(new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 12, 1, 65), [{
+      type: 'orbit', event: (callback: Callback) => {
+        this.rotate(callback.target.children[0] as THREE.Object3D, 0.3);
+      }
+    }]);
+
+    this.scene.addBody(new SolarBody('Artistic', this.materialLibrary.getMaterial('planetWireframe'), 15, 1, 300), [{
+      type: 'orbit', event: (callback: Callback) => {
+        this.rotate(callback.target.children[0] as THREE.Object3D, 0.2);
+      }
+    }]);
+
+    this.scene.addBody(new SolarBody('Hobbies', this.materialLibrary.getMaterial('planetWireframe'), 20, 1, 180), [{
+      type: 'orbit', event: (callback: Callback) => {
+        this.rotate(callback.target.children[0] as THREE.Object3D, 0.1);
       }
     }]);
     this.update();
-
-    console.log(this.scene);
   }
 
   rotate(pivot: Object3D, speed: number) {
-    (pivot.rotateY(THREE.Math.degToRad(speed)));
+    (pivot.rotateZ(THREE.Math.degToRad(speed)));
   }
 
   onResize = () => {

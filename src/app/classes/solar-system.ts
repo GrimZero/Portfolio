@@ -18,13 +18,11 @@ export class SolarSystem extends THREE.Scene {
         super.add(body);
     }
 
-    addBody(body: SolarBody, callbacks?: Callback[]) {
+    addBody(body: SolarBody, orbitals?: SolarBody[]) {
         this.addToScene(body.children[0].children[0].name, body);
-
-        THREE.EventDispatcher.call(body);
-        if (callbacks) {
-            callbacks.forEach(callback => {
-                body.addEventListener(callback.type, callback.event);
+        if (orbitals !== undefined) {
+            orbitals.forEach(element => {
+                body.add(element);
             });
         }
     }

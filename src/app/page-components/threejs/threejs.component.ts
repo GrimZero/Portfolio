@@ -109,35 +109,32 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary.add('Gaming', new Material({ color: '#734575' }));
 
     // Create Solar system
-    this.scene.addBody(new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe')), [{
+    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), 0, 1, 30, [{
       type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target.children[0] as THREE.Object3D, 0.1);
+        this.rotate(callback.target as THREE.Object3D, 0);
       }
     }]);
 
-    this.scene.addBody(new SolarBody('Languages', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 140), [{
+    this.scene.addBody(sun);
+
+    console.log(this.scene);
+
+    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 30, [{
       type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target.children[0] as THREE.Object3D, 0.1);
+        this.rotate(callback.target as THREE.Object3D, 0.1);
       }
     }]);
 
-    this.scene.addBody(new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 12, 1, 65), [{
+    const csharp = new SolarBody('C#', this.materialLibrary.getMaterial('planetWireframe'), 1, 0.2, 225, [{
       type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target.children[0] as THREE.Object3D, 0.3);
+        this.rotate(callback.target as THREE.Object3D, 3);
       }
     }]);
+    programming.addOrbital(csharp);
 
-    this.scene.addBody(new SolarBody('Artistic', this.materialLibrary.getMaterial('planetWireframe'), 15, 1, 300), [{
-      type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target.children[0] as THREE.Object3D, 0.2);
-      }
-    }]);
+    sun.add(programming);
 
-    this.scene.addBody(new SolarBody('Hobbies', this.materialLibrary.getMaterial('planetWireframe'), 20, 1, 180), [{
-      type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target.children[0] as THREE.Object3D, 0.1);
-      }
-    }]);
+    // Start update loop
     this.update();
   }
 

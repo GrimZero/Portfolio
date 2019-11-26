@@ -110,29 +110,16 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary.add('Gaming', new Material({ color: '#734575' }));
 
     // Create Solar system
-    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), 0, 1, 30, [{
-      type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target as THREE.Object3D, 0.1);
-      }
-    }]);
+    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), 0, 1, 30);
+    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 30);
+    const csharp = new SolarBody('C#', this.materialLibrary.getMaterial('planetWireframe'), 2, 0.2, 225);
 
     this.scene.addBody(sun);
 
-    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 30, [{
-      type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target as THREE.Object3D, 0.1);
-      }
-    }]);
+    sun.addOrbital(programming);
 
-    const csharp = new SolarBody('C#', this.materialLibrary.getMaterial('planetWireframe'), 3, 0.2, 225, [{
-      type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target as THREE.Object3D, 3);
-      }
-    }]);
     programming.addOrbital(csharp);
-
-    sun.subPivot.add(programming);
-
+    
     // Start update loop
     this.update();
   }
@@ -141,7 +128,17 @@ export class ThreejsComponent implements OnInit {
     requestAnimationFrame(this.update);
     this.composer.render();
 
-    // this.scene.dispatch('orbit');
+    if(this.scene.getObjectByName('Sun_base')) {
+      this.rotate(this.scene.getObjectByName('Sun_base'), 1);
+    }
+
+    if(this.scene.getObjectByName('Programming_base')) {
+      this.rotate(this.scene.getObjectByName('Programming_base'), 5);
+    }
+
+    if(this.scene.getObjectByName('C#_base')) {
+      this.rotate(this.scene.getObjectByName('C#_base'), -5);
+    }
   }
 
   rotate(pivot: Object3D, speed: number) {

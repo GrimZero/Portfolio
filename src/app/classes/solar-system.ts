@@ -4,12 +4,6 @@ import * as THREE from 'three';
 export class SolarSystem extends THREE.Scene {
     sceneData: Map<string, SolarBody> = new Map<string, SolarBody>();
 
-    dispatch(event: string) {
-        this.sceneData.forEach(element => {
-            element.dispatchEvent({ type: event });
-        });
-    }
-
     private addToScene(name: string, body: SolarBody) {
         this.sceneData.set(name, body);
         body.name = name;

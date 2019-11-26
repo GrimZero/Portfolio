@@ -68,8 +68,9 @@ export class ThreejsComponent implements OnInit {
     // Orbit
     this.orbit = new OrbitControls(this.perspectiveCamera, this.composer.renderer.domElement);
     this.orbit.target = this.initLookat;
-    this.orbit.enableZoom = false;
-    this.orbit.enablePan = false;
+
+    // this.orbit.enableZoom = false;
+    // this.orbit.enablePan = false;
 
     // Lights
     this.scene.add(new AmbientLight('#F1DAA4', 0.6));
@@ -111,13 +112,11 @@ export class ThreejsComponent implements OnInit {
     // Create Solar system
     const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), 0, 1, 30, [{
       type: 'orbit', event: (callback: Callback) => {
-        this.rotate(callback.target as THREE.Object3D, 0);
+        this.rotate(callback.target as THREE.Object3D, 0.1);
       }
     }]);
 
     this.scene.addBody(sun);
-
-    console.log(this.scene);
 
     const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 30, [{
       type: 'orbit', event: (callback: Callback) => {
@@ -125,17 +124,24 @@ export class ThreejsComponent implements OnInit {
       }
     }]);
 
-    const csharp = new SolarBody('C#', this.materialLibrary.getMaterial('planetWireframe'), 1, 0.2, 225, [{
+    const csharp = new SolarBody('C#', this.materialLibrary.getMaterial('planetWireframe'), 3, 0.2, 225, [{
       type: 'orbit', event: (callback: Callback) => {
         this.rotate(callback.target as THREE.Object3D, 3);
       }
     }]);
     programming.addOrbital(csharp);
 
-    sun.add(programming);
+    sun.subPivot.add(programming);
 
     // Start update loop
     this.update();
+  }
+
+  update = () => {
+    requestAnimationFrame(this.update);
+    this.composer.render();
+
+    // this.scene.dispatch('orbit');
   }
 
   rotate(pivot: Object3D, speed: number) {
@@ -168,13 +174,8 @@ export class ThreejsComponent implements OnInit {
     this.raycaster.setFromCamera(this.mouse, this.perspectiveCamera);
     const intersects = this.raycaster.intersectObjects(this.scene.children, true);
     if (intersects.length > 0) {
+        // Interaction logic
+        console.log(this.scene);
     }
-  }
-
-  update = () => {
-    requestAnimationFrame(this.update);
-    this.composer.render();
-
-    this.scene.dispatch('orbit');
   }
 }

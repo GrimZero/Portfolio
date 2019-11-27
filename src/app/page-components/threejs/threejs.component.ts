@@ -8,6 +8,7 @@ import { Material } from 'src/app/classes/material';
 import { Vector3, AmbientLight, DirectionalLight, DoubleSide, Object3D } from 'three';
 import { SolarSystem } from 'src/app/classes/solar-system';
 import { SolarBody } from 'src/app/classes/solar-body';
+import { skipUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-threejs',
@@ -33,6 +34,7 @@ export class ThreejsComponent implements OnInit {
   mouse: THREE.Vector2;
 
   raycaster: THREE.Raycaster = new THREE.Raycaster();
+  orbiters: SolarBody[] = [];
 
   constructor() { }
 
@@ -48,7 +50,7 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(0, 0, 60);
+    this.perspectiveCamera.position.set(0, -50, 50);
 
     // Scene
     this.scene = new SolarSystem();
@@ -72,7 +74,6 @@ export class ThreejsComponent implements OnInit {
     // this.orbit.enablePan = false;
 
     // Lights
-    this.scene.add(new AmbientLight('#F1DAA4', 0.6));
     const light = new DirectionalLight('#F1DAA4');
     light.position.set(0, 2, 3);
     light.castShadow = true;
@@ -82,38 +83,48 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary = new MaterialLibrary();
 
     // Material definition
-    this.materialLibrary.add('planetCore', new Material({ color: '#FFFFA0', flatShading: false }));
-    this.materialLibrary.add('planetWireframe', new Material({ wireframe: true, side: DoubleSide, emissive: 'white' }));
+    this.materialLibrary.add('Sun', new Material({ emissive: '#ffff00' }));
 
-    this.materialLibrary.add('HTML', new Material({ color: '#4060b8' }));
-    this.materialLibrary.add('Angular', new Material({ color: '#2d8fb5' }));
-    this.materialLibrary.add('C++', new Material({ color: '#435075' }));
-    this.materialLibrary.add('C#', new Material({ color: '#8d97b3' }));
+    this.materialLibrary.add('Programming', new Material({ color: '#c22727' }));
+    this.materialLibrary.add('Languages', new Material({ color: '#47a847' }));
+    this.materialLibrary.add('Various', new Material({ color: '#005eff' }));
+    this.materialLibrary.add('Hobbies', new Material({ color: '#00FFFF' }));
 
-    this.materialLibrary.add('Unreal Engine 4', new Material({ color: '#b51414' }));
-    this.materialLibrary.add('Unity', new Material({ color: '#ab5c5c' }));
-
-    this.materialLibrary.add('Animation', new Material({ color: '#d47f17' }));
-    this.materialLibrary.add('Modelling', new Material({ color: '#754d1b' }));
-    this.materialLibrary.add('Rigging', new Material({ color: '#ffc47a' }));
-
-    this.materialLibrary.add('Dutch', new Material({ color: '#28b3b8' }));
-    this.materialLibrary.add('English', new Material({ color: '#3c7678' }));
-    this.materialLibrary.add('French', new Material({ color: '#88cfd1' }));
-    this.materialLibrary.add('German', new Material({ color: '#9dbebf' }));
-    this.materialLibrary.add('Japanese', new Material({ color: '#489cb5' }));
-
-    this.materialLibrary.add('Fitness', new Material({ color: '#b351b5' }));
-    this.materialLibrary.add('Anime', new Material({ color: '#832a85' }));
-    this.materialLibrary.add('Guitar', new Material({ color: '#9b849c' }));
-    this.materialLibrary.add('Gaming', new Material({ color: '#734575' }));
+    this.materialLibrary.add('black', new Material({ color: '#000000' }));
 
     // Create Solar system
-    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), this.scene, 0, 2, 30);
-    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), sun, 10, 1, 30);
-    const csharp = new SolarBody('Csharp', this.materialLibrary.getMaterial('planetWireframe'), programming, 2, 0.2, 225);
-    const angular = new SolarBody('Angular', this.materialLibrary.getMaterial('planetWireframe'), programming, 3, 0.2, 225);
-    // const cpp = new SolarBody('C++', this.materialLibrary.getMaterial('planetWireframe'), 4, 0.2, 225);
+    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('Sun'), this.scene, 0, 1.3, 30, 0.01);
+    sun.position.y += 8;
+    sun.position.z += 2;
+
+    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('Programming'), sun, 7, 1, 30, 0.05);
+    new SolarBody('Csharp', this.materialLibrary.getMaterial('black'), programming, 2, 0.5, 70, 0.03);
+    new SolarBody('Angular', this.materialLibrary.getMaterial('black'), programming, 3, 0.3, 160, 0.08);
+    new SolarBody('C++', this.materialLibrary.getMaterial('black'), programming, 4, 0.3, 225, 0.06);
+    new SolarBody('HTML', this.materialLibrary.getMaterial('black'), programming, 5, 0.3, 0, 0.01);
+
+    const languages = new SolarBody('Languages', this.materialLibrary.getMaterial('Languages'), sun, 26, 1, 180, 0.05);
+    new SolarBody('English', this.materialLibrary.getMaterial('black'), languages, 2, 0.3, 70, 0.03);
+    new SolarBody('Dutch', this.materialLibrary.getMaterial('black'), languages, 3, 0.3, 160, 0.08);
+    new SolarBody('French', this.materialLibrary.getMaterial('black'), languages, 4, 0.3, 225, 0.06);
+    new SolarBody('German', this.materialLibrary.getMaterial('black'), languages, 5, 0.3, 0, 0.01);
+    new SolarBody('Japanese', this.materialLibrary.getMaterial('black'), languages, 6, 0.3, 100, 0.03);
+
+    const various = new SolarBody('Various', this.materialLibrary.getMaterial('Various'), sun, 16, 1, 300, 0.05);
+    new SolarBody('Animation', this.materialLibrary.getMaterial('black'), various, 2, 0.3, 70, 0.03);
+    new SolarBody('Modelling', this.materialLibrary.getMaterial('black'), various, 3, 0.3, 160, 0.08);
+    new SolarBody('Rigging', this.materialLibrary.getMaterial('black'), various, 4, 0.3, 225, 0.06);
+
+    const hobbies = new SolarBody('Hobbies', this.materialLibrary.getMaterial('Hobbies'), sun, 33, 1, 300, 0.05);
+    new SolarBody('Animation', this.materialLibrary.getMaterial('black'), hobbies, 2, 0.3, 70, 0.03);
+    new SolarBody('Modelling', this.materialLibrary.getMaterial('black'), hobbies, 3, 0.3, 160, 0.08);
+    new SolarBody('Rigging', this.materialLibrary.getMaterial('black'), hobbies, 4, 0.3, 225, 0.06);
+
+    this.scene.traverse(child => {
+      if (child.type === 'Object3D' && child.name !== '') {
+        this.orbiters.push(child as SolarBody);
+      }
+    });
 
     // Start update loop
     this.update();
@@ -121,23 +132,12 @@ export class ThreejsComponent implements OnInit {
 
   update = () => {
     requestAnimationFrame(this.update);
+
+    this.orbiters.forEach(element => {
+      element.rotate(element.pivot, element.rotationSpeed)
+    });
+
     this.composer.render();
-
-    if (this.scene.getObjectByName('Sun')) {
-      this.rotate(this.scene.getObjectByName('Sun'), 0);
-    }
-
-    if (this.scene.getObjectByName('Programming')) {
-      this.rotate(this.scene.getObjectByName('Programming'), 1);
-    }
-
-    if (this.scene.getObjectByName('Csharp')) {
-      this.rotate(this.scene.getObjectByName('Csharp'), 0);
-    }
-  }
-
-  rotate(pivot: Object3D, speed: number) {
-    ((pivot as SolarBody).rotateZ(THREE.Math.degToRad(speed)));
   }
 
   onResize = () => {
@@ -164,10 +164,9 @@ export class ThreejsComponent implements OnInit {
 
   onMouseDown = () => {
     this.raycaster.setFromCamera(this.mouse, this.perspectiveCamera);
-    const intersects = this.raycaster.intersectObjects(this.scene.children, true);
+    const intersects = this.raycaster.intersectObjects(this.orbiters, true);
     if (intersects.length > 0) {
       // Interaction logic
-      console.log(this.scene);
     }
   }
 }

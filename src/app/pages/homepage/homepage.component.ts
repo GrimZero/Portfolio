@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ComponentNavigationService } from 'src/app/component-navigation.service';
+import { ComponentNavigationService } from 'src/app/services/component-navigation.service';
 
 @Component({
   selector: 'app-homepage',

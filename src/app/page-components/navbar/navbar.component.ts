@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { NavbarButtonData } from 'src/app/interfaces/navbar-button-data';
-import { ComponentNavigationService } from 'src/app/component-navigation.service';
+import { ComponentNavigationService } from 'src/app/services/component-navigation.service';
 
 @Component({
   selector: 'app-navbar',

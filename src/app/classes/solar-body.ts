@@ -1,32 +1,28 @@
 import * as THREE from 'three';
 import { Object3D, MeshBasicMaterial, Vector3 } from 'three';
 
+// class acts as pivot
 export class SolarBody extends THREE.Object3D {
+    initialRotation: number;
+    mesh: THREE.Mesh;
 
-    subPivot: Object3D;
-
-    constructor(name: string, material: THREE.Material, distance: number = 0, scale: number = 1, initRotation: number = 0) {
+    constructor(name: string, material: THREE.Material, parent: Object3D, distance: number = 0,
+        radius: number = 1, initRotation: number = 0) {
         super();
 
-        const shape = new THREE.IcosahedronBufferGeometry(scale, 1);
-        const mesh = new THREE.Mesh(shape, material);
-        this.add(mesh);
+        this.name = name;
+        parent.add(this);
 
-        this.subPivot = new Object3D();
+        const shape = new THREE.IcosahedronBufferGeometry(radius, 1);
+        this.mesh = new THREE.Mesh(shape, material);
 
-        this.name = name + '_base';
-        this.subPivot.name = name + '_pivot';
-        mesh.name = name + '_mesh';
+        this.add(this.mesh);
+        this.mesh.name = name + '_mesh';
 
-        this.position.set(distance, 0, 0);
-
-        if (this.parent && this.parent.type !== 'Scene') {
-            (this.parent as SolarBody).subPivot.add(this);
-            (this.parent as SolarBody).subPivot.rotation.z = THREE.Math.degToRad(initRotation);
-        }
-
-        this.add(this.subPivot);
+        this.mesh.position.set(distance, 0, 0);
+        this.initialRotation = initRotation;
     }
+
 
     getOrbit(body: SolarBody) {
 
@@ -40,9 +36,5 @@ export class SolarBody extends THREE.Object3D {
 
             return circle;
         }
-    }
-
-    addOrbital(solarBody: SolarBody) {
-        this.subPivot.add(solarBody);
     }
 }

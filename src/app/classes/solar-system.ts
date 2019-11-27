@@ -10,15 +10,6 @@ export class SolarSystem extends THREE.Scene {
         super.add(body);
     }
 
-    addBody(body: SolarBody, orbitals?: SolarBody[]) {
-        this.addToScene(body.name, body);
-        if (orbitals !== undefined) {
-            orbitals.forEach(element => {
-                body.add(element);
-            });
-        }
-    }
-
     get(value: string) {
         return this.sceneData.get(value);
     }

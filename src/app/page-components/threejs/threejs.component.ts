@@ -6,7 +6,6 @@ import { MeshLoader } from 'src/app/classes/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Material } from 'src/app/classes/material';
 import { Vector3, AmbientLight, DirectionalLight, DoubleSide, Object3D } from 'three';
-import { Callback } from 'src/app/interfaces/callback';
 import { SolarSystem } from 'src/app/classes/solar-system';
 import { SolarBody } from 'src/app/classes/solar-body';
 
@@ -110,16 +109,12 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary.add('Gaming', new Material({ color: '#734575' }));
 
     // Create Solar system
-    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), 0, 1, 30);
-    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), 5, 1, 30);
-    const csharp = new SolarBody('C#', this.materialLibrary.getMaterial('planetWireframe'), 2, 0.2, 225);
+    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), this.scene, 0, 2, 30);
+    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), sun, 10, 1, 30);
+    const csharp = new SolarBody('Csharp', this.materialLibrary.getMaterial('planetWireframe'), programming, 1, 0.2, 225);
+    // const angular = new SolarBody('Angular', this.materialLibrary.getMaterial('planetWireframe'), 3, 0.2, 225);
+    // const cpp = new SolarBody('C++', this.materialLibrary.getMaterial('planetWireframe'), 4, 0.2, 225);
 
-    this.scene.addBody(sun);
-
-    sun.addOrbital(programming);
-
-    programming.addOrbital(csharp);
-    
     // Start update loop
     this.update();
   }
@@ -128,21 +123,21 @@ export class ThreejsComponent implements OnInit {
     requestAnimationFrame(this.update);
     this.composer.render();
 
-    if(this.scene.getObjectByName('Sun_base')) {
-      this.rotate(this.scene.getObjectByName('Sun_base'), 1);
+    if (this.scene.getObjectByName('Sun')) {
+      this.rotate(this.scene.getObjectByName('Sun'), 0);
     }
 
-    if(this.scene.getObjectByName('Programming_base')) {
-      this.rotate(this.scene.getObjectByName('Programming_base'), 5);
+    if (this.scene.getObjectByName('Programming')) {
+      this.rotate(this.scene.getObjectByName('Programming'), 0.1);
     }
 
-    if(this.scene.getObjectByName('C#_base')) {
-      this.rotate(this.scene.getObjectByName('C#_base'), -5);
+    if (this.scene.getObjectByName('Csharp')) {
+      this.rotate(this.scene.getObjectByName('Csharp'), 0);
     }
   }
 
   rotate(pivot: Object3D, speed: number) {
-    (pivot.rotateZ(THREE.Math.degToRad(speed)));
+    ((pivot as SolarBody).rotateZ(THREE.Math.degToRad(speed)));
   }
 
   onResize = () => {
@@ -171,8 +166,8 @@ export class ThreejsComponent implements OnInit {
     this.raycaster.setFromCamera(this.mouse, this.perspectiveCamera);
     const intersects = this.raycaster.intersectObjects(this.scene.children, true);
     if (intersects.length > 0) {
-        // Interaction logic
-        console.log(this.scene);
+      // Interaction logic
+      console.log(this.scene);
     }
   }
 }

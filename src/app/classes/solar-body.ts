@@ -19,7 +19,7 @@ export class SolarBody extends THREE.Object3D {
         this.add(this.mesh);
         this.mesh.name = name + '_mesh';
 
-        this.mesh.position.set(distance, 0, 0);
+        this.position.x += distance;
         this.initialRotation = initRotation;
     }
 

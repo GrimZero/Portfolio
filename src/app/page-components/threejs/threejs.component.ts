@@ -111,8 +111,8 @@ export class ThreejsComponent implements OnInit {
     // Create Solar system
     const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('planetWireframe'), this.scene, 0, 2, 30);
     const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('planetWireframe'), sun, 10, 1, 30);
-    const csharp = new SolarBody('Csharp', this.materialLibrary.getMaterial('planetWireframe'), programming, 1, 0.2, 225);
-    // const angular = new SolarBody('Angular', this.materialLibrary.getMaterial('planetWireframe'), 3, 0.2, 225);
+    const csharp = new SolarBody('Csharp', this.materialLibrary.getMaterial('planetWireframe'), programming, 2, 0.2, 225);
+    const angular = new SolarBody('Angular', this.materialLibrary.getMaterial('planetWireframe'), programming, 3, 0.2, 225);
     // const cpp = new SolarBody('C++', this.materialLibrary.getMaterial('planetWireframe'), 4, 0.2, 225);
 
     // Start update loop
@@ -128,7 +128,7 @@ export class ThreejsComponent implements OnInit {
     }
 
     if (this.scene.getObjectByName('Programming')) {
-      this.rotate(this.scene.getObjectByName('Programming'), 0.1);
+      this.rotate(this.scene.getObjectByName('Programming'), 1);
     }
 
     if (this.scene.getObjectByName('Csharp')) {

@@ -4,16 +4,7 @@ import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { FXAAShader } from 'three/examples/jsm/shaders/FXAAShader.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
 import * as THREE from 'three';
-
-export class Renderer extends THREE.WebGLRenderer {
-    constructor(htmlCanvas: HTMLCanvasElement) {
-        super({ canvas: htmlCanvas, alpha: true });
-
-        this.setPixelRatio(window.devicePixelRatio);
-        this.shadowMap.enabled = true;
-        this.shadowMap.type = THREE.PCFSoftShadowMap;
-    }
-}
+import { Renderer } from './renderer';
 
 export class Composer extends EffectComposer {
     outlinePass: OutlinePass;
@@ -22,6 +13,10 @@ export class Composer extends EffectComposer {
 
     constructor(scene: THREE.Scene, perspectiveCamera: THREE.PerspectiveCamera, renderer: Renderer) {
         super(renderer);
+
+        if(!scene) {
+            return;
+        }
 
         const size = new THREE.Vector2();
         this.renderer.getDrawingBufferSize(size);
@@ -46,7 +41,8 @@ export class Composer extends EffectComposer {
         this.FXAAPass.enabled = !this.FXAAPass.enabled;
     }
 
-    getSelectedObject() {
-        return this.outlinePass.selectedObjects[0];
+    updateSize = (width: number, height: number) => {
+        this.renderer.setSize(width, height);
+        this.setSize(width, height);
     }
 }

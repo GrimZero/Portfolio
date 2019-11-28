@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, AfterViewInit } from '@angular/core';
 import { ComponentNavigationService } from 'src/app/services/component-navigation.service';
 
 @Component({
@@ -6,11 +6,13 @@ import { ComponentNavigationService } from 'src/app/services/component-navigatio
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent {
+export class HomepageComponent implements AfterViewInit {
   enable: boolean;
-  renderWidth: number;
 
   constructor(private navigationService: ComponentNavigationService) {
     navigationService.infoActive().subscribe((observer) => this.enable = observer);
+  }
+
+  ngAfterViewInit() {
   }
 }

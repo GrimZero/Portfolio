@@ -1,18 +1,18 @@
 <div class="row parallax">
-    <div class="col-8">
-        <div class="row m-0 align-content-center container" style="height: 80px;">
+    <div class="col-8 p-0 ml-5">
+        <div class="row px-5 align-content-center m-0 render" style="height: 100px;">
             <div class="btn-group btn-block" role="group">
                 <button type="button" class="btn btn-secondary">Programming</button>
                 <button type="button" class="btn btn-secondary">Artistic</button>
                 <button type="button" class="btn btn-secondary">Various</button>
             </div>
         </div>
-        <div class="row">
-            <canvas id="threejs" #threejs class="col p-0">
-                <app-threejs [occupiedHeight]=222 [width]="renderWidth"></app-threejs>
+        <div class="row" id="dimensions">
+            <canvas id="threejs" class="col pb-2">
+                <app-threejs></app-threejs>
             </canvas>
         </div>
     </div>
 
-    <app-about *ngIf="enable" class="col-4"></app-about>
+    <app-about *ngIf="enable" class="col"></app-about>
 </div>

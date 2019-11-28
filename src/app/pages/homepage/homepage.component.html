@@ -1,6 +1,18 @@
-<div class="parallax row align-content-between">
-    <canvas id="threejs" #threejs class="col-8" style="padding: 0px;">
-        <app-threejs [occupiedHeight]=120 [width]="renderWidth"></app-threejs>
-    </canvas>
+<div class="row parallax">
+    <div class="col-8">
+        <div class="row m-0 align-content-center container" style="height: 80px;">
+            <div class="btn-group btn-block" role="group">
+                <button type="button" class="btn btn-secondary">Programming</button>
+                <button type="button" class="btn btn-secondary">Artistic</button>
+                <button type="button" class="btn btn-secondary">Various</button>
+            </div>
+        </div>
+        <div class="row">
+            <canvas id="threejs" #threejs class="col p-0">
+                <app-threejs [occupiedHeight]=222 [width]="renderWidth"></app-threejs>
+            </canvas>
+        </div>
+    </div>
+
     <app-about *ngIf="enable" class="col-4"></app-about>
 </div>

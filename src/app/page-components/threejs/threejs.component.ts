@@ -5,10 +5,9 @@ import { MaterialLibrary } from 'src/app/classes/material-library';
 import { MeshLoader } from 'src/app/classes/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import { Material } from 'src/app/classes/material';
-import { Vector3, AmbientLight, DirectionalLight, DoubleSide, Object3D } from 'three';
+import { DirectionalLight } from 'three';
 import { SolarSystem } from 'src/app/classes/solar-system';
 import { SolarBody } from 'src/app/classes/solar-body';
-import { skipUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-threejs',
@@ -30,7 +29,6 @@ export class ThreejsComponent implements OnInit {
   scene: SolarSystem;
   orbit: OrbitControls;
   meshLoader: MeshLoader;
-  initLookat: THREE.Vector3 = new Vector3(0, 0, 0);
   mouse: THREE.Vector2;
 
   raycaster: THREE.Raycaster = new THREE.Raycaster();
@@ -39,9 +37,8 @@ export class ThreejsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.width = (window.innerWidth / 12) * 8;
-    this.height = window.innerHeight - this.occupiedHeight;
 
+    this.SetDimensions();
     this.canvas = document.getElementById('threejs') as HTMLCanvasElement;
     window.addEventListener('resize', this.onResize);
     window.addEventListener('mousemove', this.onMouseMove);
@@ -50,7 +47,7 @@ export class ThreejsComponent implements OnInit {
     // Camera
     const aspect = this.width / this.height;
     this.perspectiveCamera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-    this.perspectiveCamera.position.set(0, -50, 50);
+    this.perspectiveCamera.position.set(0, -80, 40);
 
     // Scene
     this.scene = new SolarSystem();
@@ -68,7 +65,7 @@ export class ThreejsComponent implements OnInit {
 
     // Orbit
     this.orbit = new OrbitControls(this.perspectiveCamera, this.composer.renderer.domElement);
-    this.orbit.target = this.initLookat;
+    this.orbit.update();
 
     // this.orbit.enableZoom = false;
     // this.orbit.enablePan = false;
@@ -93,32 +90,31 @@ export class ThreejsComponent implements OnInit {
     this.materialLibrary.add('black', new Material({ color: '#000000' }));
 
     // Create Solar system
-    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('Sun'), this.scene, 0, 1.3, 30, 0.01);
-    sun.position.y += 8;
-    sun.position.z += 2;
+    const sun = new SolarBody('Sun', this.materialLibrary.getMaterial('Sun'), this.scene, 0, 2, 30, 0.01);
 
-    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('Programming'), sun, 7, 1, 30, 0.05);
-    new SolarBody('Csharp', this.materialLibrary.getMaterial('black'), programming, 2, 0.5, 70, 0.03);
-    new SolarBody('Angular', this.materialLibrary.getMaterial('black'), programming, 3, 0.3, 160, 0.08);
-    new SolarBody('C++', this.materialLibrary.getMaterial('black'), programming, 4, 0.3, 225, 0.06);
-    new SolarBody('HTML', this.materialLibrary.getMaterial('black'), programming, 5, 0.3, 0, 0.01);
+    const programming = new SolarBody('Programming', this.materialLibrary.getMaterial('Programming'), sun, 12, 1.5, 30, 0.25);
+    new SolarBody('C#', this.materialLibrary.getMaterial('black'), programming, 4, 1, 70, 0.03);
+    new SolarBody('Angular', this.materialLibrary.getMaterial('black'), programming, 6, 0.5, 160, 0.08);
+    new SolarBody('C++', this.materialLibrary.getMaterial('black'), programming, 7.5, 0.3, 225, 0.06);
+    new SolarBody('HTML', this.materialLibrary.getMaterial('black'), programming, 9, 0.2, 0, 0.01);
 
-    const languages = new SolarBody('Languages', this.materialLibrary.getMaterial('Languages'), sun, 26, 1, 180, 0.05);
-    new SolarBody('English', this.materialLibrary.getMaterial('black'), languages, 2, 0.3, 70, 0.03);
-    new SolarBody('Dutch', this.materialLibrary.getMaterial('black'), languages, 3, 0.3, 160, 0.08);
-    new SolarBody('French', this.materialLibrary.getMaterial('black'), languages, 4, 0.3, 225, 0.06);
-    new SolarBody('German', this.materialLibrary.getMaterial('black'), languages, 5, 0.3, 0, 0.01);
-    new SolarBody('Japanese', this.materialLibrary.getMaterial('black'), languages, 6, 0.3, 100, 0.03);
+    const various = new SolarBody('Various', this.materialLibrary.getMaterial('Various'), sun, 27, 1, 300, 0.1);
+    new SolarBody('Animation', this.materialLibrary.getMaterial('black'), various, 2, 0.2, 70, 0.03);
+    new SolarBody('Modelling', this.materialLibrary.getMaterial('black'), various, 3, 0.5, 160, 0.08);
+    new SolarBody('Rigging', this.materialLibrary.getMaterial('black'), various, 5, 1, 225, 0.06);
 
-    const various = new SolarBody('Various', this.materialLibrary.getMaterial('Various'), sun, 16, 1, 300, 0.05);
-    new SolarBody('Animation', this.materialLibrary.getMaterial('black'), various, 2, 0.3, 70, 0.03);
-    new SolarBody('Modelling', this.materialLibrary.getMaterial('black'), various, 3, 0.3, 160, 0.08);
-    new SolarBody('Rigging', this.materialLibrary.getMaterial('black'), various, 4, 0.3, 225, 0.06);
+    const languages = new SolarBody('Languages', this.materialLibrary.getMaterial('Languages'), sun, 40, 1, 180, 0.04);
+    new SolarBody('English', this.materialLibrary.getMaterial('black'), languages, 2.5, 1, 70, 0.03);
+    new SolarBody('Dutch', this.materialLibrary.getMaterial('black'), languages, 4.5, 1, 160, 0.08);
+    new SolarBody('French', this.materialLibrary.getMaterial('black'), languages, 6, 0.4, 225, 0.06);
+    new SolarBody('German', this.materialLibrary.getMaterial('black'), languages, 7, 0.8, 0, 0.01);
+    new SolarBody('Japanese', this.materialLibrary.getMaterial('black'), languages, 8.5, 0.6, 100, 0.03);
 
-    const hobbies = new SolarBody('Hobbies', this.materialLibrary.getMaterial('Hobbies'), sun, 33, 1, 300, 0.05);
-    new SolarBody('Animation', this.materialLibrary.getMaterial('black'), hobbies, 2, 0.3, 70, 0.03);
-    new SolarBody('Modelling', this.materialLibrary.getMaterial('black'), hobbies, 3, 0.3, 160, 0.08);
-    new SolarBody('Rigging', this.materialLibrary.getMaterial('black'), hobbies, 4, 0.3, 225, 0.06);
+    const hobbies = new SolarBody('Hobbies', this.materialLibrary.getMaterial('Hobbies'), sun, 40, 1, 60, 0.04);
+    new SolarBody('Anime', this.materialLibrary.getMaterial('black'), hobbies, 2, 0.7, 70, 0.03);
+    new SolarBody('Gaming', this.materialLibrary.getMaterial('black'), hobbies, 4, 1, 160, 0.08);
+    new SolarBody('Music', this.materialLibrary.getMaterial('black'), hobbies, 6, 0.2, 225, 0.06);
+    new SolarBody('Fitness', this.materialLibrary.getMaterial('black'), hobbies, 7, 0.4, 225, 0.06);
 
     this.scene.traverse(child => {
       if (child.type === 'Object3D' && child.name !== '') {
@@ -126,23 +122,32 @@ export class ThreejsComponent implements OnInit {
       }
     });
 
+    this.orbit.target.set(sun.position.x, sun.position.y, sun.position.z);
+    this.orbit.update();
+
     // Start update loop
     this.update();
+  }
+
+  SetDimensions() {
+    this.width = window.innerWidth + 20 - (window.innerWidth / 12 * 4);
+    this.height = window.innerHeight - this.occupiedHeight;
+
+    console.log(this.width.toString() + " // " + this.height.toString());
   }
 
   update = () => {
     requestAnimationFrame(this.update);
 
     this.orbiters.forEach(element => {
-      element.rotate(element.pivot, element.rotationSpeed)
+      element.rotate(element.pivot, element.rotationSpeed);
     });
 
     this.composer.render();
   }
 
   onResize = () => {
-    this.width = window.innerWidth / 2;
-    this.height = window.innerHeight - this.occupiedHeight;
+    this.SetDimensions();
 
     this.perspectiveCamera.aspect = this.width / this.height;
     this.renderer.setSize(this.width, this.height);
@@ -167,6 +172,12 @@ export class ThreejsComponent implements OnInit {
     const intersects = this.raycaster.intersectObjects(this.orbiters, true);
     if (intersects.length > 0) {
       // Interaction logic
+      intersects.forEach(element => {
+        if (element.object.type === 'Mesh') {
+          console.log(intersects[0].object.name);
+          return;
+        }
+      });
     }
   }
 }

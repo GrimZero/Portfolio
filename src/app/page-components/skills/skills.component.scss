@@ -1,7 +1,6 @@
 img {
   color: white;
-  min-width: 30%;
-  max-width: 35%;
+  height: 6vh;
 
   -webkit-touch-callout: none;
   -webkit-user-select: none;
@@ -12,10 +11,28 @@ img {
 }
 
 .img-parent {
-  width: 10%;
   text-align: center;
 }
 
 .scale {
   transform: scale(3.5);
+}
+
+.skills {
+  background-color: black;
+  height: 10vh;
+}
+
+@media screen and (max-width: 600px) {
+  img {
+    height: 5vh;
+    transition: height 1s;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  img {
+    height: 6vh;
+    transition: height 1s;
+  }
 }

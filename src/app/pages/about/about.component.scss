@@ -1,9 +1,24 @@
 .headline {
-    color: white; 
-    margin: 0px; 
-    margin-left: 5px;
+  color: white;
+  margin: 0px;
+  margin-left: 5px;
 }
 
 p {
-    color: whitesmoke;
+  color: whitesmoke;
+}
+
+.card {
+  border: none;
+}
+
+.card-block {
+  background-color: rgba(245, 245, 245, 0);
+}
+
+@media screen and (max-width: 870px) {
+  .card-body {
+    font-size: calc(90%);
+    transition: font-size 0.5s;
+  }
 }

@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ComponentNavigationService } from 'src/app/services/component-navigation.service';
 
 @Component({
@@ -6,13 +6,12 @@ import { ComponentNavigationService } from 'src/app/services/component-navigatio
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements AfterViewInit {
+export class HomepageComponent implements OnInit {
   enable: boolean;
 
   constructor(private navigationService: ComponentNavigationService) {
-    navigationService.infoActive().subscribe((observer) => this.enable = observer);
-  }
+    navigationService.infoActive().subscribe((observer) => this.enable = observer);  }
 
-  ngAfterViewInit() {
+  ngOnInit() {
   }
 }

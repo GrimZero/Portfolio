@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewChecked, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit } from '@angular/core';
 import * as THREE from 'three';
 import { Composer } from 'src/app/classes/3D/composer';
 import { MaterialLibrary } from 'src/app/classes/3D/material-library';
@@ -15,7 +15,7 @@ import { Renderer } from 'src/app/classes/3D/renderer';
 export class ThreejsComponent implements AfterViewInit {
   size: HTMLElement;
   @Input() canvas: HTMLCanvasElement;
-  occupiedHeight: number = 0;
+  occupiedHeight = 0;
 
   // ThreeJS properties
   camera: THREE.PerspectiveCamera;
@@ -56,7 +56,7 @@ export class ThreejsComponent implements AfterViewInit {
   }
 
   updateCanvas() {
-    this.composer.updateSize(this.size.offsetWidth - 30, window.innerHeight - this.occupiedHeight);
+    this.composer.updateSize(this.size.offsetWidth, window.innerHeight - this.occupiedHeight);
     console.log('changed');
   }
 

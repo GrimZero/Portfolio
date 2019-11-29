@@ -29,6 +29,7 @@ import { ProjectInfoComponent } from './page-components/project-info/project-inf
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { InfopanelComponent } from './pages/infopanel/infopanel.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { ComponentNavigationService } from './services/component-navigation.serv
     RoutingModule,
     RouterModule,
     FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [SearchService, ComponentNavigationService],
   bootstrap: [AppComponent]

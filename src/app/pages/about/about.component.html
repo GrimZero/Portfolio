@@ -1,13 +1,30 @@
-<div class="card text-justify m-3 card-block">
+<div class="card text-justify m-3 card-block" style="height: 85vh;">
     <div class="text-center card-title" style="color: whitesmoke;">
         <h1>About me</h1>
     </div>
     <img [src]=[hostData.pictureURL] style="width: 150px" class="card-img-top">
-    <div style="padding: 10px;" class="card-body" style="color: whitesmoke;">
+    <div style="padding: 10px;" class="card-body" style="color: whitesmoke; font-size: larger;">
         Hello, my name is Torben and welcome to my portfolio!
         I am a developer with a passion for games and knowledge to back it up.
-        programming, as well as PBR and level decoration are no stranger to me.
+        When I work on project, I look for the best and most eficient way to get something done.
         <br><br>
-        Feel free to have a look around and if you ask any questions, feel free to ask them!
+        As a programmer I fi.nd that solving problems is my main task. Fixing an issue that someone has 
+        in an easy to use way. Creating the tools for a company to get their product finished in an efficient way.
+        <br><br>
+        <app-progressbar *ngFor="let item of hostData.competences" [color]=item.color [percentage]=item.amount [text]=item.name></app-progressbar>
+    </div>
+    <div class="row container justify-content-around card-footer" style="background-color: transparent; border: none;">
+        <div class="img-parent">
+            <img class="noselect" draggable="false" src="assets/svg/contact/github.svg">
+        </div>
+        <div class="img-parent">
+            <img class="noselect" draggable="false" src="assets/svg/contact/discord.svg">
+        </div>
+        <div class="img-parent">
+            <img class="noselect" draggable="false" src="assets/svg/contact/facebook.svg">
+        </div>
+        <div class="img-parent">
+            <img class="noselect" draggable="false" src="assets/svg/contact/linkedin.svg">
+        </div>
     </div>
 </div>

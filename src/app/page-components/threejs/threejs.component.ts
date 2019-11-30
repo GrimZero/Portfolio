@@ -4,7 +4,7 @@ import { Composer } from 'src/app/classes/3D/composer';
 import { MaterialLibrary } from 'src/app/classes/3D/material-library';
 import { MeshLoader } from 'src/app/classes/3D/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { Scene } from 'three';
+import { Scene, Vector3, Vector2 } from 'three';
 import { Renderer } from 'src/app/classes/3D/renderer';
 
 @Component({
@@ -36,10 +36,6 @@ export class ThreejsComponent implements AfterViewInit {
     this.size = document.getElementById('dimensions') as HTMLElement;
     this.canvas = document.getElementById('threejs') as HTMLCanvasElement;
 
-    (Array.prototype.slice.call(document.getElementsByClassName('render')) as HTMLElement[]).forEach(element => {
-      this.occupiedHeight += element.offsetHeight;
-    });
-
     // Camera
     const aspect = this.size.offsetWidth - 30 / window.innerHeight - this.occupiedHeight;
     this.camera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
@@ -56,8 +52,12 @@ export class ThreejsComponent implements AfterViewInit {
   }
 
   updateCanvas() {
+    (Array.prototype.slice.call(document.getElementsByClassName('render')) as HTMLElement[]).forEach(element => {
+      this.occupiedHeight += element.offsetHeight;
+    });
+
     this.composer.updateSize(this.size.offsetWidth, window.innerHeight - this.occupiedHeight);
-    console.log('changed');
+    console.log(this.composer.renderer.getSize(new Vector2()));
   }
 
   update = () => {

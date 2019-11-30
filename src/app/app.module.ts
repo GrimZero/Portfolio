@@ -67,5 +67,6 @@ import { HttpClientModule } from '@angular/common/http';
 export class AppModule {
   constructor(library: FaIconLibrary, private router: Router) {
     library.addIconPacks(fas, fab);
+    document.addEventListener('contextmenu', event => event.preventDefault());
   }
 }

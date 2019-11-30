@@ -7,6 +7,7 @@ import { Component, OnInit, Input, EventEmitter } from '@angular/core';
 })
 export class ProgressbarComponent implements OnInit {
 
+  @Input() text: string;
   @Input() percentage: number;
   @Input() color: string;
   stateChanged: EventEmitter<number> = new EventEmitter();

@@ -14,12 +14,12 @@ export class UserDataService {
   headline = 'Programmer and 3D enthusiast.';
 
   competences: ProgressbarData[] = [
-    { name: 'C++', amount: 40, color: '#FFDC51' },
-    { name: 'C#', amount: 75, color: '#FFDC51' },
-    { name: 'Angular', amount: 60, color: '#FFDC51' },
-    { name: 'Unity', amount: 80, color: '#FFDC51' },
-    { name: '3D-modelling', amount: 50, color: '#FFDC51' },
-    { name: 'Rigging', amount: 65, color: '#FFDC51' },
+    { name: 'C++', amount: 40, color: '#333333' },
+    { name: 'C#', amount: 75, color: '#333333' },
+    { name: 'Angular', amount: 60, color: '#333333' },
+    { name: 'Unity', amount: 80, color: '#333333' },
+    { name: '3D', amount: 50, color: '#333333' },
+    { name: 'Rigging', amount: 65, color: '#333333' },
   ];
 
   languages: ProgressbarData[] = [

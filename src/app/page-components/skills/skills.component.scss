@@ -1,25 +1,9 @@
-img {
-  color: white;
-  height: 6vh;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.img-parent {
-  text-align: center;
-}
-
 .scale {
   transform: scale(3.5);
 }
 
 .skills {
-  background-color: black;
+  background: #485461;
   height: 10vh;
 }
 

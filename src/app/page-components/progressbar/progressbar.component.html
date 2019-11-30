@@ -1,12 +1,11 @@
 <div class="row">
-  <div class="col">
-    <p>{{text}}</p>
+  <div class="col m-0 p-0">
+    <p class="m-0 p-0">{{text}}</p>
   </div>
-<div class="col-9 pt-2">
+  <div class="col-7 m-2">
     <div class="progress">
-        <div class="progress-bar" [ngStyle]="{'backgroundColor': color}" role="progressbar" [style.width.%]="percentage"
-          *ngIf="percentage !== undefined"></div>
-      </div>
+      <div class="progress-bar" [ngStyle]="{'backgroundColor': color}" role="progressbar" [style.width.%]="percentage"
+        *ngIf="percentage !== undefined"></div>
+    </div>
   </div>
-
 </div>

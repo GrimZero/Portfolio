@@ -1,14 +1,14 @@
-<div class="card text-justify m-3 card-block" style="height: 85vh;">
+<div class="card text-justify m-3 card-block" style="height: 95%;">
     <div class="text-center card-title" style="color: whitesmoke;">
         <h1>About me</h1>
     </div>
     <img [src]=[hostData.pictureURL] style="width: 150px" class="card-img-top">
     <div style="padding: 10px;" class="card-body" style="color: whitesmoke; font-size: larger;">
         Hello, my name is Torben and welcome to my portfolio!
-        I am a developer with a passion for games and knowledge to back it up.
-        When I work on project, I look for the best and most eficient way to get something done.
+        I am a developer with a passion for games and the knowledge to back it up.
+        When I work on projects, I look for the best and most efficient way to get something done.
         <br><br>
-        As a programmer I fi.nd that solving problems is my main task. Fixing an issue that someone has 
+        As a programmer I found that solving problems is my main task. Fixing an issue that someone has 
         in an easy to use way. Creating the tools for a company to get their product finished in an efficient way.
         <br><br>
         <app-progressbar *ngFor="let item of hostData.competences" [color]=item.color [percentage]=item.amount [text]=item.name></app-progressbar>

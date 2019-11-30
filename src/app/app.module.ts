@@ -30,6 +30,7 @@ import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { InfopanelComponent } from './pages/infopanel/infopanel.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Pokemon } from './classes/pokemon';
 
 @NgModule({
   declarations: [

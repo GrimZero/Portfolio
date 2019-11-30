@@ -10,16 +10,16 @@ export class UserDataService {
   birthDate = new Date(1995, 10, 21);
   age: number;
 
-  pictureURL = 'assets/sprites/chibi.png';
+  pictureURL = 'assets/sprites/photo.jpg';
   headline = 'Programmer and 3D enthusiast.';
 
   competences: ProgressbarData[] = [
-    { name: 'C++', amount: 40, color: '#333333' },
-    { name: 'C#', amount: 75, color: '#333333' },
-    { name: 'Angular', amount: 60, color: '#333333' },
-    { name: 'Unity', amount: 80, color: '#333333' },
-    { name: '3D', amount: 50, color: '#333333' },
-    { name: 'Rigging', amount: 65, color: '#333333' },
+    { name: 'C++', amount: 40, color: '#111111' },
+    { name: 'C#', amount: 75, color: '#111111' },
+    { name: 'HTML', amount: 60, color: '#111111' },
+    { name: 'Unity', amount: 80, color: '#111111' },
+    { name: '3D', amount: 50, color: '#111111' },
+    { name: 'Rigging', amount: 65, color: '#111111' },
   ];
 
   languages: ProgressbarData[] = [

@@ -1,6 +1,9 @@
 export interface IProject {
     title: string;
     preview: string;
-    text?: string;
+    header?: string;
     route?: string;
+    alternatePreview?: string;
+    softwareUsed?: string[];
+    text?: string;
 }

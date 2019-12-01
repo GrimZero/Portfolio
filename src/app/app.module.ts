@@ -31,6 +31,7 @@ import { InfopanelComponent } from './pages/infopanel/infopanel.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Pokemon } from './classes/pokemon';
+import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { Pokemon } from './classes/pokemon';
     ProjectInfoComponent,
     ThreejsComponent,
     InfopanelComponent,
+    ThreejsWrapperComponent,
   ],
   imports: [
     BrowserModule,

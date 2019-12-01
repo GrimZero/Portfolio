@@ -4,7 +4,7 @@ import { Composer } from 'src/app/classes/3D/composer';
 import { MaterialLibrary } from 'src/app/classes/3D/material-library';
 import { MeshLoader } from 'src/app/classes/3D/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { Scene, Vector3, Vector2 } from 'three';
+import { Scene, Vector2 } from 'three';
 import { Renderer } from 'src/app/classes/3D/renderer';
 
 @Component({
@@ -52,11 +52,12 @@ export class ThreejsComponent implements AfterViewInit {
   }
 
   updateCanvas() {
+    this.occupiedHeight = 0;
     (Array.prototype.slice.call(document.getElementsByClassName('render')) as HTMLElement[]).forEach(element => {
       this.occupiedHeight += element.offsetHeight;
     });
 
-    this.composer.updateSize(this.size.offsetWidth, window.innerHeight - this.occupiedHeight);
+    this.composer.updateSize(this.size.offsetWidth - 30, window.innerHeight - this.occupiedHeight);
     console.log(this.composer.renderer.getSize(new Vector2()));
   }
 

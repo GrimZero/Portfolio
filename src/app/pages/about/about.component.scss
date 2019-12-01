@@ -16,6 +16,11 @@ p {
   background-color: rgba(245, 245, 245, 0);
 }
 
+.clearBorder {
+  background-color: transparent;
+  border: transparent;
+}
+
 @media screen and (max-width: 870px) {
   .card-body {
     font-size: calc(90%);

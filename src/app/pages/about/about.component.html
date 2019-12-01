@@ -1,40 +1,23 @@
-<div class="card text-justify m-3 card-block p-2"
-    style="height: 95%; background-color: rgba(0, 0, 0, 0.25); border-radius: 35px;">
+<div class="card text-justify m-2 mt-4 mr-4 card-block p-2"
+    style="background-color: rgba(0, 0, 0, 0.25); border-radius: 15px;">
     <div class="text-center card-title" style="color: whitesmoke;">
         <h1>About me</h1>
     </div>
     <img [src]=[hostData.pictureURL] style="width: 95%" class="card-img-top m-auto">
-    <div class="card-body" style="color: whitesmoke; font-size: larger;">
-        Hello, my name is Torben and welcome to my portfolio!
-        I am a developer with a passion for games and the knowledge to back it up.
-        When I work on projects, I look for the best and most efficient way to get something done.
-        <br><br>
-        As a programmer I found that solving problems is my main task. Fixing an issue that someone has
-        in an easy to use way. Creating the tools for a company to get their product finished in an efficient way.
-        <br><br>
+    <div class="card-body" style="color: whitesmoke; font-size: 98%;">
+        <div *ngFor="let item of hostData.synopsis">
+            <p>{{item}}</p>
+        </div>
         <app-progressbar *ngFor="let item of hostData.competences" [color]=item.color [percentage]=item.amount
             [text]=item.name></app-progressbar>
     </div>
-    <div class="row container justify-content-around card-footer mx-0 px-0" style="background-color: transparent; border: transparent;">
-        <div class="img-parent">
-            <a href="https://github.com/GrimZero" target="_blank">
-                <img class="noselect" draggable="false" src="assets/svg/contact/github.svg">
-            </a>
-        </div>
-        <div class="img-parent">
-            <a href="https://discordapp.com/channels/@me/Protagonist-kun#5509/" target="_blank">
-                <img class="noselect" draggable="false" src="assets/svg/contact/discord.svg">
-            </a>
-        </div>
-        <div class="img-parent">
-            <a href="https://www.facebook.com/torben.vanassche.3" target="_blank">
-                <img class="noselect" draggable="false" src="assets/svg/contact/facebook.svg">
-            </a>
-        </div>
-        <div class="img-parent">
-            <a href="https://www.linkedin.com/in/torben-van-assche-931982153/" target="_blank">
-                <img class="noselect" draggable="false" src="assets/svg/contact/linkedin.svg">
-            </a>
+    <div class="row justify-content-around card-footer mx-0 px-0 clearBorder">
+        <div class="mx-0 px-0 clearBorder" *ngFor="let item of hostData.contact">
+            <div class="img-parent">
+                <a [href]=[item.link] target="_blank">
+                    <img class="noselect" draggable="false" [src]=[item.img]>
+                </a>
+            </div>
         </div>
     </div>
 </div>

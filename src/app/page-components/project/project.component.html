@@ -1,6 +1,6 @@
 <div [routerLink]="project.route" routerLinkActive="active" class="container p-0">
     <div class="img-hover-zoom">
-        <img [src]="project.preview" [ngStyle]="{'max-width.px': size, 'max-height.px': size}">
+        <img [src]="project.preview" [ngStyle]="{'width.%': size, 'height.%': size}">
     </div>
     <div class="overlay">{{project.title}}</div>
 </div>

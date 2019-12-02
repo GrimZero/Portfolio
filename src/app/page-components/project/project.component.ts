@@ -9,7 +9,7 @@ import { IProject } from 'src/app/interfaces/iproject';
 export class ProjectComponent implements OnInit {
 
   @Input() project: IProject;
-  @Input() size: number = 220;
+  @Input() size = 100;
 
   constructor() { }
 

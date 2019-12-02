@@ -50,9 +50,6 @@ export class UserDataService {
       title: 'PBR', preview: 'assets/Projects/Gun.png',
       header: 'Modelling and PBR'
     },
-    {
-      title: 'Placeholder', preview: 'https://via.placeholder.com/300'
-    }
   ];
 
   contact: ContactInfo[] = [
@@ -68,8 +65,10 @@ export class UserDataService {
 
     this.competences = this.competences.sort((x, x2) => x2.amount - x.amount);
 
-    for (let index = 0; index < 14; index++) {
-      this.projects.push(this.projects[5])
+    for (let index = 0; index < 0; index++) {
+      this.projects.push({
+        title: 'Placeholder', preview: 'https://via.placeholder.com/300'
+      })
     }
   }
 }

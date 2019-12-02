@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef } from '@angular/core';
 import { UserDataService } from 'src/app/services/user-data.service';
 
 @Component({
@@ -6,15 +6,15 @@ import { UserDataService } from 'src/app/services/user-data.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
 
   hostData: UserDataService;
   age: number;
 
-  constructor(private userdata: UserDataService) {
-    this.hostData = userdata;
-  }
+  element: HTMLElement;
 
-  ngOnInit() {
+  constructor(private userdata: UserDataService, private el: ElementRef) {
+    this.hostData = userdata;
+    this.element = el.nativeElement as HTMLElement;
   }
 }

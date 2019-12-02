@@ -39,9 +39,21 @@ html {
 .parallax {
   background-color: #485461;
   background-image: linear-gradient(to top, #485461 0%, #28313b 74%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100vh;
 }
 
 .card-custom {
   background-color: #d9e4f5;
   background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
+}
+
+@media screen and (min-width: 900px) {
+  body {
+    height: 90%;
+  }
 }

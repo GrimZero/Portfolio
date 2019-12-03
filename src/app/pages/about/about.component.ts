@@ -10,7 +10,7 @@ import { Subscription } from 'rxjs';
 })
 export class AboutComponent implements OnInit, OnDestroy {
 
-  about: AboutData;
+  about: AboutData = {};
   age: number;
 
   element: HTMLElement;
@@ -27,7 +27,6 @@ export class AboutComponent implements OnInit, OnDestroy {
       this.age = Math.floor((dif / (1000 * 3600 * 24)) / 365.25);
 
       this.about = result;
-      console.log(this.about);
     });
   }
 

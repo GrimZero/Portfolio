@@ -1,9 +1,9 @@
-<div class="card text-justify m-2 mt-4 card-block pr-0 overflow-hidden" *ngIf="about">
+<div class="card text-justify m-2 mt-4 card-block pr-0 overflow-hidden">
     <div class="text-center card-title m-0 pb-0 text-white">
         <h2>About me</h2>
     </div>
     <img [src]=[about.pictureURL] [style.width.%]=75 class="card-img-top m-auto">
-    <div class="card-body mb-0 pb-0 text-white" style="font-size: 85%;">
+    <div class="card-body mb-0 pb-0 text-white" style="font-size: 22px;">
         <div *ngFor="let item of about.synopsis">
             <p>{{item}}</p>
         </div>

@@ -1,10 +1,10 @@
-<div class="card text-justify m-2 mt-4 card-block pr-0">
+<div class="card text-justify m-2 mt-4 card-block pr-0 overflow-hidden">
     <div class="text-center card-title m-0 pb-0 text-white">
         <h2>About me</h2>
     </div>
-    <img [src]=[hostData.pictureURL] [style.width.%]=90 class="card-img-top m-auto">
-    <div class="card-body mb-0 pb-0 text-white" style="font-size: 20px;">
-        <div *ngFor="let item of hostData.synopsis">
+    <img [src]=[hostData.json.pictureURL] [style.width.%]=75 class="card-img-top m-auto">
+    <div class="card-body mb-0 pb-0 text-white" style="font-size: 85%;">
+        <div *ngFor="let item of hostData.json.synopsis">
             <p>{{item}}</p>
         </div>
         <app-progressbar *ngFor="let item of hostData.competences" [color]=item.color [percentage]=item.amount

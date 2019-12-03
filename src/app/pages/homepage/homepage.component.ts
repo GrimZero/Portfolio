@@ -1,4 +1,4 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, AfterViewInit, OnInit } from '@angular/core';
 import { ComponentNavigationService } from 'src/app/services/component-navigation.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { ComponentNavigationService } from 'src/app/services/component-navigatio
   templateUrl: './homepage.component.html',
   styleUrls: ['./homepage.component.scss']
 })
-export class HomepageComponent implements AfterViewInit {
+export class HomepageComponent implements AfterViewInit, OnInit {
   enable: boolean;
 
   smallScreen: boolean;
@@ -15,14 +15,19 @@ export class HomepageComponent implements AfterViewInit {
     navigationService.infoActive().subscribe((observer) => this.enable = observer);
   }
 
+  ngOnInit() {
+    this.sizeFix();
+  }
+
   ngAfterViewInit() {
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 1293) {
-        this.smallScreen = false;
-      }
-      else {
-        this.smallScreen = true;
-      }
-    });
+    window.addEventListener('resize', this.sizeFix);
+  }
+
+  sizeFix = () => {
+    if (window.innerWidth > 805) {
+      this.smallScreen = false;
+    } else {
+      this.smallScreen = true;
+    }
   }
 }

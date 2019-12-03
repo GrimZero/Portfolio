@@ -22,10 +22,3 @@ p {
   background-color: transparent;
   border: transparent;
 }
-
-@media screen and (max-width: 900px) {
-  .card-body {
-    font-size: calc(90%);
-    transition: font-size 0.5s;
-  }
-}

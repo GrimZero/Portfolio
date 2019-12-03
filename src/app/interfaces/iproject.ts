@@ -6,4 +6,5 @@ export interface IProject {
     alternatePreview?: string;
     softwareUsed?: string[];
     text?: string;
+    thumbnailSize?: number;
 }

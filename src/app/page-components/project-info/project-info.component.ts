@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UserDataService } from 'src/app/services/user-data.service';
+import { DataService } from 'src/app/services/data.service';
 import { IProject } from 'src/app/interfaces/iproject';
 
 @Component({
@@ -10,19 +10,20 @@ import { IProject } from 'src/app/interfaces/iproject';
 })
 export class ProjectInfoComponent implements OnInit {
   project: IProject;
-  constructor(private route: ActivatedRoute, hostData: UserDataService) { 
-    route.data.subscribe(data => {
-      hostData.projects.forEach(element => {
-        if(element.route === data.id) {
-          this.project = element;
-          console.log(this.project);
-        }        
+  
+  constructor(private route: ActivatedRoute, hostData: DataService) {
+    hostData.getProjects().subscribe(data => {
+      route.data.subscribe(result => {
+        data.projects.forEach(element => {
+          if (element.route === result.id) {
+            this.project = element;
+          }
+        });
       });
     });
   }
 
   ngOnInit() {
-    
-  }
 
+  }
 }

@@ -6,5 +6,37 @@
         "Hello, my name is Torben and welcome to my portfolio! I am a developer with a passion for games and the knowledge to back it up. When I work on projects, I look for the best and most efficient way to get something done.",
         "As a programmer I found that solving problems is my main task. Fixing an issue that someone has in an easy to use way. Creating the tools for a company to get their product finished in an efficient way.",
         "I like spending my free time playing games and watching anime. But more often than not I find myself trying out new things that I can do with code and doing some research."
+    ],
+    "competences": [
+        {
+            "name": "C++",
+            "amount": 40,
+            "color": "#111111"
+        },
+        {
+            "name": "C#",
+            "amount": 75,
+            "color": "#111111"
+        },
+        {
+            "name": "HTML",
+            "amount": 60,
+            "color": "#111111"
+        },
+        {
+            "name": "Unity",
+            "amount": 80,
+            "color": "#111111"
+        },
+        {
+            "name": "3D",
+            "amount": 50,
+            "color": "#111111"
+        },
+        {
+            "name": "Rigging",
+            "amount": 65,
+            "color": "#111111"
+        }
     ]
 }

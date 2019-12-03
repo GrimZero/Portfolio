@@ -5,10 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
 import { RouterModule, Router } from '@angular/router';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
 
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -28,6 +24,7 @@ import { InfopanelComponent } from './pages/infopanel/infopanel.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -54,15 +51,13 @@ import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/three
     NgbModule,
     RoutingModule,
     RouterModule,
-    FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [SearchService, ComponentNavigationService],
+  providers: [SearchService, ComponentNavigationService, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary, private router: Router) {
-    library.addIconPacks(fas, fab);
+  constructor(private router: Router) {
     document.addEventListener('contextmenu', event => event.preventDefault());
   }
 }

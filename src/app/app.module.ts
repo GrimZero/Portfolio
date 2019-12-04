@@ -25,6 +25,7 @@ import { ComponentNavigationService } from './services/component-navigation.serv
 import { HttpClientModule } from '@angular/common/http';
 import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
 import { DataService } from './services/data.service';
+import { ProjectBaseComponent } from './page-components/project-base/project-base.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { DataService } from './services/data.service';
     ThreejsComponent,
     InfopanelComponent,
     ThreejsWrapperComponent,
+    ProjectBaseComponent,
   ],
   imports: [
     BrowserModule,

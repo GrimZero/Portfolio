@@ -12,10 +12,10 @@ export class DataService {
   }
 
   getAbout(): Observable<AboutData> {
-    return this.http.get('../../assets/about.json') as Observable<AboutData>;
+      return this.http.get('../../assets/about.json') as Observable<AboutData>;
   }
 
   getProjects(): Observable<ProjectsData> {
-    return this.http.get('../../assets/projects.json') as Observable<ProjectsData>;
+      return this.http.get('../../assets/projects.json') as Observable<ProjectsData>;
   }
 }

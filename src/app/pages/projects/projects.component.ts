@@ -19,7 +19,7 @@ export class ProjectsComponent implements OnInit {
       this.filtered =
         combineLatest(of(data.projects), this.searchService.observable.pipe(startWith('')))
           .pipe(
-            map(([projects, searchString]: [{ title: string, preview: string, text: string }[], string]) =>
+            map(([projects, searchString]: [{ title: string, preview: string, text: string[] }[], string]) =>
               projects.filter(x => x.title.toLowerCase().includes(searchString.toLowerCase()))
             ));
 

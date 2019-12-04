@@ -1,10 +1,10 @@
 export interface IProject {
-    title: string;
-    preview: string;
+    title?: string;
+    preview?: string;
     header?: string;
     route?: string;
     alternatePreview?: string;
     softwareUsed?: string[];
-    text?: string;
+    text?: string[];
     thumbnailSize?: number;
 }

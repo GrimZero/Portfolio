@@ -4,7 +4,12 @@
             "title": "Color correction",
             "preview": "assets/Projects/TextureEditor.jpg",
             "thumbnailSize": 200,
-            "header": "Project to make color adjustments in WPF using OpenCV C# (EmguCV)."
+            "header": "Project to make color adjustments in WPF using OpenCV C# (EmguCV).",
+            "route": "ColorCorrection",
+            "softwareUsed": [
+                "WPF",
+                "EmguCV"
+            ]
         },
         {
             "title": "Deputy Donut",
@@ -17,24 +22,6 @@
                 "3DsMax",
                 "Photoshop"
             ],
-            "thumbnailSize": 200
-        },
-        {
-            "title": "VR Kinect Shooter",
-            "preview": "assets/Projects/VR-Dome.jpg",
-            "thumbnailSize": 200,
-            "header": "Game using the kinect to create a VR experience without the need for a headset."
-        },
-        {
-            "title": "3D-Printing",
-            "preview": "assets/Projects/VertexDelta.jpg",
-            "thumbnailSize": 200,
-            "header": "After acquiring a 3D-Printer I started doing some prints for concepts!"
-        },
-        {
-            "title": "PBR",
-            "preview": "assets/Projects/Gun.png",
-            "header": "Modelling and PBR",
             "thumbnailSize": 200
         }
     ]

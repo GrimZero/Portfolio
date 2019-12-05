@@ -5,6 +5,7 @@ export interface IProject {
     route?: string;
     alternatePreview?: string;
     softwareUsed?: string[];
-    text?: string[];
+    body?: string[];
     thumbnailSize?: number;
+    summary?: string;
 }

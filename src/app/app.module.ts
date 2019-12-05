@@ -18,14 +18,16 @@ import { SearchService } from './services/search.service';
 import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
 import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 import { SkillsComponent } from './page-components/skills/skills.component';
-import { ProjectInfoComponent } from './page-components/project-info/project-info.component';
+import { DeputyDonutComponent } from './pages/deputy-donut/deputy-donut.component';
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { InfopanelComponent } from './pages/infopanel/infopanel.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
 import { DataService } from './services/data.service';
-import { ProjectBaseComponent } from './page-components/project-base/project-base.component';
+import { ProjectBaseComponent } from './pages/project-base/project-base.component';
+import { ColorCorrectionComponent } from './pages/color-correction/color-correction.component';
+import { ThreejsCityComponent } from './pages/threejs-city/threejs-city.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +43,13 @@ import { ProjectBaseComponent } from './page-components/project-base/project-bas
     TypewriteComponent,
     TooltipComponent,
     SkillsComponent,
-    ProjectInfoComponent,
+    DeputyDonutComponent,
     ThreejsComponent,
     InfopanelComponent,
     ThreejsWrapperComponent,
     ProjectBaseComponent,
+    ColorCorrectionComponent,
+    ThreejsCityComponent,
   ],
   imports: [
     BrowserModule,

@@ -24,7 +24,7 @@ export class HomepageComponent implements AfterViewInit, OnInit {
   }
 
   sizeFix = () => {
-    if (window.innerWidth > 1309) {
+    if (window.innerWidth > 0) {
       this.smallScreen = false;
     } else {
       this.smallScreen = true;

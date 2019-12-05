@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
+import { AboutData } from 'src/app/interfaces/about-data';
 
 @Component({
   selector: 'app-not-found',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./not-found.component.scss']
 })
 export class NotFoundComponent implements OnInit {
-
-  constructor() { }
+  about: AboutData;
+  constructor(private data: DataService) {
+  }
 
   ngOnInit() {
+    this.data.getAbout().subscribe(observer => this.about = observer);
   }
 
 }

@@ -4,25 +4,48 @@
             "title": "Color correction",
             "preview": "assets/Projects/TextureEditor.jpg",
             "thumbnailSize": 200,
-            "header": "Project to make color adjustments in WPF using OpenCV C# (EmguCV).",
+            "header": "Using EmguCV (OpenCV) in WPF",
             "route": "ColorCorrection",
             "softwareUsed": [
                 "WPF",
                 "EmguCV"
+            ],
+            "summary": "Using a Visio scanner to scan data from the real world into textures gives us a color value that is Pantone relevant, and can be covnerted to RGB. However when we use this scanner the albedo texture that we get is in color. This tool allows the editing of image maps with EmguCV. Leveraging this shader library, we can efficiently change the color of textures to a more grayscale version, so changing the color becomes a lot easier. It allows for an automated adjustment based on the color, or manual parameter editing of the standard parameters that you would expect from image manipulation.",
+            "body": [
+                "For this project I tried a few different approaches. Of which the first was to do it by iterating over the data of the files, resulting in a massive load on the CPU. At this point I started looking for an alternative. I found a library that was written in C++ for image processing, looking into it further that library had been wrapped into a NuGet package so it could be applied to C# projects rather easily. This had a very significant impact on the performance of the application. The code was written in a static library for ease of use and modularity, allowing any C# project to use it."
             ]
         },
         {
             "title": "Deputy Donut",
-            "preview": "assets/Projects/DeputyDonut.jpg",
-            "alternatePreview": "assets/Projects/DD-car.jpg",
-            "header": "Cop-and-robbers chasing game where you try and take out the other player in a power-up based battle!",
+            "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
+            "alternatePreview": "assets/Projects/DeputyDonut/preview.jpg",
+            "header": "Is there anything he can't do?",
             "route": "DeputyDonut",
             "softwareUsed": [
                 "Unity",
                 "3DsMax",
                 "Photoshop"
             ],
-            "thumbnailSize": 200
+            "thumbnailSize": 200,
+            "summary": "A cop-and-robber type game where the officer has to chase down a donut truck to get himself some donuts. The truck doesn't want to stop and the officer has to try and take down the donut truck in order to get himself some sugary goodness.",
+            "body": [
+                "While making this game, I had to work together with colleague-students at DAE to achieve a gmae project in a semester. We had to first come up with a concept together and make the game in Unity from scratch. Useful to see that our group consisted of people with different skillsets. This project was a first experience into working in a smll team of developers on a game. I really enjoyed working with others, after all you learn faster doing actual projects than you can by just taking classes.",
+                "I worked on the rigging and animation of the models, as well as on the code for particle effects & audio within the Unity event system and animation controller."
+            ]
+        },
+        {
+            "title": "Level design",
+            "preview": "https://via.placeholder.com/300",
+            "route": "threejs-city",
+            "softwareUsed": [
+                "Three.js",
+                "3DsMax",
+                "Photoshop",
+                "Substance painter",
+                "Angular"
+            ],
+            "thumbnailSize": 200,
+            "summary": ""
         }
     ]
 }

@@ -8,4 +8,5 @@ export interface AboutData {
     synopsis?: string[];
     competences?: ProgressbarData[];
     contact?: ContactInfo[];
+    chibiURL?: string;
 }

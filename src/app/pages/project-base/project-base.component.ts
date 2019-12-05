@@ -11,7 +11,7 @@ import { combineLatest, Subscription } from 'rxjs';
   styleUrls: ['./project-base.component.scss']
 })
 export class ProjectBaseComponent implements OnInit, OnDestroy {
-  project: IProject = {};
+  project: IProject = {body: []};
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private dataReader: DataService) { }
@@ -26,7 +26,7 @@ export class ProjectBaseComponent implements OnInit, OnDestroy {
       map(([data, result]) => {
         data.projects.forEach(element => {
           console.log(element);
-          if (element.title === result.id) {
+          if (element.route === result.id) {
             this.project = element;
           }
         });

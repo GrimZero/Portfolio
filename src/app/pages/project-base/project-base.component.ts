@@ -25,7 +25,6 @@ export class ProjectBaseComponent implements OnInit, OnDestroy {
     this.subscription = combineLatest(getProjects$, getRoute$).pipe(
       map(([data, result]) => {
         data.projects.forEach(element => {
-          console.log(element);
           if (element.route === result.id) {
             this.project = element;
           }

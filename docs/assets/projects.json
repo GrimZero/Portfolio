@@ -3,8 +3,7 @@
         {
             "title": "Color correction",
             "preview": "assets/Projects/TextureEditor.jpg",
-            "thumbnailSize": 300,
-            "header": "Using EmguCV (OpenCV) in WPF",
+            "thumbnailSize": 250,
             "route": "ColorCorrection",
             "softwareUsed": [
                 "WPF",
@@ -19,14 +18,13 @@
             "title": "Deputy Donut",
             "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
             "alternatePreview": "assets/Projects/DeputyDonut/preview.jpg",
-            "header": "Is there anything he can't do?",
             "route": "DeputyDonut",
             "softwareUsed": [
                 "Unity",
                 "3DsMax",
                 "Photoshop"
             ],
-            "thumbnailSize": 300,
+            "thumbnailSize": 250,
             "summary": "A cop-and-robber type game where the officer has to chase down a donut truck to get himself some donuts. The truck doesn't want to stop and the officer has to try and take down the donut truck in order to get himself some sugary goodness.",
             "body": [
                 "While making this game, I had to work together with colleague-students at DAE to achieve a gmae project in a semester. We had to first come up with a concept together and make the game in Unity from scratch. Useful to see that our group consisted of people with different skillsets. This project was a first experience into working in a smll team of developers on a game. I really enjoyed working with others, after all you learn faster doing actual projects than you can by just taking classes.",
@@ -35,7 +33,7 @@
         },
         {
             "title": "Level design",
-            "preview": "https://via.placeholder.com/300",
+            "preview": "https://via.placeholder.com/250",
             "route": "threejs-city",
             "softwareUsed": [
                 "threejs",
@@ -44,8 +42,7 @@
                 "Substance",
                 "Angular"
             ],
-            "thumbnailSize": 300,
-            "summary": ""
+            "thumbnailSize": 250
         },
         {
             "title": "Unity Metadata hider",
@@ -54,10 +51,10 @@
             "softwareUsed": [
                 "WPF"
             ],
-            "thumbnailSize": 300,
+            "thumbnailSize": 250,
             "summary": "While I was adding files and setting up a Unity project, I noticed the metadata files being created. I realised I don't really need to see these all the time as they clutter up the view of my windows explorer. So I wrote a little script that hides the files with a .meta extension in the explorer. Of course they are still there and can be viewed by enabling the view for hidden items.",
             "body":[
-                "The premise of the code is rather simple, all it does is read its executables location and cheks that directory (and all sub-directories) for files that would have this extension. When one of those files is found, I access the bitflag responsible for hiding the file and set it. No more screen clutter!"
+                "The premise of the code is rather simple, all it does is read its executables location and cheks that directory (and all sub-directories) for files that would have this extension. When one of those files is found, I access the bitflag responsible for hiding the file and set it. No more screen clutter! This script can be used either by running it directly, or referencing the C# file and using it directly in the editor. This makes it possible to use it directly on file creation using the AssetPreProcessor provided by Unity."
             ]
         },
         {
@@ -67,7 +64,7 @@
             "softwareUsed": [
                 "WPF"
             ],
-            "thumbnailSize": 300,
+            "thumbnailSize": 250,
             "summary": "Someone I know was importing all his data into his Plex library, but doing this manually would require way too much work. This utility allows to quickly transfer data in the Windows filesystem. Included in the project is a way to start a queue of move operations to make sure all goes smooth. The project also uses the FileSystemWatcher to check for file changes and moves a directory / file when it is created.",
             "body":[
                 "The project consist of 2 parts, the first is responsible for moving the files. This is also the biggest part of the project as it required access to the Kernel32.DLL to make the move operation faster. Additionally I made it so that I can get the progress from the move operation. It does seem like this Kernel32 mvoe operation is significantly faster than simply calling the move operation from the filesystem, which makes sense, since it is run closer to the source of the filesystem.",

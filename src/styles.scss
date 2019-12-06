@@ -62,6 +62,10 @@ body {
   }
 }
 
+.grayscale {
+  filter: grayscale(1);
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 10px;

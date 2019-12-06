@@ -46,18 +46,20 @@ export class ThreejsComponent implements AfterViewInit {
     // Renderer
     this.renderer = new Renderer(this.canvas, '#FFFFFF');
     this.composer = new Composer(this.scene, this.camera, this.renderer);
-    this.updateCanvas();
 
     window.addEventListener('resize', () => this.updateCanvas());
+    this.updateCanvas();
   }
 
   updateCanvas() {
     this.occupiedHeight = 0;
     (Array.prototype.slice.call(document.getElementsByClassName('render')) as HTMLElement[]).forEach(element => {
-      this.occupiedHeight += element.offsetHeight;
+      this.occupiedHeight += element.clientHeight;
+      this.occupiedHeight = 120;
     });
 
-    this.composer.updateSize(this.size.offsetWidth - 30, window.innerHeight - this.occupiedHeight);
+    console.log(document.getElementsByClassName('render'));
+    this.composer.updateSize(this.size.offsetWidth - 18, window.innerHeight - this.occupiedHeight);
     console.log(this.composer.renderer.getSize(new Vector2()));
   }
 

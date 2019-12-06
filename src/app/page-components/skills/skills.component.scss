@@ -6,18 +6,6 @@
   height: 8vh;
 }
 
-.grayscale {
-  filter: grayscale(1);
-}
-
-.invert {
-  filter: invert(1);
-}
-
-.brighten {
-  filter: brightness(3)
-}
-
 @media screen and (max-width: 600px) {
   img {
     height: 5vh;

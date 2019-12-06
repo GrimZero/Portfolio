@@ -28,6 +28,8 @@ import { DataService } from './services/data.service';
 import { ProjectBaseComponent } from './pages/project-base/project-base.component';
 import { ColorCorrectionComponent } from './pages/color-correction/color-correction.component';
 import { ThreejsCityComponent } from './pages/threejs-city/threejs-city.component';
+import { UnityMetadataHiderComponent } from './pages/unity-metadata-hider/unity-metadata-hider.component';
+import { PlexDownloadManagerComponent } from './pages/plex-download-manager/plex-download-manager.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +52,8 @@ import { ThreejsCityComponent } from './pages/threejs-city/threejs-city.componen
     ProjectBaseComponent,
     ColorCorrectionComponent,
     ThreejsCityComponent,
+    UnityMetadataHiderComponent,
+    PlexDownloadManagerComponent,
   ],
   imports: [
     BrowserModule,

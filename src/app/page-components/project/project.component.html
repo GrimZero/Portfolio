@@ -3,4 +3,9 @@
     <h4 class="card-title text-white">{{project.title}}</h4>
     <img class="card-img" [src]="project.preview"
         [ngStyle]="{'width.px': project.thumbnailSize, 'height.px': project.thumbnailSize}">
+    <div class="card-footer row">
+        <div class="col" *ngFor="let item of project.softwareUsed">
+            <img style="width: 50%;" [src]="'assets/svg/software/' + item + '.svg'">
+        </div>
+    </div>
 </div>

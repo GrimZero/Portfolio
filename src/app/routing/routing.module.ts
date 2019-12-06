@@ -6,10 +6,14 @@ import { DeputyDonutComponent } from '../pages/deputy-donut/deputy-donut.compone
 import { HomepageComponent } from '../pages/homepage/homepage.component';
 import { ColorCorrectionComponent } from '../pages/color-correction/color-correction.component';
 import { ThreejsCityComponent } from '../pages/threejs-city/threejs-city.component';
+import { UnityMetadataHiderComponent } from '../pages/unity-metadata-hider/unity-metadata-hider.component';
+import { PlexDownloadManagerComponent } from '../pages/plex-download-manager/plex-download-manager.component';
 const routes = [
   { path: 'DeputyDonut', component: DeputyDonutComponent, data: {id: 'DeputyDonut'} },
   { path: 'ColorCorrection', component: ColorCorrectionComponent, data: {id: 'ColorCorrection'} },
   { path: 'threejs-city', component: ThreejsCityComponent, data: {id: 'threejs-city'} },
+  { path: 'unity-metadata-hider', component: UnityMetadataHiderComponent, data: {id: 'unity-metadata-hider'} },
+  { path: 'plextool', component: PlexDownloadManagerComponent, data: {id: 'plextool'} },
   { path: '', component: HomepageComponent },
   { path: '**', component: NotFoundComponent }
 ];

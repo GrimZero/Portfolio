@@ -9,8 +9,6 @@ import { ComponentNavigationService } from 'src/app/services/component-navigatio
 export class HomepageComponent {
   enable: boolean;
 
-  smallScreen: boolean;
-
   constructor(private navigationService: ComponentNavigationService) {
     navigationService.infoActive().subscribe((observer) => this.enable = observer);
   }

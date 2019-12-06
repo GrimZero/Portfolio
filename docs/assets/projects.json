@@ -8,9 +8,9 @@
             "route": "ColorCorrection",
             "softwareUsed": [
                 "WPF",
-                "EmguCV"
+                "openCV"
             ],
-            "summary": "Using a Visio scanner to scan data from the real world into textures gives us a color value that is Pantone relevant, and can be covnerted to RGB. However when we use this scanner the albedo texture that we get is in color. This tool allows the editing of image maps with EmguCV. Leveraging this shader library, we can efficiently change the color of textures to a more grayscale version, so changing the color becomes a lot easier. It allows for an automated adjustment based on the color, or manual parameter editing of the standard parameters that you would expect from image manipulation.",
+            "summary": "Using a Visio scanner to scan data from the real world into textures gives us a color value that is Pantone relevant, and can be converted to RGB. However when we use this scanner the albedo texture that we get is in color. This tool allows the editing of image maps with EmguCV. Leveraging this shader library, we can efficiently change the color of textures to a more grayscale version, so changing the color becomes a lot easier. It allows for an automated adjustment based on the color, or manual parameter editing of the standard parameters that you would expect from image manipulation.",
             "body": [
                 "For this project I tried a few different approaches. Of which the first was to do it by iterating over the data of the files, resulting in a massive load on the CPU. At this point I started looking for an alternative. I found a library that was written in C++ for image processing, looking into it further that library had been wrapped into a NuGet package so it could be applied to C# projects rather easily. This had a very significant impact on the performance of the application. The code was written in a static library for ease of use and modularity, allowing any C# project to use it."
             ]
@@ -38,10 +38,10 @@
             "preview": "https://via.placeholder.com/300",
             "route": "threejs-city",
             "softwareUsed": [
-                "Three.js",
+                "threejs",
                 "3DsMax",
-                "Photoshop",
-                "Substance painter",
+                "Adobe_Photoshop",
+                "Substance",
                 "Angular"
             ],
             "thumbnailSize": 300,
@@ -55,7 +55,10 @@
                 "WPF"
             ],
             "thumbnailSize": 300,
-            "summary": ""
+            "summary": "While I was adding files and setting up a Unity project, I noticed the metadata files being created. I realised I don't really need to see these all the time as they clutter up the view of my windows explorer. So I wrote a little script that hides the files with a .meta extension in the explorer. Of course they are still there and can be viewed by enabling the view for hidden items.",
+            "body":[
+                "The premise of the code is rather simple, all it does is read its executables location and cheks that directory (and all sub-directories) for files that would have this extension. When one of those files is found, I access the bitflag responsible for hiding the file and set it. No more screen clutter!"
+            ]
         },
         {
             "title": "Plex download manager",
@@ -65,7 +68,11 @@
                 "WPF"
             ],
             "thumbnailSize": 300,
-            "summary": ""
+            "summary": "Someone I know was importing all his data into his Plex library, but doing this manually would require way too much work. This utility allows to quickly transfer data in the Windows filesystem. Included in the project is a way to start a queue of move operations to make sure all goes smooth. The project also uses the FileSystemWatcher to check for file changes and moves a directory / file when it is created.",
+            "body":[
+                "The project consist of 2 parts, the first is responsible for moving the files. This is also the biggest part of the project as it required access to the Kernel32.DLL to make the move operation faster. Additionally I made it so that I can get the progress from the move operation. It does seem like this Kernel32 mvoe operation is significantly faster than simply calling the move operation from the filesystem, which makes sense, since it is run closer to the source of the filesystem.",
+                "Secondly, there is also the FileSystemWatcher portion of the project, this part is responsible for checking updates in the filesystem. So when a new file is found in the watched folders, it will be moved to the appropriate directory, if no directory for it exists, the user is prompted to create a new folder. Plex itself is capable of associating different files that belong together, but I added a way to check the IMDB and AniList API on the codebehind, so that I can gather metadata when looking for an appropriate folder to move the file to."
+            ]
         }
     ]
 }

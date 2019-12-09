@@ -2,7 +2,8 @@
     "projects": [
         {
             "title": "Color correction",
-            "preview": "assets/Projects/TextureEditor.jpg",
+            "preview": "assets/Projects/ColorCorrection/TextureEditor.jpg",
+            "alternatePreview": "assets/Projects/ColorCorrection/preview.png",
             "thumbnailSize": 250,
             "route": "ColorCorrection",
             "softwareUsed": [
@@ -27,7 +28,7 @@
             "thumbnailSize": 250,
             "summary": "A cop-and-robber type game where the officer has to chase down a donut truck to get himself some donuts. The truck doesn't want to stop and the officer has to try and take down the donut truck in order to get himself some sugary goodness.",
             "body": [
-                "While making this game, I had to work together with colleague-students at DAE to achieve a gmae project in a semester. We had to first come up with a concept together and make the game in Unity from scratch. Useful to see that our group consisted of people with different skillsets. This project was a first experience into working in a smll team of developers on a game. I really enjoyed working with others, after all you learn faster doing actual projects than you can by just taking classes.",
+                "While making this game, I had to work together with colleague-students at DAE to achieve a gmae project in a semester. We had to first come up with a concept together and make the game in Unity from scratch. Useful to see that our group consisted of people with different skillsets. This project was a first experience into working in a small team of developers on a game. I really enjoyed working with others, after all you learn faster doing actual projects than you can by just taking classes.",
                 "I worked on the rigging and animation of the models, as well as on the code for particle effects & audio within the Unity event system and animation controller."
             ]
         },
@@ -48,9 +49,6 @@
             "title": "Unity Metadata hider",
             "preview": "assets/Projects/MetaHider/thumbnail.jpg",
             "route": "unity-metadata-hider",
-            "softwareUsed": [
-                "WPF"
-            ],
             "thumbnailSize": 250,
             "summary": "While I was adding files and setting up a Unity project, I noticed the metadata files being created. I realised I don't really need to see these all the time as they clutter up the view of my windows explorer. So I wrote a little script that hides the files with a .meta extension in the explorer. Of course they are still there and can be viewed by enabling the view for hidden items.",
             "body":[

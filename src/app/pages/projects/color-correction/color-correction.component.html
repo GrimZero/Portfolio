@@ -1,12 +1,10 @@
-<button [routerLink]="['']" class="float-left ml-2">Back to home</button>
 <div class="col m-2 text-center text-white">
-    <div class="col text-center">
+    <div class="text-center">
         <h1>{{project.title}}</h1>
         <p class="container text-justify">{{project.summary}}</p>
     </div>
-    <div>
-        <!-- <img [src]=[project.alternatePreview]> -->
-        <img class="img-fluid" src="https://via.placeholder.com/1000x500">
+    <div class="container">
+        <img [src]=[project.alternatePreview]>
     </div>
     <div class="col text-center">
         <p class="text-justify container">

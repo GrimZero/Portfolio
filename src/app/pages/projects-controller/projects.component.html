@@ -1,8 +1,9 @@
 <div>
-    <div class="col mt-4 projects-height text-center">
-        <!-- <app-search></app-search> -->
+    <div class="col mt-4 text-center">
         <div class="card-group justify-content-center m-0 mt-2">
-            <app-project class="m-1" *ngFor="let project of filtered | async" [project]="project"></app-project>
+            <div class="m-1" *ngFor="let project of filtered | async">
+                <app-project [project]="project" class="justify-content-end"></app-project>
+            </div>
         </div>
     </div>
 </div>

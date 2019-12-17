@@ -2,7 +2,7 @@
     <div class="col mt-4 text-center">
         <div class="card-group justify-content-center m-0 mt-2">
             <div class="m-1" *ngFor="let project of filtered | async">
-                <app-project [project]="project" class="justify-content-end"></app-project>
+                <app-project [project]="project"></app-project>
             </div>
         </div>
     </div>

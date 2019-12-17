@@ -1,9 +1,9 @@
-<div class="text-justify m-2 mt-3 pr-0">
+<div class="text-justify mt-3 pr-0 container">
     <div class="row justify-content-around">
-        <img [src]=[about.pictureURL] class="col p-0 ml-3" style="max-width: 42vh; max-height: 42vh;">
-        <div class="card-body mb-0 pb-0 text-white col pt-0 ml-3 col-md-6 col-xs-10" [style.font-size.px]=15>
+        <img [src]=[about.pictureURL] class="col p-0" style="max-width: 34vh; max-height: 34vh;">
+        <div class="card-body mb-0 pb-0 text-white col pt-0 col-md-7 col-xs-10" [style.font-size.px]=15>
             <div *ngFor="let item of about.synopsis">
-                <p>{{item}}</p>
+                <p  class="pr-2">{{item}}</p>
             </div>
             <app-progressbar *ngFor="let item of about.competences" [color]=item.color [percentage]=item.amount
                 [text]=item.name></app-progressbar>

@@ -1,14 +1,19 @@
-<div class="col m-2 text-center text-white">
-    <div class="text-center">
-        <h1>{{project.title}}</h1>
-        <p class="container text-justify">{{project.summary}}</p>
-    </div>
-    <div class="container">
-        <img [src]=[project.alternatePreview]>
-    </div>
-    <div class="col text-center">
-        <p class="text-justify container">
-            {{project.body[0]}}
-        </p>
+<div>
+    <app-back-button></app-back-button>
+    <div class="col text-center text-white">
+        <div class="text-center">
+            <h1 class="m-0">{{project.title}}</h1>
+            <div class="container">
+                <img [src]=[project.alternatePreview]>
+            </div>
+            <div class="container">
+                <p class="text-justify">{{project.summary}}</p>
+                <div class="text-center">
+                    <p class="text-justify">
+                        {{project.body[0]}}
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

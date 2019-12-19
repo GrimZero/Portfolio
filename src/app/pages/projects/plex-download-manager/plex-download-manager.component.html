@@ -1,21 +1,23 @@
-<button [routerLink]="['']" class="float-left ml-2">Back to home</button>
-<div class="col m-2 text-center text-white">
-    <div class="col text-center">
-        <h1>{{project.title}}</h1>
-        <p>{{project.header}}</p>
-        <p class="container text-justify">{{project.summary}}</p>
-    </div>
-    <div>
-        <img [src]=[project.alternatePreview]>
-    </div>
-    <div class="row justify-content-around mb-3">
-        <div *ngFor="let item of project.softwareUsed" class="mt-3">
-            <button class="col badge-pill noclick">{{item}}</button>
+<div>
+    <app-back-button></app-back-button>
+    <div class="col m-2 text-center text-white">
+        <div class="col text-center">
+            <h1>{{project.title}}</h1>
+            <p>{{project.header}}</p>
+            <p class="container text-justify">{{project.summary}}</p>
         </div>
-    </div>
-    <div class="col text-center">
-        <p class="text-justify container">
-            {{project.body[0]}}
-        </p>
+        <div>
+            <img [src]=[project.alternatePreview]>
+        </div>
+        <div class="row justify-content-around mb-3">
+            <div *ngFor="let item of project.softwareUsed" class="mt-3">
+                <button class="col badge-pill noclick">{{item}}</button>
+            </div>
+        </div>
+        <div class="col text-center">
+            <p class="text-justify container">
+                {{project.body[0]}}
+            </p>
+        </div>
     </div>
 </div>

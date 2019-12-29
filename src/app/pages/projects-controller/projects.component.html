@@ -1,6 +1,7 @@
 <div>
-    <div class="col mt-4 text-center">
-        <div class="card-group justify-content-center m-0 mt-2">
+    <div class="col text-center py-2">
+        <h2 class="text-white text-center">Projects</h2>
+        <div class="card-group justify-content-around m-0 mt-2">
             <div class="m-1" *ngFor="let project of filtered | async">
                 <app-project [project]="project"></app-project>
             </div>

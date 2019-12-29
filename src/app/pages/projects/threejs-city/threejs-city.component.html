@@ -1,10 +1,12 @@
-<button [routerLink]="['']" class="float-left ml-2">Back to home</button>
-<div class="col m-2 text-center text-white">
-    <div class="col text-center render">
-        <h1>{{project.title}}</h1>
-        <p class="container text-justify">{{project.summary}}</p>
+<div>
+    <app-back-button class="render"></app-back-button>
+    <div class="col m-2 text-center render text-white">
+        <div class="col text-center">
+            <h1>{{project.title}}</h1>
+            <p class="container text-justify">{{project.summary}}</p>
+        </div>
     </div>
-    <div class="row" id=dimensions>
+    <div id=dimensions>
         <app-threejs-wrapper></app-threejs-wrapper>        
     </div>
 </div>

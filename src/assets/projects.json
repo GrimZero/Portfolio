@@ -50,6 +50,10 @@
             "preview": "assets/Projects/MetaHider/thumbnail.jpg",
             "route": "unity-metadata-hider",
             "thumbnailSize": 250,
+            "softwareUsed": [
+                "Unity",
+                "Console"
+            ],
             "summary": "While I was adding files and setting up a Unity project, I noticed the metadata files being created. I realised I don't really need to see these all the time as they clutter up the view of my windows explorer. So I wrote a little script that hides the files with a .meta extension in the explorer. Of course they are still there and can be viewed by enabling the view for hidden items.",
             "body":[
                 "The premise of the code is rather simple, all it does is read its executables location and cheks that directory (and all sub-directories) for files that would have this extension. When one of those files is found, I access the bitflag responsible for hiding the file and set it. No more screen clutter! This script can be used either by running it directly, or referencing the C# file and using it directly in the editor. This makes it possible to use it directly on file creation using the AssetPreProcessor provided by Unity."

@@ -55,7 +55,7 @@ export class ThreejsComponent implements AfterViewInit {
     this.occupiedHeight = 0;
     (Array.prototype.slice.call(document.getElementsByClassName('render')) as HTMLElement[]).forEach(element => {
       this.occupiedHeight += element.clientHeight;
-      this.occupiedHeight = 130;
+      this.occupiedHeight = 180;
     });
 
     console.log(window.innerHeight);

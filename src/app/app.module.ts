@@ -30,6 +30,7 @@ import { ThreejsCityComponent } from './pages/projects/threejs-city/threejs-city
 import { UnityMetadataHiderComponent } from './pages/projects/unity-metadata-hider/unity-metadata-hider.component';
 import { PlexDownloadManagerComponent } from './pages/projects/plex-download-manager/plex-download-manager.component';
 import { BackButtonComponent } from './page-components/back-button/back-button.component';
+import { NavbarComponent } from './page-components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { BackButtonComponent } from './page-components/back-button/back-button.c
     UnityMetadataHiderComponent,
     PlexDownloadManagerComponent,
     BackButtonComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

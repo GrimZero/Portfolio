@@ -43,6 +43,7 @@
         { "link": "https://github.com/GrimZero", "img": "assets/svg/contact/github.svg" },
         { "link": "https://www.facebook.com/torben.vanassche.3", "img": "assets/svg/contact/facebook.svg" },
         { "link": "https://www.linkedin.com/in/torben-van-assche-931982153/", "img": "assets/svg/contact/linkedin.svg" },
-        { "link": "https://discordapp.com/channels/@me/Protagonist-kun#5509/", "img": "assets/svg/contact/discord.svg" }
+        { "link": "https://discordapp.com/channels/@me/Protagonist-kun#5509/", "img": "assets/svg/contact/discord.svg" },
+        { "link": "mailto:torbenvanassche.dev@gmail.com", "img": "assets/svg/contact/envelope.svg" }
       ]
 }

@@ -1,26 +1,33 @@
-<div class="text-justify mt-4 p-1 container">
-    <h1 class="text-center text-white">About me</h1>
-    <div class="row justify-content-around">
-        <div class="col-md-5 col-xs-10 col-lg-3 p-0">
-            <img [src]=[about.pictureURL] style="width: 100%;">
-        </div>
-        <div class="card-body mb-0 pb-0 text-white col pt-2 col-md-7 col-xs-10" [style.font-size.px]=15>
-            <div *ngFor="let item of about.synopsis">
-                <p>{{item}}</p>
+<div class="row justify-content-center" style="background-color: rgba(0, 0, 0, 0.25);">
+    <div class="mt-4 p-1 mx-1 col-9">
+        <div class="row">
+            <div class="col-md-5 col-xs-10 col-lg-3 p-0">
+                <img [src]=[about.pictureURL] class="col ml-5 mt-2" style="max-width: 80%;">
+            </div>
+            <div class="col">
+                <h1 class="text-center text-white">About me</h1>
+                <div class="row justify-content-center">
+                    <div class="card-body mb-0 pb-0 text-white col pt-2 col-md-11" [style.font-size.px]=15>
+                        <div *ngFor="let item of about.synopsis">
+                            <p>{{item}}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-6 p-0">
-        <app-progressbar *ngFor="let item of about.competences" [color]=item.color [percentage]=item.amount
-            [text]=item.name></app-progressbar>
-    </div>
-    <div class="col p-0">
-        <div class="row justify-content-around card-footer mx-0 px-0 clearBorder">
-            <div class="mx-0 px-0 pt-0 clearBorder" *ngFor="let item of about.contact">
-                <div class="img-parent">
-                    <a [href]=[item.link] target="_blank">
-                        <img class="noselect" draggable="false" [src]=[item.img] [style.transform]="'scale('+0.6+')'">
-                    </a>
+        <div class="col-12 p-0 mt-2">
+            <app-progressbar *ngFor="let item of about.competences" [color]=item.color [percentage]=item.amount
+                [text]=item.name></app-progressbar>
+        </div>
+        <div class="col p-0">
+            <div class="row justify-content-around card-footer mx-0 px-0 clearBorder">
+                <div class="mx-0 px-0 pt-0 clearBorder" *ngFor="let item of about.contact">
+                    <div class="img-parent">
+                        <a [href]=[item.link] target="_blank">
+                            <img class="noselect" draggable="false" [src]=[item.img]
+                                [style.transform]="'scale('+0.6+')'">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

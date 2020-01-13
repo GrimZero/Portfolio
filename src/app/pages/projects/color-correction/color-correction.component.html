@@ -1,17 +1,20 @@
 <div>
-    <app-back-button></app-back-button>
     <div class="col text-center text-white">
         <div class="text-center">
             <h1 class="m-0">{{project.title}}</h1>
-            <div class="container">
-                <img [src]=[project.alternatePreview]>
-            </div>
-            <div class="container">
-                <p class="text-justify">{{project.summary}}</p>
-                <div class="text-center">
+            <div class="col text-center">
+                <div class="col text-center">
+                    <img style="display: block; margin: auto; width: 45%;" [src]=[project.alternatePreview]>
+                </div>
+                <div class="col-11" style="margin: auto;">
                     <p class="text-justify">
                         {{project.body[0]}}
                     </p>
+                    <p class="text-justify">
+                        {{project.body[1]}}
+                    </p>
+
+                    <img style="display: block; margin: auto; width: 60%;" src="assets/Projects/ColorCorrection/maps.png">
                 </div>
             </div>
         </div>

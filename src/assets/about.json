@@ -9,23 +9,28 @@
     ],
     "competences": [
         {
+            "name": "Unity",
+            "amount": 90,
+            "color": "#111111"
+        },
+        {
             "name": "C++",
-            "amount": 40,
+            "amount": 30,
             "color": "#111111"
         },
         {
             "name": "C#",
-            "amount": 75,
+            "amount": 65,
             "color": "#111111"
         },
         {
-            "name": "HTML",
-            "amount": 60,
+            "name": "Web",
+            "amount": 50,
             "color": "#111111"
         },
         {
-            "name": "Unity",
-            "amount": 80,
+            "name": "Angular",
+            "amount": 40,
             "color": "#111111"
         },
         {
@@ -37,13 +42,33 @@
             "name": "Rigging",
             "amount": 65,
             "color": "#111111"
+        },
+        {
+            "name": "Python",
+            "amount": 25,
+            "color": "#111111"
         }
     ],
     "contact": [
-        { "link": "https://github.com/GrimZero", "img": "assets/svg/contact/github.svg" },
-        { "link": "https://www.facebook.com/torben.vanassche.3", "img": "assets/svg/contact/facebook.svg" },
-        { "link": "https://www.linkedin.com/in/torben-van-assche-931982153/", "img": "assets/svg/contact/linkedin.svg" },
-        { "link": "https://discordapp.com/channels/@me/Protagonist-kun#5509/", "img": "assets/svg/contact/discord.svg" },
-        { "link": "mailto:torbenvanassche.dev@gmail.com", "img": "assets/svg/contact/envelope.svg" }
-      ]
+        {
+            "link": "https://github.com/GrimZero",
+            "img": "assets/svg/contact/github.svg"
+        },
+        {
+            "link": "https://www.facebook.com/torben.vanassche.3",
+            "img": "assets/svg/contact/facebook.svg"
+        },
+        {
+            "link": "https://www.linkedin.com/in/torben-van-assche-931982153/",
+            "img": "assets/svg/contact/linkedin.svg"
+        },
+        {
+            "link": "https://discordapp.com/channels/@me/Protagonist-kun#5509/",
+            "img": "assets/svg/contact/discord.svg"
+        },
+        {
+            "link": "mailto:torbenvanassche.dev@gmail.com",
+            "img": "assets/svg/contact/envelope.svg"
+        }
+    ]
 }

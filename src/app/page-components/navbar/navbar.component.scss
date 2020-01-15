@@ -1,0 +1,10 @@
+.resize {
+  font-size: 30px;
+}
+
+@media screen and (max-width: 340px) {
+  .resize {
+    font-size: 8vw;
+    padding-top: 1.5vw;
+  }
+}

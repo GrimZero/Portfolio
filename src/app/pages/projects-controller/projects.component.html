@@ -1,10 +1,6 @@
-<div>
-    <div class="col text-center py-2">
-        <h2 class="text-white text-center">Projects</h2>
-        <div class="card-group justify-content-around m-0 mt-2">
-            <div class="m-1" *ngFor="let project of filtered | async">
-                <app-project [project]="project"></app-project>
-            </div>
-        </div>
+<div class="col row" style="margin-left: 4px;">
+    <div class="d-flex row">
+        <app-project *ngFor="let project of filtered | async" [project]="project"
+         class="col-xs-6 text-center"></app-project>
     </div>
 </div>

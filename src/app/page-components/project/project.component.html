@@ -1,11 +1,5 @@
-<div [routerLink]="project.route" routerLinkActive="active" class="card p-0"
+<div [routerLink]="project.route" routerLinkActive="active" class="p-0"
     style="background-color: rgba(0, 0, 0, 0.1); margin: auto;">
-    <h4 class="card-title text-white" style="font-size: 100%;">{{project.title}}</h4>
-    <img class="card-img" [src]="project.preview"
+    <img [src]="project.preview"
         [ngStyle]="{'max-width.px': project.thumbnailSize, 'max-height.px': project.thumbnailSize}">
-    <div class="card-footer row justify-content-around m-0" style="height: 50px;">
-        <div class="col p-0 m-0" *ngFor="let item of project.softwareUsed">
-            <img style="width: 23px;" [src]="'assets/svg/software/' + item + '.svg'">
-        </div>
-    </div>
 </div>

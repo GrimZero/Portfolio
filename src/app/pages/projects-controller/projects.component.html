@@ -1,6 +1,6 @@
-<div class="col row" style="margin-left: 4px;">
-    <div class="d-flex row">
-        <app-project *ngFor="let project of filtered | async" [project]="project"
-         class="col-xs-6 text-center"></app-project>
+<div class="container" style="margin-left: 15px;">
+    <div class="row">
+        <app-project *ngFor="let project of filtered | async" 
+        [project]="project"></app-project>
     </div>
 </div>

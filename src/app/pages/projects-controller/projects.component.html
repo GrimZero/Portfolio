@@ -1,6 +1,4 @@
-<div style="margin-left: 15px;">
-    <div class="row">
-        <app-project *ngFor="let project of filtered | async" 
-        [project]="project" class="p-0"></app-project>
-    </div>
+<div class="row mx-3">
+    <app-project *ngFor="let project of filtered | async" 
+    [project]="project" class="p-0"></app-project>
 </div>

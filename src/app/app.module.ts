@@ -18,19 +18,15 @@ import { SearchService } from './services/search.service';
 import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
 import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 import { SkillsComponent } from './page-components/skills/skills.component';
-import { DeputyDonutComponent } from './pages/projects/deputy-donut/deputy-donut.component';
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
 import { DataService } from './services/data.service';
 import { ProjectBaseComponent } from './pages/projects/A-project-base/project-base.component';
-import { ColorCorrectionComponent } from './pages/projects/color-correction/color-correction.component';
-import { ThreejsCityComponent } from './pages/projects/threejs-city/threejs-city.component';
-import { UnityMetadataHiderComponent } from './pages/projects/unity-metadata-hider/unity-metadata-hider.component';
-import { PlexDownloadManagerComponent } from './pages/projects/plex-download-manager/plex-download-manager.component';
 import { BackButtonComponent } from './page-components/back-button/back-button.component';
 import { NavbarComponent } from './page-components/navbar/navbar.component';
+import { DiscordComponent } from './page-components/discord/discord.component';
 
 @NgModule({
   declarations: [
@@ -46,16 +42,12 @@ import { NavbarComponent } from './page-components/navbar/navbar.component';
     TypewriteComponent,
     TooltipComponent,
     SkillsComponent,
-    DeputyDonutComponent,
     ThreejsComponent,
     ThreejsWrapperComponent,
     ProjectBaseComponent,
-    ColorCorrectionComponent,
-    ThreejsCityComponent,
-    UnityMetadataHiderComponent,
-    PlexDownloadManagerComponent,
     BackButtonComponent,
     NavbarComponent,
+    DiscordComponent,
   ],
   imports: [
     BrowserModule,

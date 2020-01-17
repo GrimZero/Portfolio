@@ -3,7 +3,10 @@
         {
             "title": "Color correction",
             "preview": "assets/Projects/ColorCorrection/TextureEditor.jpg",
-            "alternatePreview": "assets/Projects/ColorCorrection/preview.png",
+            "alternatePreviews": [
+                "assets/Projects/ColorCorrection/preview.png",
+                "assets/Projects/ColorCorrection/maps.png"
+            ],
             "route": "ColorCorrection",
             "softwareUsed": [
                 "WPF",
@@ -16,7 +19,9 @@
         {
             "title": "Deputy Donut",
             "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
-            "alternatePreview": "assets/Projects/DeputyDonut/preview.jpg",
+            "alternatePreviews": [
+                "assets/Projects/DeputyDonut/preview.jpg"
+            ],
             "route": "DeputyDonut",
             "softwareUsed": [
                 "Unity",

@@ -3,31 +3,34 @@
         {
             "title": "Color correction",
             "preview": "assets/Projects/ColorCorrection/TextureEditor.jpg",
-            "alternatePreview": "assets/Projects/ColorCorrection/preview.png",
+            "alternatePreviews": [
+                "assets/Projects/ColorCorrection/preview.png",
+                "assets/Projects/ColorCorrection/maps.png"
+            ],
             "route": "ColorCorrection",
             "softwareUsed": [
                 "WPF",
                 "openCV"
             ],
-            "body": [
-                "Using a Visio scanner to scan data from the real world into textures gives us a color value that is Pantone relevant, and can be converted to RGB. However when we use this scanner the albedo texture that we get is in color. This tool allows the editing of image maps with EmguCV. Leveraging this shader library, we can efficiently change the color of textures to a more grayscale version, so changing the color becomes a lot easier. It allows for an automated adjustment based on the color, or manual parameter editing of the standard parameters that you would expect from image manipulation.",
-                "For this project I tried a few different approaches. Of which the first was to do it by iterating over the data of the files, resulting in a massive load on the CPU. At this point I started looking for an alternative. I found a library that was written in C++ for image processing, looking into it further that library had been wrapped into a NuGet package so it could be applied to C# projects rather easily. This had a very significant impact on the performance of the application. The code was written in a static library for ease of use and modularity, allowing any C# project to use it. Below is an example of what the outputted files might look like. Using the C# integrated System.IO it is easily possible to make a copy of a file and save it to a new location (in this case a server)."
-            ]
+            "purpose": "This tool was created to help process a tangible fabric and making a PBR material out of it. The VIZIO scanner outputs the files required for the pipeline, but does not do any processing. The main purpose of this tool was to take the output from the scanner and adjust the texture color, so that the fabric can be digitally colored without the need to scan a different color fabric.",
+            "objective": "This was created to help our team create materials more smoothly. It eliminates the need for an artist to make sure the texture is correctly adjusted, which is both a monotonous task and one that is relatively easy to automate. It also allows exporting of the textures to unity, where they were stored in a database and could be used in the webstore.",
+            "implementation": "This project was created using WPF, which I had never used before. However, I picked it up rather quickly. I tried a few different approaches to load and edit the textures, quickly learning that doing this type of operations on the GPU seemed like a good idea. To be able to do this I had to look for a library that could use a shader as opposed to the CPU to process images. I found EmguCV, which is a .NET wrapper for the C++ equivalent. The conversion process was automated using the algorithms Photoshop is using, and ran in the background while someone was scanning one of the fabrics."
         },
         {
             "title": "Deputy Donut",
             "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
-            "alternatePreview": "assets/Projects/DeputyDonut/preview.jpg",
+            "alternatePreviews": [
+                "assets/Projects/DeputyDonut/preview.jpg"
+            ],
             "route": "DeputyDonut",
             "softwareUsed": [
                 "Unity",
                 "3DsMax",
                 "Photoshop"
             ],
-            "body": [
-                "While making this game, I had to work together with colleague-students at DAE to achieve a game project in a semester. We had to first come up with a concept together and make the game in Unity from scratch. Useful to see that our group consisted of people with different skillsets. This project was a first experience into working in a small team of developers on a game. I really enjoyed working with others, after all you learn faster doing actual projects than you can by just taking classes.",
-                "I worked on the rigging and animation of the models, as well as on the code for particle effects & audio within the Unity event system and animation controller."
-            ]
+            "purpose": "Learning how to work together with others is an important skill to have. So working on projects with a group is a must-do. For this project we worked in a team of 5 people (1 artist and 4 programmers) to make a couch co-op game. This game was meant to be made during a single semester, and to be presented at the end.",
+            "objective": "The game is about a police officer who wanted to go get a daily donut from a donut truck. However, he was unable to get a donut on this day and chases the truck around desperately to get his share. The game requires 2 players and they need to disable their opponent. There are various weapons scattered around the map and they can be used to attack the other player. From ramming into the other player to firing rockets and even a flamethrower, the weapons could be used by both players to gain the upper hand. Hopefully for the cop he can obtain his donuts today as well.",
+            "implementation": "For this project I worked mostly as a technical artist. With a team of 4 programmers, we all need to pull a little work away from him. As a technical artist I was responsible for a vast array of particles, along with creating models and making rigs and animations. I also had a hand in the code of the project, but as this was not required to make the project run smoothly it mostly came down to my other team members to bring this to a good end."
         },
         {
             "title": "Level design",
@@ -47,10 +50,9 @@
                 "Unity",
                 "Console"
             ],
-            "summary": "While I was adding files and setting up a Unity project, I noticed the metadata files being created. I realised I don't really need to see these all the time as they clutter up the view of my windows explorer. So I wrote a little script that hides the files with a .meta extension in the explorer. Of course they are still there and can be viewed by enabling the view for hidden items.",
-            "body": [
-                "The premise of the code is rather simple, all it does is read its executables location and cheks that directory (and all sub-directories) for files that would have this extension. When one of those files is found, I access the bitflag responsible for hiding the file and set it. No more screen clutter! This script can be used either by running it directly, or referencing the C# file and using it directly in the editor. This makes it possible to use it directly on file creation using the AssetPreProcessor provided by Unity."
-            ]
+            "purpose": "Unity creates a metadata file for every file and directory in the project, this can quickly get cluttered and make it hard to find the correct object in the windows explorer. Therefore I wrote a tool that takes these meta files and hides / unhides them.",
+            "objective": "Make a small console application that takes care of hiding the meta files generated by unity to create some order in the folde explorer. This should also be aware of changes in the filesystem and apply this script where necessary, as well as log its operations and be able to undo in case something would go wrong.",
+            "implementation": "The way it works is by changing one of the attributes responsible for making the component visible. Windows than knows that file is meant to be hidden and does not show it in the file browser. It's just a small tool, but it doesn't always need to be complex to make for an interesting project."
         },
         {
             "title": "Plex download manager",
@@ -59,11 +61,9 @@
             "softwareUsed": [
                 "WPF"
             ],
-            "summary": "Someone I know was importing all his data into his Plex library, but doing this manually would require way too much work. This utility allows to quickly transfer data in the Windows filesystem. Included in the project is a way to start a queue of move operations to make sure all goes smooth. The project also uses the FileSystemWatcher to check for file changes and moves a directory / file when it is created.",
-            "body": [
-                "The project consist of 2 parts, the first is responsible for moving the files. This is also the biggest part of the project as it required access to the Kernel32.DLL to make the move operation faster. Additionally I made it so that I can get the progress from the move operation. It does seem like this Kernel32 mvoe operation is significantly faster than simply calling the move operation from the filesystem, which makes sense, since it is run closer to the source of the filesystem.",
-                "Secondly, there is also the FileSystemWatcher portion of the project, this part is responsible for checking updates in the filesystem. So when a new file is found in the watched folders, it will be moved to the appropriate directory, if no directory for it exists, the user is prompted to create a new folder. Plex itself is capable of associating different files that belong together, but I added a way to check the IMDB and AniList API on the codebehind, so that I can gather metadata when looking for an appropriate folder to move the file to."
-            ]
+            "purpose": "Managing data on a server can be tricky. There are a large variety of tools available that can do a lot of things. but for Plex specifically we did not have what we were looking for. This utility checks for downloaded files that are going to be added to the server. This eliminated the manual interaction required to move downloaded files to their respective directories.",
+            "objective": "I created this to eliminate the need to move files manually. When a file is downloaded, it is checked to see if it is a film, serie... From there it is given a location on the server and Plex is notified via its API that a file has changed and the database needs to be updated.",
+            "implementation": "Implemented with a minor interface in WPF, most of the process happens automatically and is mainly used for logging. Using several API's to check what a file is and where it is supposed to go, I can figure  out what goes where and make sure everything is in the right place. "
         }
     ]
 }

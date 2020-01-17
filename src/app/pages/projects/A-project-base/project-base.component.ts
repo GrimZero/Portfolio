@@ -11,7 +11,7 @@ import { combineLatest, Subscription } from 'rxjs';
   styleUrls: ['./project-base.component.scss']
 })
 export class ProjectBaseComponent implements OnInit, OnDestroy {
-  project: IProject = {body: []};
+  project: IProject = { alternatePreviews: ['']};
   subscription: Subscription;
 
   constructor(private route: ActivatedRoute, private dataReader: DataService) { }

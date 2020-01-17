@@ -42,6 +42,7 @@
     "@nguniversal/module-map-ngfactory-loader": "^8.2.6",
     "@sendgrid/mail": "^6.4.0",
     "bootstrap": "^4.4.1",
+    "discord.js": "^11.5.1",
     "firebase": ">= 5.5.7 <7",
     "hex-to-css-filter": "^1.0.3",
     "jquery": "^3.4.1",

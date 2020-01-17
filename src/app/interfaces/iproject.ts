@@ -2,7 +2,7 @@ export interface IProject {
     title?: string;
     preview?: string;
     route?: string;
-    alternatePreview?: string;
+    alternatePreviews?: string[];
     softwareUsed?: string[];
     thumbnailSize?: number;
 

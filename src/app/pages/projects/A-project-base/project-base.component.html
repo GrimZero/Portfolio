@@ -1,10 +1,12 @@
 <div class="col text-white">
     <h1 class="m-0 text-center">{{project.title}}</h1>
-    <div class="row">
-        <div class="col-lg-8 mt-4 ml-2"><img [src]=[project.alternatePreviews[0]]/></div>
+    <div class="row mt-2">
+        <div class="col ml-2" style="max-height: 200px;">
+            <img style="max-height:200px;" [src]=[project.alternatePreviews[0]] />
+        </div>
         <div class="col text-justify mr-4 ml-3">{{project.purpose}}</div>
     </div>
-    <div class="col text-justify pr-4 mt-1">{{project.implementation}}</div>
-    <div class="col text-justify pr-4 mt-1">{{project.objective}}</div>
-    <div class="mt-2 col-7 img-center"><img [src]=[project.alternatePreviews[1]]/></div>
+    <div class="col text-justify pr-4 mt-3">{{project.implementation}}</div>
+    <div class="col text-justify pr-4 mt-3">{{project.objective}}</div>
+    <div class="mt-2 col-7 img-center"><img [src]=[project.alternatePreviews[1]] /></div>
 </div>

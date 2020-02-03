@@ -1,6 +1,24 @@
-<div class="row">
-    <app-about class="col-md-6 col-sm-12 col-lg-4"></app-about>
-    <div class="col row p-0 h-100">
-        <router-outlet></router-outlet>
+<div class="col m-0 p-0">
+    <div class="row" *ngIf="about">
+        <div class="col m-0 p-0 ml-3" style="max-width: 25vh;">
+            <img class="col m-0 p-0" [src]=[about.pictureURL]>
+        </div>
+        <div class="col p-0">
+            <div id="dimensions" style="height: 25vh;">
+                <app-threejs-wrapper></app-threejs-wrapper>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <app-navbar></app-navbar>
+        <div class="row">
+            <div class="col-4 m-0 p-0">
+                <app-projects></app-projects>
+            </div>
+            <div class="col">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
     </div>
 </div>

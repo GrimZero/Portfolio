@@ -12,7 +12,13 @@ export class DataService {
   }
 
   getAbout(): Observable<AboutData> {
-      return this.http.get('assets/about.json') as Observable<AboutData>;
+      var data = this.http.get('assets/about.json') as Observable<AboutData>;
+      data.subscribe(data => {
+        const dif = Math.abs(Date.now() - new Date(data.birthDate).getTime());
+        data.age = Math.floor((dif / (1000 * 3600 * 24)) / 365.25);
+      })
+
+      return data;
   }
 
   getProjects(): Observable<ProjectsData> {

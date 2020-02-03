@@ -9,7 +9,6 @@ import { RouterModule, Router } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProjectsComponent } from './pages/projects-controller/projects.component';
-import { AboutComponent } from './page-components/about/about.component';
 import { ProjectComponent } from './page-components/project/project.component';
 import { ProgressbarComponent } from './page-components/progressbar/progressbar.component';
 import { ProgressbarListComponent } from './page-components/progressbar-list/progressbar-list.component';
@@ -26,7 +25,6 @@ import { DataService } from './services/data.service';
 import { ProjectBaseComponent } from './pages/projects/A-project-base/project-base.component';
 import { BackButtonComponent } from './page-components/back-button/back-button.component';
 import { NavbarComponent } from './page-components/navbar/navbar.component';
-import { DiscordComponent } from './page-components/discord/discord.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +32,6 @@ import { DiscordComponent } from './page-components/discord/discord.component';
     HomepageComponent,
     NotFoundComponent,
     ProjectsComponent,
-    AboutComponent,
     ProjectComponent,
     ProgressbarComponent,
     ProgressbarListComponent,
@@ -47,7 +44,6 @@ import { DiscordComponent } from './page-components/discord/discord.component';
     ProjectBaseComponent,
     BackButtonComponent,
     NavbarComponent,
-    DiscordComponent,
   ],
   imports: [
     BrowserModule,

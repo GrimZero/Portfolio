@@ -9,4 +9,5 @@ export interface AboutData {
     competences?: ProgressbarData[];
     contact?: ContactInfo[];
     chibiURL?: string;
+    age?: number;
 }

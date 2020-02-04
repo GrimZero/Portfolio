@@ -1,12 +1,13 @@
 <nav class="navbar navbar-dark bg-dark" style="width: 100%;">
     <div class="navbar-header row">
-        <a class="navbar-brand" [routerLink]="['/']" routerLinkActive="" style="min-width: 50px;">
+        <a class="navbar-brand" [routerLink]="['Home']" routerLinkActive="" style="width: 50px;">
             <img src="assets/svg/Logo.svg" class="ml-3 invert">
         </a>
         <div class="text-white resize">Torben Van Assche</div>
     </div>
     <div>
-        <p class="btn text-white resize m-0" [routerLink]="['/']" [routerLinkActive]="['active']">About</p>
-        <p class="btn text-white resize m-0" [routerLink]="['/']" [routerLinkActive]="['active']">Projects</p>
+        <p class="btn text-white resize m-0" [routerLink]="['About']" [routerLinkActive]="['active']">About</p>
+        <p class="btn text-white resize m-0" [routerLink]="['Projects']" [routerLinkActive]="['active']">Projects</p>
+        <p class="btn text-white resize m-0" [routerLink]="['Home']" [routerLinkActive]="['active']">Home</p>
     </div>
 </nav>

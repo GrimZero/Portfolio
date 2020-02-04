@@ -2,15 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from '../pages/not-found/not-found.component';
+import { ProjectBaseComponent } from '../pages/projects/project-base.component';
+import { AboutComponent } from '../page-components/about/about.component';
+import { HeroComponent } from '../page-components/hero/hero.component';
 import { ProjectsComponent } from '../pages/projects-controller/projects.component';
-import { ProjectBaseComponent } from '../pages/projects/A-project-base/project-base.component';
+
 const routes = [
-  { path: 'DeputyDonut', component: ProjectBaseComponent, data: {id: 'DeputyDonut'} },
-  { path: 'ColorCorrection', component: ProjectBaseComponent, data: {id: 'ColorCorrection'} },
-  { path: 'threejs-city', component: ProjectBaseComponent, data: {id: 'threejs-city'} },
-  { path: 'unity-metadata-hider', component: ProjectBaseComponent, data: {id: 'unity-metadata-hider'} },
-  { path: 'plextool', component: ProjectBaseComponent, data: {id: 'plextool'} },
-  { path: '', component: ProjectsComponent },
+  { path: 'Projects/DeputyDonut', component: ProjectBaseComponent, data: {id: 'DeputyDonut'} },
+  { path: 'Projects/ColorCorrection', component: ProjectBaseComponent, data: {id: 'ColorCorrection'} },
+  { path: 'Projects/unity-metadata-hider', component: ProjectBaseComponent, data: {id: 'unity-metadata-hider'} },
+  { path: 'Projects/plextool', component: ProjectBaseComponent, data: {id: 'plextool'} },
+  { path: 'About', component: AboutComponent },
+  { path: 'Projects', component: ProjectsComponent },
+  { path: 'Home', component: HeroComponent },
+  { path: '', component: HeroComponent },
   { path: '**', component: NotFoundComponent }
 ];
 

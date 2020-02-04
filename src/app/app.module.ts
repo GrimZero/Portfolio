@@ -22,9 +22,11 @@ import { ComponentNavigationService } from './services/component-navigation.serv
 import { HttpClientModule } from '@angular/common/http';
 import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
 import { DataService } from './services/data.service';
-import { ProjectBaseComponent } from './pages/projects/A-project-base/project-base.component';
+import { ProjectBaseComponent } from './pages/projects/project-base.component';
 import { BackButtonComponent } from './page-components/back-button/back-button.component';
 import { NavbarComponent } from './page-components/navbar/navbar.component';
+import { AboutComponent } from './page-components/about/about.component';
+import { HeroComponent } from './page-components/hero/hero.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { NavbarComponent } from './page-components/navbar/navbar.component';
     ProjectBaseComponent,
     BackButtonComponent,
     NavbarComponent,
+    AboutComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,

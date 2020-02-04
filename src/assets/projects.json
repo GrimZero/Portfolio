@@ -33,16 +33,6 @@
             "implementation": "For this project I worked mostly as a technical artist. With a team of 4 programmers, we all need to pull a little work away from him. As a technical artist I was responsible for a vast array of particles, along with creating models and making rigs and animations. I also had a hand in the code of the project, but as this was not required to make the project run smoothly it mostly came down to my other team members to bring this to a good end."
         },
         {
-            "title": "Level design",
-            "preview": "https://via.placeholder.com/250",
-            "route": "threejs-city",
-            "softwareUsed": [
-                "threejs",
-                "3DsMax",
-                "Substance"
-            ]
-        },
-        {
             "title": "Unity Metadata hider",
             "preview": "assets/Projects/MetaHider/thumbnail.jpg",
             "route": "unity-metadata-hider",

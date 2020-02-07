@@ -3,6 +3,9 @@
     "birthDate": "1995-11-21",
     "pictureURL": "assets/sprites/photo-zoomed.jpg",
     "chibiURL": "assets/sprites/chibi.png",
+    "synopsis": [
+        ""
+    ],
     "competences": [
         {
             "name": "Unity",

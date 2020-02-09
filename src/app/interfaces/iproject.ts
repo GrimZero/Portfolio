@@ -5,6 +5,7 @@ export interface IProject {
     alternatePreviews?: string[];
     softwareUsed?: string[];
     thumbnailSize?: number;
+    hero?: string;
 
     purpose?: string;
     objective?: string;

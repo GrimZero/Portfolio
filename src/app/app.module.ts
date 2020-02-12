@@ -23,7 +23,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ThreejsWrapperComponent } from './page-components/threejs-wrapper/threejs-wrapper.component';
 import { DataService } from './services/data.service';
 import { ProjectBaseComponent } from './pages/projects/project-base.component';
-import { BackButtonComponent } from './page-components/back-button/back-button.component';
 import { NavbarComponent } from './page-components/navbar/navbar.component';
 import { AboutComponent } from './page-components/about/about.component';
 import { HeroComponent } from './page-components/hero/hero.component';
@@ -44,7 +43,6 @@ import { HeroComponent } from './page-components/hero/hero.component';
     ThreejsComponent,
     ThreejsWrapperComponent,
     ProjectBaseComponent,
-    BackButtonComponent,
     NavbarComponent,
     AboutComponent,
     HeroComponent,

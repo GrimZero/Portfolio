@@ -4,6 +4,7 @@ import { Composer } from 'src/app/classes/3D/composer';
 import { MaterialLibrary } from 'src/app/classes/3D/material-library';
 import { MeshLoader } from 'src/app/classes/3D/mesh-loader';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
 import { Scene } from 'three';
 import { Renderer } from 'src/app/classes/3D/renderer';
 

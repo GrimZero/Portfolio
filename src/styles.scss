@@ -1,9 +1,19 @@
+@import "src/variables";
+
 .bar-height {
   height: 1px;
 }
 
 .text-size-about {
   font-size: 14px;
+}
+
+.red {
+  color: $red;
+}
+
+.white {
+  color: $white;
 }
 
 .badge {

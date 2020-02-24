@@ -1,0 +1,8 @@
+@import "src/variables";
+
+button {
+    background-color: $red;
+    border: none;
+    color: $white; 
+    outline-style: none;
+}

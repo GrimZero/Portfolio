@@ -1,11 +1,13 @@
-<nav class="navbar navbar-dark bg-dark" style="width: 100%;">
+<nav class="navbar" style="width: 100%;">
     <div class="navbar-header row">
-        <a class="navbar-brand" [routerLink]="['Home']" routerLinkActive="" style="width: 50px;">
-            <img src="assets/svg/Logo.svg" class="ml-3 invert">
-        </a>
-        <div class="text-white resize">Torben Van Assche</div>
+        <div class="container mx-5">
+            <a class="navbar-brand" [routerLink]="['Home']" routerLinkActive="" style="width: 80px;">
+                <img src="assets/svg/Logo.svg" class="ml-3 invert">
+            </a>
+            <div class="text-white resize">Torben Van Assche</div>
+        </div>
     </div>
-    <div>
+    <div class="navbar-toggle collapsed mx-5">
         <p class="btn text-white resize m-0" [routerLink]="['About']" [routerLinkActive]="['active']">About</p>
         <p class="btn text-white resize m-0" [routerLink]="['Projects']" [routerLinkActive]="['active']">Projects</p>
         <p class="btn text-white resize m-0" [routerLink]="['Home']" [routerLinkActive]="['active']">Home</p>

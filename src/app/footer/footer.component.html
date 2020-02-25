@@ -1,7 +1,7 @@
-<nav class="navbar" style="width: 100%; margin-top:12vh;">
-    <div class="navbar-toggle collapsed mx-5">
-        <p class="btn text-white resize m-0 mr-4">LinkedIn</p>
-        <p class="btn text-white resize m-0 mr-4">GitHub</p>
-        <p class="btn text-white resize m-0 mr-4">Facebook</p>
+<nav class="navbar footer">
+    <div class="navbar-toggle collapsed mx-5 row">
+        <button *ngFor="let item of data.contact" class="resize m-0 mr-4" (click)="onNavigate(item.link)">
+            <p>{{item.text}}</p>
+        </button>
     </div>
 </nav>

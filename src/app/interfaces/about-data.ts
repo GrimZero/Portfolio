@@ -3,6 +3,7 @@ import { ContactInfo } from './contact-info';
 
 export interface AboutData {
     name?: string;
+    title?: string;
     birthDate?: string;
     pictureURL?: string;
     synopsis?: string[];

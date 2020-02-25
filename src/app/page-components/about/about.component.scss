@@ -1,0 +1,10 @@
+@import "src/variables";
+
+.overlay {
+  top: 50%;
+  bottom: auto;
+  left:35%;
+  transform: translateY(-50%) translateX(-50%);
+  position: absolute;
+  color: $white;
+}

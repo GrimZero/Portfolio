@@ -1,15 +1,36 @@
-<div class="row justify-content-between">
-    <div class="col-10">
-        <div class="row justify-content-around ml-2">
-            <div class="mb-0 p-0 text-white col pt-2 text-justify pr-2" [style.font-size.px]=18>
-                <div *ngFor="let item of data.synopsis">
-                    <p>{{item}}</p>
+<div class="row">
+    <div class="container col-5" style="margin-top: 10vh; margin-left: 15vw;">
+        <div class="row m-0 p-0 h-100">
+            <div class="col">
+                <div class="row container">
+                    <h3 class="white m-0 float-left">ABOUT</h3>
+                    <h3 class="red ml-2 float-left">ME</h3>
                 </div>
+                <p class="white text-justify">{{data.synopsis}}</p>
+                <button class="py-3 px-5">GET IN TOUCH</button>
             </div>
         </div>
     </div>
-    <div class="col float-right">
-        <img [src]=[data.chibiURL] style="width: 100%;" class="p-3 pt-1">
+    <div class="col ml-5" style="margin-top: 5vh;">
+        <img src="https://via.placeholder.com/300">
     </div>
-    <app-progressbar *ngFor="let item of data.competences" [text]=[item]></app-progressbar>
+</div>
+
+<div class="container text-center mt-5">
+    <div class=" d-inline-block">
+        <div class="row mt-5">
+            <h3 class="white m-0">MY</h3>
+            <h3 class="red ml-2">SKILLS</h3>
+        </div>
+    </div>
+</div>
+<div class="row mt-5 p-0 text-center ml-5">
+    <div *ngFor="let item of data.competences" class="col" style="margin-top: 100px;">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 200px;" class="overlay">
+            <circle cx="100" cy="100" r="75" fill="#193e53" />
+        </svg>
+        <round-progress [current]=1 [max]=1 [color]="'#d30c37'" [stroke]=10 [radius]=100
+        [rounded]=true [background]="'#112d3d'" class="overlay"></round-progress>
+        <p class="overlay white">{{item.name}}</p>
+    </div>
 </div>

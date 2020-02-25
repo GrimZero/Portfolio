@@ -55,25 +55,14 @@ html {
 }
 
 body {
-  background-color: #485461;
-  background-image: linear-gradient(to top, #485461 0%, #28313b 74%);
+  background-color: $blue;
+  background-image: linear-gradient(to top, $blue 0%, $blue 4%);
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   height: 100%;
-}
-
-.card-custom {
-  background-color: #d9e4f5;
-  background-image: linear-gradient(315deg, #d9e4f5 0%, #f5e3e6 74%);
-}
-
-@media screen and (min-width: 900px) {
-  body {
-    height: 90%;
-  }
 }
 
 .grayscale {
@@ -101,5 +90,8 @@ body {
 }
 
 button {
-  outline: 0;
+  background-color: $red;
+  border: none;
+  color: $white; 
+  outline-style: none;
 }

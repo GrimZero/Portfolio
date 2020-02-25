@@ -10,6 +10,8 @@ import { AboutData } from 'src/app/interfaces/about-data';
 export class AboutComponent implements OnInit {
   data: AboutData;
 
+  svgSize = 80;
+
   constructor(private about: DataService) { }
 
   ngOnInit() {

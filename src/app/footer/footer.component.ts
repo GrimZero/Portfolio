@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { AboutData } from '../interfaces/about-data';
 
 @Component({
   selector: 'app-footer',
@@ -6,10 +8,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  data: AboutData;
 
-  constructor() { }
+  constructor(private about: DataService) { }
 
   ngOnInit() {
+    this.about.getAbout().subscribe(observer => this.data = observer);
   }
 
+  onNavigate(path: string) {
+    window.open(path, '_blank');
+  }
 }

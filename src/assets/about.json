@@ -1,41 +1,38 @@
 {
     "name": "TORBEN VAN ASSCHE",
-    "title": "3D DEVELOPER",
+    "title": "GAME DEVELOPER",
     "birthDate": "1995-11-21",
     "pictureURL": "assets/sprites/photo-zoomed.jpg",
     "chibiURL": "assets/sprites/chibi.png",
-    "synopsis": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum, enim sodales egestas fermentum, augue eros dictum lectus, nec finibus mi ligula sit amet erat. Integer in ullamcorper neque. Praesent pulvinar aliquam vehicula. Nam egestas justo ex, in tempor dui elementum a. Suspendisse euismod auctor nulla, et sollicitudin orci hendrerit a. Fusce in augue magna. Sed vestibulum tortor sed lorem tincidunt, id finibus enim finibus.Nunc laoreet interdum dui a sodales. Integer luctus, ante a blandit efficitur, diam lacus consectetur nulla, id mollis arcu sapien ut dui."
+    "hero": "As a developer I pride myself on versatility, I want to create tools and games that people will play. By doing so I want to leave a lasting footprint in the code I helped write and lay the foundations for other ideas to sprout. As a graduate of Digital Arts and Entertainment, I have been taught the work ethic that is required to make a project succeed. And I am always looking for the my next mission to make something amazing happen.",
+    "about": [
+        "Since I graduated, I've been looking for an opportunity to put my skills to the test. I want to make something, a game that people will talk about. When I know the basics of something, I want to delve deeper and figure out more about how it works. Between the various tasks that a game developer needs to be able to do, I have tried my hand at any and all of the different disciplines. Programming, 3D, Rigging, animation and even writing. I have tried to do a little bit of everything so I can grasp other people want when they talk about what they do.",
+        "But thats all about work ethic, There is also a little bit of room for other things. When I am not making a game I spend most of my time playing games or going to the gym. Spare time is also spent with friends, or working on my 3D printer. There are lots of things that I could talk about, but I only have so much space on the screen!"
     ],
     "competences": [
         {
-            "name": "C++",
-            "amount": 30,
-            "color": "#111111"
-        },
-        {
             "name": "C#",
-            "amount": 65,
+            "amount": 70,
             "color": "#111111"
         },
         {
             "name": "UNITY",
-            "amount": 65,
+            "amount": 90,
             "color": "#111111"
         },
         {
-            "name": "ANGULAR",
-            "amount": 40,
-            "color": "#111111"
-        },
-        {
-            "name": "PYTHON",
+            "name": "C++",
             "amount": 50,
             "color": "#111111"
         },
         {
             "name": "3D",
-            "amount": 50,
+            "amount": 65,
+            "color": "#111111"
+        },
+        {
+            "name": "MUSIC",
+            "amount": 40,
             "color": "#111111"
         }
     ],

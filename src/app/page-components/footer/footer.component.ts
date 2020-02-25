@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
-import { AboutData } from '../interfaces/about-data';
+import { DataService } from '../../services/data.service';
+import { AboutData } from '../../interfaces/about-data';
 
 @Component({
   selector: 'app-footer',

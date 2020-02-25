@@ -25,7 +25,7 @@ import { ProjectBaseComponent } from './pages/projects/project-base.component';
 import { NavbarComponent } from './page-components/navbar/navbar.component';
 import { AboutComponent } from './page-components/about/about.component';
 import { HeroComponent } from './page-components/hero/hero.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './page-components/footer/footer.component';
 import {RoundProgressModule} from 'angular-svg-round-progressbar';
 
 

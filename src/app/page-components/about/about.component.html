@@ -1,36 +1,47 @@
-<div class="row">
-    <div class="container col-5" style="margin-top: 10vh; margin-left: 15vw;">
-        <div class="row m-0 p-0 h-100">
-            <div class="col">
-                <div class="row container">
-                    <h3 class="white m-0 float-left">ABOUT</h3>
-                    <h3 class="red ml-2 float-left">ME</h3>
+<div *ngIf="data">
+    <div class="row">
+        <div class="container col" style="margin-top: 10vh; margin-left: 20vw;">
+            <div class="row m-0 p-0">
+                <div class="col">
+                    <div class="row container">
+                        <h3 class="white m-0 float-left TekoSemiBold" style="font-size: 55pt;">ABOUT</h3>
+                        <h3 class="red ml-2 float-left TekoSemiBold" style="font-size: 55pt;">ME</h3>
+                    </div>
+                    <p class="white text-justify HindMedium" style="font-size: 14pt;" *ngFor="let item of data.about">
+                        {{item}}
+                    </p>
+                    <button class="py-3 px-5 TekoMedium" style="font-size: 20pt;">GET IN TOUCH!</button>
                 </div>
-                <p class="white text-justify">{{data.synopsis}}</p>
-                <button class="py-3 px-5">GET IN TOUCH</button>
             </div>
         </div>
-    </div>
-    <div class="col ml-5" style="margin-top: 5vh;">
-        <img src="https://via.placeholder.com/300">
-    </div>
-</div>
-
-<div class="container text-center mt-5">
-    <div class=" d-inline-block">
-        <div class="row mt-5">
-            <h3 class="white m-0">MY</h3>
-            <h3 class="red ml-2">SKILLS</h3>
+        <div class="col-4 ml-5" style="margin-top: 8vh; max-height: 400px;">
+            <img [src]=[data.chibiURL] style="height: 100%;">
         </div>
     </div>
-</div>
-<div class="row mt-5 p-0 text-center ml-5">
-    <div *ngFor="let item of data.competences" class="col" style="margin-top: 100px;">
-        <svg xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 200px;" class="overlay">
-            <circle cx="100" cy="100" r="75" fill="#193e53" />
-        </svg>
-        <round-progress [current]=1 [max]=1 [color]="'#d30c37'" [stroke]=10 [radius]=100
-        [rounded]=true [background]="'#112d3d'" class="overlay"></round-progress>
-        <p class="overlay white">{{item.name}}</p>
+    
+    <div class="row">
+        <div class="col">
+            <div class="container text-center mt-5">
+                <div class=" d-inline-block">
+                    <div class="row TekoSemiBold">
+                        <h3 class="white m-0" style="font-size: 55pt;">MY</h3>
+                        <h3 class="red ml-2" style="font-size: 55pt;">SKILLS</h3>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="col">
+                <div class="row mt-5 p-0 text-center">
+                    <div *ngFor="let item of data.competences" class="col ml-5" style="margin-top: 100px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 200px;" class="overlay">
+                            <circle cx="100" cy="100" r="75" fill="#193e53" />
+                        </svg>
+                        <round-progress [current]=[item.amount] [max]=100 [color]="'#F31F46'" [stroke]=10 [radius]=100
+                            [rounded]=true [background]="'#112d3d'" class="overlay"></round-progress>
+                        <p class="overlay white HindMedium" style="font-size: 25pt;">{{item.name}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

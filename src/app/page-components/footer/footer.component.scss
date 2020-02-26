@@ -1,20 +1,14 @@
 @import "src/variables";
 
-.footer {
-    position:absolute;
-    bottom:0vh;
-    width:100%;
- }
-
- button {
-   background: none!important;
-   color: $white;
-   border: none;
-   outline-style: none;
-   border: none;
-   padding: 0!important;
-   p:hover {
-      text-decoration: underline;
-      color: $red;
-   }
- }
+button {
+  background: none !important;
+  color: $white;
+  border: none;
+  outline-style: none;
+  border: none;
+  padding: 0 !important;
+  p:hover {
+    text-decoration: underline;
+    color: $red;
+  }
+}

@@ -1,7 +1,7 @@
-<nav class="navbar footer" *ngIf="data">
-    <div class="navbar-toggle collapsed mx-5 row">
+<footer class="footer" *ngIf="data">
+    <div class="mx-5 row">
         <button *ngFor="let item of data.contact" class="resize m-0 mr-4" (click)="onNavigate(item.link)">
             <p class="TekoRegular" style="font-size: 26pt;">{{item.text}}</p>
         </button>
     </div>
-</nav>
+</footer>

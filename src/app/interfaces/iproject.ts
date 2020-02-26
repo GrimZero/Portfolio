@@ -7,7 +7,6 @@ export interface IProject {
     thumbnailSize?: number;
     hero?: string;
 
-    purpose?: string;
-    objective?: string;
+    details?: string;
     implementation?: string;
 }

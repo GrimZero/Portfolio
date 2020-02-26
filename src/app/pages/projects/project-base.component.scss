@@ -1,17 +1,23 @@
 .noclick {
-    pointer-events: none;
+  pointer-events: none;
 }
 
 img {
-    display: block; 
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
-.img-center {
-    left: 50%;
-    transform: translate(-50%);
+footer {
+  position: absolute;
+  bottom: 0;
 }
 
-.font-large{
-    font-size: x-large;
+button {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  outline: none !important;
 }

@@ -11,8 +11,11 @@ import { combineLatest, Subscription } from 'rxjs';
   styleUrls: ['./project-base.component.scss']
 })
 export class ProjectBaseComponent implements OnInit, OnDestroy {
-  project: IProject = { alternatePreviews: ['']};
+  project: IProject = { alternatePreviews: [''], thumbnailSize: 400};
   subscription: Subscription;
+  
+  red: string;
+  white: string;
 
   constructor(private route: ActivatedRoute, private dataReader: DataService) { }
 
@@ -27,6 +30,9 @@ export class ProjectBaseComponent implements OnInit, OnDestroy {
         data.projects.forEach(element => {
           if (element.route === result.id) {
             this.project = element;
+
+            this.white = this.project.title.split(" ")[0];
+            this.red = this.project.title.substring(this.project.title.indexOf(" "));
           }
         });
       })

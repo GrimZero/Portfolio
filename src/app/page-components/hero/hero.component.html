@@ -1,17 +1,17 @@
-<div class="row" *ngIf="data">
-    <div class="container col-5" style="margin-top: 15vh; margin-left: 15vw;">
+<div class="row" *ngIf="data" style="margin-top: 12vh; ">
+    <div class="col-lg-5 col-md-8 col-sm-12" style="margin-left: 15vw;">
         <div class="row m-0 p-0 h-100">
             <div class="col">
-                <h3 class="red m-0 TekoSemiBold" style="font-size: 31pt;">{{data.title}}</h3>
-                <p class="m-0 white TekoSemiBold" style="font-size: 70pt">{{data.name}}</p>
-                <p class="white text-justify HindMedium" style="font-size: 13pt;">{{data.hero}}</p>
+                <h3 class="red m-0 TekoSemiBold" style="font-size: 30pt;">{{data.title}}</h3>
+                <p class="m-0 white TekoSemiBold" style="font-size: 55pt">{{data.name}}</p>
+                <p class="white text-justify HindMedium" style="font-size: 14pt;">{{data.hero}}</p>
                 <div class="row">
                     <button class="py-3 px-5 TekoMedium mx-2" style="font-size: 20pt;" [routerLink]="['/About']">ABOUT ME</button>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col ml-5" style="margin-top: 3vh;">
-        <img src="https://via.placeholder.com/700">
+    <div class="col-lg-5 col-md-12 text-center">
+        <img src="https://via.placeholder.com/700" style="max-width: 100%;">
     </div>
 </div>

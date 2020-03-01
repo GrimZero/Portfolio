@@ -1,3 +1,5 @@
+@import "src/variables";
+
 .noclick {
   pointer-events: none;
 }
@@ -13,11 +15,8 @@ footer {
 }
 
 button {
+  background-color: $red;
   border: none;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer;
-  display: inline-block;
-  outline: none !important;
+  color: $white; 
+  outline-style: none;
 }

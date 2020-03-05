@@ -13,7 +13,19 @@ button {
   }
 }
 
-footer {
-  position: absolute;
-  bottom: 0;
+@media screen and (min-width: 1000px) {
+  footer {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .link-size {
+    font-size: 26pt;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .link-size {
+    font-size: 12pt;
+  }
 }

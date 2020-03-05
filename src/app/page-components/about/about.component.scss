@@ -3,7 +3,7 @@
 .overlay {
   top: 50%;
   bottom: auto;
-  left:35%;
+  left: 35%;
   transform: translateY(-50%) translateX(-50%);
   position: absolute;
   color: $white;
@@ -12,10 +12,17 @@
 button {
   background-color: $red;
   border: none;
-  color: $white; 
+  color: $white;
   outline-style: none;
 }
 
 svg {
   float: left;
+}
+
+@media screen and (min-width: 1190px) {
+  .about-spacing {
+    margin-top: 0vh;
+    margin-left: 20vw;
+  }
 }

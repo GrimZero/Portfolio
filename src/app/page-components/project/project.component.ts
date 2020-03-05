@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener } from '@angular/core';
 import { IProject } from 'src/app/interfaces/iproject';
 
 @Component({
@@ -9,7 +9,17 @@ import { IProject } from 'src/app/interfaces/iproject';
 export class ProjectComponent implements OnInit {
 
   @Input() project: IProject;
-  @Input() size = 250;
+  @Input() size = 200;
+
+  @HostListener('window:resize', ['$event']) onresize(ev?) {
+    if(window.innerWidth <= 450)
+    {
+      this.project.thumbnailSize = window.innerWidth;
+    }
+    else {
+      this.project.thumbnailSize = this.size;
+    }
+  }
 
   constructor() { }
 

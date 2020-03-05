@@ -20,3 +20,25 @@ button {
   color: $white; 
   outline-style: none;
 }
+
+@media screen and (max-width: 450px) {
+  .text-box-parent {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .title-scale {
+    font-size: 30pt;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .hide-if-big {
+    height: 250px; 
+    overflow-y: scroll;
+  }
+
+  .title-scale {
+    font-size: 55pt;
+  }
+}

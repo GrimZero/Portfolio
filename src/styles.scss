@@ -74,10 +74,6 @@
   background: transparent;
 }
 
-html {
-  overflow-x: hidden;
-}
-
 body {
   background-color: $blue;
   background-image: linear-gradient(to top, $blue 0%, $blue 4%);
@@ -112,3 +108,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+body, html {
+  overflow-x: hidden !important;
+}
+

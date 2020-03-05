@@ -1,7 +1,7 @@
 @import "src/variables";
 
 .resize {
-  font-size: 30px;
+  font-size: 30pt;
 }
 
 p {
@@ -16,7 +16,7 @@ p:active {
   color: $red;
 }
 
-.btn:hover:not(.active){
+.btn:hover:not(.active) {
   text-decoration: underline;
   color: $white;
 }
@@ -26,4 +26,10 @@ p:active {
   box-shadow: none;
   text-decoration: underline;
   color: $red;
+}
+
+@media screen and (max-width: 450px) {
+  .nav-elements {
+    font-size: 14pt;
+  }
 }

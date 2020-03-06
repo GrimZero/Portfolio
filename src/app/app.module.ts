@@ -59,11 +59,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     NgCircleProgressModule.forRoot({
       outerStrokeColor: '#F31F46',
       innerStrokeColor: '#193e53',
-      innerStrokeWidth: 75,
+      innerStrokeWidth: 60,
       showSubtitle: false,
       showUnits: false,
       titleColor: '#F31F46',
-      titleFontSize: '45',
+      titleFontSize: '35',
       space: 10
     })
   ],

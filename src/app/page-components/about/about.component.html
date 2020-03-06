@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <div class="col-4 ml-5" style="margin-top: 8vh; max-height: 400px;">
+    <div class="col-12 col-md-4 text-center" style="margin-top: 8vh; max-height: 400px;">
         <img [src]=[data.chibiURL] style="height: 100%;">
     </div>
 </div>
@@ -31,13 +31,13 @@
 
         <div class="container">
             <div class="row p-0">
-                <div *ngFor="let item of data.competences" class="col p-0">
-                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 200px; height: 200px;">
-                        <circle cx="80" cy="100" r="75" fill="#193e53" />
-                    </svg>
-                    <round-progress [current]=[item.amount] [max]=100 [color]="'#F31F46'" [stroke]=10 [radius]=100
-                        [rounded]=true [background]="'#112d3d'" class="overlay"></round-progress>
-                    <p class="overlay white HindMedium" style="font-size: 25pt;">{{item.name}}</p>
+                <div *ngFor="let item of data.competences" class="col p-0 mt-xs-4 mt-md-0 text-center">
+                    <circle-progress class="TekoSemiBold" 
+                        [percent]="item.amount" 
+                        [radius]="75"
+                        [title]=[item.name]>
+                    </circle-progress>
+                    <!-- <div class="overlay white HindMedium" style="font-size: 25pt;">{{item.name}}</div> -->
                 </div>
             </div>
         </div>

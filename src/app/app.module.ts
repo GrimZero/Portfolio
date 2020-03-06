@@ -26,7 +26,7 @@ import { NavbarComponent } from './page-components/navbar/navbar.component';
 import { AboutComponent } from './page-components/about/about.component';
 import { HeroComponent } from './page-components/hero/hero.component';
 import { FooterComponent } from './page-components/footer/footer.component';
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 
 @NgModule({
@@ -56,7 +56,16 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar';
     RoutingModule,
     RouterModule,
     HttpClientModule,
-    RoundProgressModule
+    NgCircleProgressModule.forRoot({
+      outerStrokeColor: '#F31F46',
+      innerStrokeColor: '#193e53',
+      innerStrokeWidth: 75,
+      showSubtitle: false,
+      showUnits: false,
+      titleColor: '#F31F46',
+      titleFontSize: '45',
+      space: 10
+    })
   ],
   providers: [SearchService, ComponentNavigationService, DataService],
   bootstrap: [AppComponent]

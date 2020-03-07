@@ -4,12 +4,6 @@
             "title": "FABRIC SCANNER",
             "preview": "assets/Projects/ColorCorrection/TextureEditor.jpg",
             "hero": "assets/Projects/ColorCorrection/preview.png",
-            "alternatePreviews": [
-                "assets/Projects/ColorCorrection/result.png",
-                "assets/Projects/ColorCorrection/overview.png",
-                "assets/Projects/ColorCorrection/selector.png",
-                "assets/Projects/ColorCorrection/selector2.png"
-            ],
             "route": "ColorCorrection",
             "softwareUsed": [
                 "WPF",
@@ -21,15 +15,7 @@
         {
             "title": "Deputy Donut",
             "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
-            "hero": "assets/Projects/DeputyDonut/preview.jpg",
-            "alternatePreviews": [
-                "assets/Projects/DeputyDonut/policecar.jpg",
-                "assets/Projects/DeputyDonut/police_scale_up.gif" ,
-                "assets/Projects/DeputyDonut/4x3.png",
-                "assets/Projects/DeputyDonut/explosion.gif",
-                "assets/Projects/DeputyDonut/scenery.png",
-                "assets/Projects/DeputyDonut/menuselection.gif"
-            ],
+            "hero": "assets/Projects/DeputyDonut/banner.jpg",
             "route": "DeputyDonut",
             "softwareUsed": [
                 "Unity",

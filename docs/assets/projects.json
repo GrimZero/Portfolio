@@ -28,14 +28,11 @@
         {
             "title": "Unity Metadata hider",
             "preview": "assets/Projects/MetaHider/thumbnail.jpg",
-            "hero": "assets/Projects/MetaHider/preview.jpg",
+            "hero": "",
             "route": "unity-metadata-hider",
             "softwareUsed": [
                 "Unity",
                 "Console"
-            ],
-            "alternatePreviews": [
-
             ],
             "details": "Unity creates a metadata file for every file and directory in the project, this can quickly get cluttered and make it hard to find the correct object in the windows explorer. Therefore I wrote a tool that takes these meta files and hides / unhides them.",
             "implementation": "The way it works is by changing one of the attributes responsible for making the component visible. Windows than knows that file is meant to be hidden and does not show it in the file browser. It's just a small tool, but it doesn't always need to be complex to make for an interesting project."
@@ -49,6 +46,18 @@
             ],
             "details": "Managing data on a server can be tricky. There are a large variety of tools available that can do a lot of things. but for Plex specifically we did not have what we were looking for. This utility checks for downloaded files that are going to be added to the server. This eliminated the manual interaction required to move downloaded files to their respective directories.",
             "implementation": "Implemented with a minor interface in WPF, most of the process happens automatically and is mainly used for logging. Using several API's to check what a file is and where it is supposed to go, I can figure  out what goes where and make sure everything is in the right place. "
+        },
+        {
+            "title": "Portfolio",
+            "preview": "assets/Projects/Website/thumbnail.jpg",
+            "hero": "assets/Projects/Website/preview.jpg",
+            "route": "portfolio",
+            "softwareUsed": [
+                "Angular 9",
+                "Bootstrap"
+            ],
+            "details": "After a long struggle trying to get my portfolio working and getting a nice UI/UX. I managed to make this website in angular. Preliminary research into Vue.js and Angular along with the requirement of working with angular in a professional environment, I found it a rather nice learning experience. This website is hosted on github pages and the source repository is available on my github account if you are interested.",
+            "implementation": "For a project I was making for Renson, I had to learn how to work with angular. I found out that with my lack of knowledge of javascript, that I was struggling to get things right. However, working in typescript and the angular framework was a lot easier as it is a more object oriented approach to javascript. to me there was no better way to learn the framework than to actually make a website with it. Therefore I decided to make my portfolio with it!"
         }
     ]
 }

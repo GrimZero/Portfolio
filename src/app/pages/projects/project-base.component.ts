@@ -32,6 +32,8 @@ export class ProjectBaseComponent implements OnInit, OnDestroy {
 
             this.white = this.project.title.split(' ')[0];
             this.red = this.project.title.substring(this.project.title.indexOf(' '));
+
+            if(this.white === this.red) this.white = null;
           }
         });
       })

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-threejs-wrapper',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./threejs-wrapper.component.scss']
 })
 export class ThreejsWrapperComponent implements OnInit {
+@Input() maxSize;
 
   constructor() { }
 

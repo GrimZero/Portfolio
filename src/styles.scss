@@ -19,7 +19,6 @@
   font-family: Teko Semibold;
 }
 
-
 .Hind {
   font-family: Hind;
 }
@@ -109,10 +108,18 @@ body {
   background: #555;
 }
 
-body, html {
+body,
+html {
   overflow-x: hidden !important;
 }
 
 .no-click {
   pointer-events: none;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
 }

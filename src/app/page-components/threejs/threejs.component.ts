@@ -1,12 +1,10 @@
-import { Component, Input, AfterViewInit } from '@angular/core';
+import { Component, Input, AfterViewInit, HostListener } from '@angular/core';
+import { DataController } from 'src/app/classes/3D/data-controller';
+import { Composer, Renderer } from 'src/app/classes/3D/renderer';
 import * as THREE from 'three';
-import { Composer } from 'src/app/classes/3D/composer';
-import { MaterialLibrary } from 'src/app/classes/3D/material-library';
-import { MeshLoader } from 'src/app/classes/3D/mesh-loader';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { FBXLoader } from 'three/examples/jsm/loaders/FBXLoader';
-import { Scene } from 'three';
-import { Renderer } from 'src/app/classes/3D/renderer';
+import { Camera } from 'src/app/classes/3D/camera';
+import { DirectionalLight } from 'three';
+import { Raycaster } from 'src/app/classes/3D/raycaster';
 
 @Component({
   selector: 'app-threejs',
@@ -15,23 +13,20 @@ import { Renderer } from 'src/app/classes/3D/renderer';
 })
 export class ThreejsComponent implements AfterViewInit {
   size: HTMLElement;
-  @Input() canvas: HTMLCanvasElement;
+  canvas: HTMLCanvasElement;
   occupiedHeight = 0;
-
-  // ThreeJS properties
-  camera: THREE.PerspectiveCamera;
-  materials: MaterialLibrary;
-  renderer: Renderer;
+  camera: Camera;
   composer: Composer;
-  scene: Scene;
-  orbit: OrbitControls;
-  meshLoader: MeshLoader;
   mouse: THREE.Vector2;
+  raycaster: Raycaster;
 
-  raycaster: THREE.Raycaster = new THREE.Raycaster();
+  @Input() maxSize;
 
-  constructor() {
+  @HostListener('window:resize', ['$event']) onResize() {
+    this.updateCanvas();
   }
+
+  constructor() { }
 
   ngAfterViewInit(): void {
     this.size = document.getElementById('dimensions') as HTMLElement;
@@ -39,29 +34,45 @@ export class ThreejsComponent implements AfterViewInit {
 
     // Camera
     const aspect = this.size.offsetWidth / this.size.offsetHeight;
-    this.camera = new THREE.PerspectiveCamera(45, aspect, 1, 10000);
-
-    // Scene
-    this.scene = new Scene();
+    this.camera = new Camera(aspect);
 
     // Materials
-    this.materials = new MaterialLibrary();
+    DataController.setMaterial('cube', new THREE.MeshStandardMaterial({ color: '#F31F46' }));
 
     // Renderer
-    this.renderer = new Renderer(this.canvas, '#FF00FF');
-    this.composer = new Composer(this.scene, this.camera, this.renderer);
+    this.composer = new Composer(DataController.scene, this.camera, new Renderer(this.canvas));
 
-    window.addEventListener('resize', () => this.updateCanvas());
+    // Raycaster
+    this.raycaster = new Raycaster(this.camera, this.composer.renderer);
+
+    // add stuff to scene
+    var mesh = new THREE.Mesh(new THREE.BoxGeometry(), DataController.getMaterial('cube'));
+    DataController.scene.add(mesh);
+
+    var light = new DirectionalLight(0xFFFFFF, 0.4);
+    light.position.set(0, 1, 1);
+    DataController.scene.add(light);
+
+    this.camera.addOrbitControls(this.composer.renderer.domElement, false, false);
+    this.camera.orbitControls.object.position.set(2, 2, 2);
+    this.camera.orbitControls.target = new THREE.Vector3(0, 0, 0);
+
+    DataController.scene.add(new THREE.AmbientLight(0xFFFFFF, 1));
+
     this.updateCanvas();
     this.update();
   }
 
   updateCanvas() {
-    this.composer.updateSize(this.size.offsetWidth, this.size.offsetHeight);
+    this.composer.update(this.size.offsetWidth, this.size.offsetWidth);
+    if (this.size.offsetWidth > this.maxSize) {
+      this.composer.update(this.maxSize, this.maxSize);
+    }
   }
 
   update = () => {
     requestAnimationFrame(this.update);
     this.composer.render();
+    this.camera.update();
   }
 }

@@ -11,9 +11,8 @@ import { combineLatest, Subscription } from 'rxjs';
   styleUrls: ['./project-base.component.scss']
 })
 export class ProjectBaseComponent implements OnInit, OnDestroy {
-  project: IProject = { alternatePreviews: [''], thumbnailSize: 400};
+  project: IProject = { thumbnailSize: 400 };
   subscription: Subscription;
-  
   red: string;
   white: string;
 
@@ -25,14 +24,14 @@ export class ProjectBaseComponent implements OnInit, OnDestroy {
       switchMap(user => this.route.data)
     );
 
-    this.subscription = combineLatest(getProjects$, getRoute$).pipe(
+    this.subscription = combineLatest([getProjects$, getRoute$]).pipe(
       map(([data, result]) => {
         data.projects.forEach(element => {
           if (element.route === result.id) {
             this.project = element;
 
-            this.white = this.project.title.split(" ")[0];
-            this.red = this.project.title.substring(this.project.title.indexOf(" "));
+            this.white = this.project.title.split(' ')[0];
+            this.red = this.project.title.substring(this.project.title.indexOf(' '));
           }
         });
       })

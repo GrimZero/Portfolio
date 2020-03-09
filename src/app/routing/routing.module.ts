@@ -12,6 +12,7 @@ const routes = [
   { path: 'Projects/ColorCorrection', component: ProjectBaseComponent, data: {id: 'ColorCorrection'} },
   { path: 'Projects/unity-metadata-hider', component: ProjectBaseComponent, data: {id: 'unity-metadata-hider'} },
   { path: 'Projects/plextool', component: ProjectBaseComponent, data: {id: 'plextool'} },
+  { path: 'Projects/portfolio', component: ProjectBaseComponent, data: {id: 'portfolio'} },
   { path: 'About', component: AboutComponent },
   { path: 'Projects', component: ProjectsComponent },
   { path: 'Home', component: HeroComponent },

@@ -2,7 +2,7 @@ import { Scene } from './scene';
 import { MeshStandardMaterialParameters, MeshStandardMaterial } from 'three';
 
 export class DataController {
-    public static scene: Scene = new Scene();
+    public static scene: Scene;
     public static textParams: THREE.TextGeometryParameters = {
         size: 0.1,
         height: 0.0,

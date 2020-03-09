@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import { Camera } from 'src/app/classes/3D/camera';
 import { DirectionalLight } from 'three';
 import { Raycaster } from 'src/app/classes/3D/raycaster';
+import { Scene } from 'src/app/classes/3D/scene';
 
 @Component({
   selector: 'app-threejs',
@@ -35,6 +36,9 @@ export class ThreejsComponent implements AfterViewInit {
     // Camera
     const aspect = this.size.offsetWidth / this.size.offsetHeight;
     this.camera = new Camera(aspect);
+
+    // Scene
+    DataController.scene = new Scene();
 
     // Materials
     DataController.setMaterial('cube', new THREE.MeshStandardMaterial({ color: '#F31F46' }));

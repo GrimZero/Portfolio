@@ -2,7 +2,7 @@
     "projects": [
         {
             "title": "FABRIC SCANNER",
-            "preview": "assets/Projects/ColorCorrection/TextureEditor.jpg",
+            "preview": "assets/Projects/ColorCorrection/thumbnail.jpg",
             "hero": "assets/Projects/ColorCorrection/preview.png",
             "route": "ColorCorrection",
             "softwareUsed": [
@@ -28,7 +28,7 @@
         {
             "title": "Unity Metadata hider",
             "preview": "assets/Projects/MetaHider/thumbnail.jpg",
-            "hero": "",
+            "hero": "assets/Projects/MetaHider/preview.jpg",
             "route": "unity-metadata-hider",
             "softwareUsed": [
                 "Unity",
@@ -40,6 +40,7 @@
         {
             "title": "Plex download manager",
             "preview": "assets/Projects/PlexManager/thumbnail.jpg",
+            "hero": "assets/Projects/PlexManager/preview.jpg",
             "route": "plextool",
             "softwareUsed": [
                 "WPF"
@@ -53,7 +54,7 @@
             "hero": "assets/Projects/Website/preview.jpg",
             "route": "portfolio",
             "softwareUsed": [
-                "Angular 9",
+                "Angular",
                 "Bootstrap"
             ],
             "details": "After a long struggle trying to get my portfolio working and getting a nice UI/UX. I managed to make this website in angular. Preliminary research into Vue.js and Angular along with the requirement of working with angular in a professional environment, I found it a rather nice learning experience. This website is hosted on github pages and the source repository is available on my github account if you are interested.",

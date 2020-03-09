@@ -75,6 +75,17 @@
 
 body {
   background-color: $blue;
+  background-image: url('assets/background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100%;
+}
+
+html {
+  background-color: $blue;
   background-image: linear-gradient(to top, $blue 0%, $blue 4%);
   background-attachment: fixed;
   background-position: center;

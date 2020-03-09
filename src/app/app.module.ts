@@ -10,12 +10,10 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProjectsComponent } from './pages/projects-controller/projects.component';
 import { ProjectComponent } from './page-components/project/project.component';
-import { ProgressbarComponent } from './page-components/progressbar/progressbar.component';
 import { SearchComponent } from './page-components/search/search.component';
 import { SearchService } from './services/search.service';
 import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
 import { TooltipComponent } from './page-components/tooltip/tooltip.component';
-import { SkillsComponent } from './page-components/skills/skills.component';
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -36,11 +34,9 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
     NotFoundComponent,
     ProjectsComponent,
     ProjectComponent,
-    ProgressbarComponent,
     SearchComponent,
     TypewriteComponent,
     TooltipComponent,
-    SkillsComponent,
     ThreejsComponent,
     ThreejsWrapperComponent,
     ProjectBaseComponent,

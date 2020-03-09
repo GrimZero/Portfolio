@@ -31,13 +31,12 @@
 
         <div class="container">
             <div class="row p-0">
-                <div *ngFor="let item of data.competences" class="col p-0 mt-xs-4 mt-md-0 text-center">
+                <div *ngFor="let item of data.competences" class="col p-0 mt-xs-4 mt-md-0 text-center no-click">
                     <circle-progress class="TekoSemiBold" 
                         [percent]="item.amount" 
                         [radius]="75"
                         [title]=[item.name]>
                     </circle-progress>
-                    <!-- <div class="overlay white HindMedium" style="font-size: 25pt;">{{item.name}}</div> -->
                 </div>
             </div>
         </div>

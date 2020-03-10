@@ -13,7 +13,7 @@
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
     "build:client-and-server-bundles": "ng build --prod && ng run Portfolio:server:production",
-    "build-ghp": "ng build --prod --base-href  https://grimzero.github.io/Portfolio/",
+    "build-ghp": "ng build --prod --base-href  https://torbenvanassche.github.io/Portfolio/",
     "copy-index": "@powershell Copy-Item ./docs/index.html -Destination ./docs/404.html",
     "deploy": "npm run build-ghp && npm run copy-index"
   },

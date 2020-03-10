@@ -3,9 +3,10 @@ import { DataController } from 'src/app/classes/3D/data-controller';
 import { Composer, Renderer } from 'src/app/classes/3D/renderer';
 import * as THREE from 'three';
 import { Camera } from 'src/app/classes/3D/camera';
-import { DirectionalLight } from 'three';
+import { MeshStandardMaterial, Vector3 } from 'three';
 import { Raycaster } from 'src/app/classes/3D/raycaster';
 import { Scene } from 'src/app/classes/3D/scene';
+import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 
 @Component({
   selector: 'app-threejs',
@@ -40,9 +41,6 @@ export class ThreejsComponent implements AfterViewInit {
     // Scene
     DataController.scene = new Scene();
 
-    // Materials
-    DataController.setMaterial('cube', new THREE.MeshStandardMaterial({ color: '#F31F46' }));
-
     // Renderer
     this.composer = new Composer(DataController.scene, this.camera, new Renderer(this.canvas));
 
@@ -50,18 +48,27 @@ export class ThreejsComponent implements AfterViewInit {
     this.raycaster = new Raycaster(this.camera, this.composer.renderer);
 
     // add stuff to scene
-    var mesh = new THREE.Mesh(new THREE.BoxGeometry(), DataController.getMaterial('cube'));
-    DataController.scene.add(mesh);
+    new GLTFLoader().load('assets/meshes/scene.glb', (gltf: GLTF) => {
+      gltf.scene.children[0].traverse((child: THREE.Mesh) => {
+        if (child.isMesh) {
+          const material = ((child as THREE.Mesh).material as MeshStandardMaterial);
+          material.metalness = 0;
+          material.roughness = 0.8;
+          child.receiveShadow = true;
+          child.castShadow = true;
+        }
+      })
+      DataController.scene.add(gltf.scene);
+      gltf.scene.scale.set(0.01, 0.01, 0.01)
+    })
 
-    var light = new DirectionalLight(0xFFFFFF, 0.4);
-    light.position.set(0, 1, 1);
-    DataController.scene.add(light);
+    DataController.scene.addDirectionalLight(new Vector3(-3, 8, 3), 0xFFFFFF, 2, true, 0, 1000);
 
     this.camera.addOrbitControls(this.composer.renderer.domElement, false, false);
-    this.camera.orbitControls.object.position.set(2, 2, 2);
+    this.camera.orbitControls.object.position.set(-7, 7, -1.5);
     this.camera.orbitControls.target = new THREE.Vector3(0, 0, 0);
 
-    DataController.scene.add(new THREE.AmbientLight(0xFFFFFF, 1));
+    DataController.scene.add(new THREE.AmbientLight(0xFFFFFF, 0.6));
 
     this.updateCanvas();
     this.update();

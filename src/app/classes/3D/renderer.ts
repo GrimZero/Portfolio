@@ -7,7 +7,7 @@ import { Camera } from './camera';
 
 export class Renderer extends THREE.WebGLRenderer {
     constructor(threeCanvas: HTMLCanvasElement) {
-        super({ canvas: threeCanvas, alpha: true });
+        super({ canvas: threeCanvas, alpha: true, antialias: true });
 
         this.setPixelRatio(window.devicePixelRatio);
         this.setSize(threeCanvas.clientWidth, threeCanvas.clientHeight);
@@ -38,7 +38,6 @@ export class Composer extends EffectComposer {
         this.FXAAPass.uniforms['resolution'].value.set(1 / size.x, 1 / size.y);
 
         this.addPass(this.renderPass);
-        this.addPass(this.FXAAPass);
     }
 
     // Apply viewport changed to canvas

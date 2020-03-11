@@ -24,7 +24,9 @@ export class Raycaster extends THREE.Raycaster {
 
             if (this.array.length > 0) {
                 const intersections = this.intersectObjects(this.array);
-                this.result.next(intersections[0]);
+                if (intersections && intersections.length > 0) {
+                    this.result.next(intersections[0]);
+                }
             }
         });
     }

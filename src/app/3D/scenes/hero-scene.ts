@@ -3,12 +3,14 @@ import { Composer } from 'src/app/3D/renderer';
 import * as THREE from 'three';
 import { Scene } from 'src/app/3D/Scene';
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+import { SceneUtils } from 'three/examples/jsm/utils/SceneUtils';
 import { Camera } from '../camera';
 import { Raycaster } from '../raycaster';
 
 export class HeroScene extends Scene {
     raycaster: Raycaster;
     meshes: THREE.Mesh[] = [];
+    mixer: THREE.AnimationMixer;
 
     constructor() {
         super();
@@ -27,11 +29,12 @@ export class HeroScene extends Scene {
         new GLTFLoader().load('assets/meshes/scene.glb', (gltf: GLTF) => {
             gltf.scene.children[0].traverse((child: THREE.Mesh) => {
                 if (child.isMesh) {
-                    const material = ((child as THREE.Mesh).material as THREE.MeshStandardMaterial);
+                    const material = child.material as THREE.MeshStandardMaterial;
                     material.metalness = 0;
                     material.roughness = 0.8;
                     child.receiveShadow = true;
                     child.castShadow = true;
+                    material.color.set(0xAAAAAA);
 
                     // add events
                     child.addEventListener('click', () => console.log(child.name));
@@ -39,11 +42,29 @@ export class HeroScene extends Scene {
                 }
             })
             DataController.scene.add(gltf.scene);
-            gltf.scene.scale.set(0.01, 0.01, 0.01)
+            gltf.scene.scale.set(0.01, 0.01, 0.01);
+
+            this.raycaster.setTargets(this.meshes).subscribe(intersection => {
+                intersection.object.dispatchEvent({ type: 'click' });
+            })
         });
 
-        this.raycaster.setTargets(this.meshes).subscribe(intersection => {
-            intersection.object.dispatchEvent({ type: 'click' });
-        })
+        new GLTFLoader().load('assets/meshes/character.glb', (gltf: GLTF) => {
+            gltf.scene.position.add(new THREE.Vector3(-1.3, 0.2, -0.5));
+            gltf.scene.rotateY(-Math.PI / 2);
+            DataController.scene.add(gltf.scene);
+            this.mixer = new THREE.AnimationMixer(gltf.scene);
+            const clips = gltf.animations;
+
+            gltf.scene.traverse((e) => {
+                if(e.type === 'SkinnedMesh') {
+                    ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).color.set(0x777777)
+                }
+            })
+
+            clips.forEach(clip => {
+                this.mixer.clipAction(clip).play();
+            });
+        });
     }
 }

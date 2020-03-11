@@ -55,5 +55,9 @@ export class ThreejsComponent implements AfterViewInit {
     requestAnimationFrame(this.update);
     this.composer.render();
     this.camera.update();
+
+    if((DataController.scene as HeroScene).mixer) {
+      (DataController.scene as HeroScene).mixer.update(0.01)
+    }
   }
 }

@@ -4,7 +4,7 @@ import { Renderer } from './renderer';
 
 export class Raycaster extends THREE.Raycaster {
     private mouse: THREE.Vector2 = new THREE.Vector2();
-    private array: THREE.Object3D[];
+    private array: THREE.Object3D[] = [];
 
     result = new Subject<THREE.Intersection>();
 
@@ -22,9 +22,8 @@ export class Raycaster extends THREE.Raycaster {
         fromEvent(renderer.domElement, 'click').subscribe((event: MouseEvent) => {
             this.setFromCamera(this.mouse, camera);
 
-            const intersections = this.intersectObjects(this.array);
-
-            if (intersections.length > 0) {
+            if (this.array.length > 0) {
+                const intersections = this.intersectObjects(this.array);
                 this.result.next(intersections[0]);
             }
         });

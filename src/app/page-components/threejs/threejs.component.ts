@@ -1,12 +1,9 @@
 import { Component, Input, AfterViewInit, HostListener } from '@angular/core';
 import { DataController } from 'src/app/classes/3D/data-controller';
 import { Composer, Renderer } from 'src/app/classes/3D/renderer';
-import * as THREE from 'three';
-import { Camera } from 'src/app/classes/3D/camera';
-import { MeshStandardMaterial, Vector3 } from 'three';
 import { Raycaster } from 'src/app/classes/3D/raycaster';
-import { Scene } from 'src/app/classes/3D/scene';
-import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Camera } from 'src/app/classes/3D/camera';
+import { HeroScene } from 'src/app/hero-scene';
 
 @Component({
   selector: 'app-threejs',
@@ -16,10 +13,8 @@ import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 export class ThreejsComponent implements AfterViewInit {
   size: HTMLElement;
   canvas: HTMLCanvasElement;
-  occupiedHeight = 0;
   camera: Camera;
   composer: Composer;
-  mouse: THREE.Vector2;
   raycaster: Raycaster;
 
   @Input() maxSize;
@@ -39,36 +34,11 @@ export class ThreejsComponent implements AfterViewInit {
     this.camera = new Camera(aspect);
 
     // Scene
-    DataController.scene = new Scene();
+    DataController.scene = new HeroScene();
 
-    // Renderer
     this.composer = new Composer(DataController.scene, this.camera, new Renderer(this.canvas));
-
-    // Raycaster
     this.raycaster = new Raycaster(this.camera, this.composer.renderer);
-
-    // add stuff to scene
-    new GLTFLoader().load('assets/meshes/scene.glb', (gltf: GLTF) => {
-      gltf.scene.children[0].traverse((child: THREE.Mesh) => {
-        if (child.isMesh) {
-          const material = ((child as THREE.Mesh).material as MeshStandardMaterial);
-          material.metalness = 0;
-          material.roughness = 0.8;
-          child.receiveShadow = true;
-          child.castShadow = true;
-        }
-      })
-      DataController.scene.add(gltf.scene);
-      gltf.scene.scale.set(0.01, 0.01, 0.01)
-    })
-
-    DataController.scene.addDirectionalLight(new Vector3(-3, 8, 3), 0xFFFFFF, 2, true, 0, 1000);
-
-    this.camera.addOrbitControls(this.composer.renderer.domElement, false, false);
-    this.camera.orbitControls.object.position.set(-7, 7, -1.5);
-    this.camera.orbitControls.target = new THREE.Vector3(0, 0, 0);
-
-    DataController.scene.add(new THREE.AmbientLight(0xFFFFFF, 0.6));
+    DataController.scene.initialize(this.composer, this.camera);
 
     this.updateCanvas();
     this.update();

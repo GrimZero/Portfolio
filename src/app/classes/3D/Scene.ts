@@ -1,6 +1,8 @@
 import * as THREE from 'three';
+import { Composer } from './renderer';
+import { Camera } from './camera';
 
-export class Scene extends THREE.Scene {
+export abstract class Scene extends THREE.Scene {
     shadowMapSize: THREE.Vector2 = new THREE.Vector2(2048, 2048);
 
     constructor() {
@@ -25,4 +27,6 @@ export class Scene extends THREE.Scene {
 
         return light;
     }
+
+    public abstract initialize(composer: Composer, camera: Camera);
 }

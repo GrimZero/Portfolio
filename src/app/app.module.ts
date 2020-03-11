@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
 import { RouterModule, Router } from '@angular/router';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -63,7 +64,11 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
       space: 10
     })
   ],
-  providers: [SearchService, ComponentNavigationService, DataService],
+  providers: [
+    SearchService, 
+    ComponentNavigationService, 
+    DataService, 
+    {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

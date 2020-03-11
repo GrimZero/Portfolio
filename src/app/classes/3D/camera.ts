@@ -16,12 +16,13 @@ export class Camera extends THREE.PerspectiveCamera {
         this.orbitControls.enabled = false;
     }
 
-    addOrbitControls(domElement: HTMLCanvasElement, zoom: boolean, pan: boolean) {
+    addOrbitControls(domElement: HTMLCanvasElement, zoom: boolean, pan: boolean, minAngle: number = undefined) {
         // camera controls
         this.orbitControls = new OrbitControls(this, domElement);
 
         this.orbitControls.enableZoom = zoom;
         this.orbitControls.enablePan = pan;
+        this.orbitControls.maxPolarAngle = minAngle;
     }
 
     private moveToTarget() {

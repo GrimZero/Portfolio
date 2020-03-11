@@ -1,9 +1,9 @@
-import { DataController } from 'src/app/classes/3D/data-controller';
-import { Composer } from 'src/app/classes/3D/renderer';
+import { DataController } from 'src/app/3D/data-controller';
+import { Composer } from 'src/app/3D/renderer';
 import * as THREE from 'three';
-import { Scene } from 'src/app/classes/3D/scene';
+import { Scene } from 'src/app/3D/Scene';
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
-import { Camera } from './classes/3D/camera';
+import { Camera } from '../camera';
 
 export class HeroScene extends Scene {
     constructor() {

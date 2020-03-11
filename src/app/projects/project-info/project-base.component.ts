@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
-import { IProject } from 'src/app/interfaces/iproject';
+import { IProject } from 'src/app/projects/iproject';
 import { switchMap, map } from 'rxjs/operators';
 import { combineLatest, Subscription } from 'rxjs';
 

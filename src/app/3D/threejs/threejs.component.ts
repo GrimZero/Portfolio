@@ -1,9 +1,9 @@
 import { Component, Input, AfterViewInit, HostListener } from '@angular/core';
-import { DataController } from 'src/app/classes/3D/data-controller';
-import { Composer, Renderer } from 'src/app/classes/3D/renderer';
-import { Raycaster } from 'src/app/classes/3D/raycaster';
-import { Camera } from 'src/app/classes/3D/camera';
-import { HeroScene } from 'src/app/hero-scene';
+import { DataController } from 'src/app/3D/data-controller';
+import { Composer, Renderer } from 'src/app/3D/renderer';
+import { Raycaster } from 'src/app/3D/raycaster';
+import { Camera } from 'src/app/3D/camera';
+import { HeroScene } from 'src/app/3D/scenes/hero-scene';
 
 @Component({
   selector: 'app-threejs',

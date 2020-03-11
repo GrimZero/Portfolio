@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, HostListener } from '@angular/core';
-import { IProject } from 'src/app/interfaces/iproject';
+import { IProject } from 'src/app/projects/iproject';
 
 @Component({
   selector: 'app-project',

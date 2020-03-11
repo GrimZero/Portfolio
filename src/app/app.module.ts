@@ -6,15 +6,11 @@ import { AppComponent } from './app.component';
 import { RoutingModule } from './routing/routing.module';
 import { RouterModule, Router } from '@angular/router';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-
-import { HomepageComponent } from './pages/homepage/homepage.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ProjectsComponent } from './pages/projects-controller/projects.component';
 import { ProjectComponent } from './page-components/project/project.component';
 import { SearchComponent } from './page-components/search/search.component';
 import { SearchService } from './services/search.service';
-import { TypewriteComponent } from './page-components/typewrite/typewrite.component';
-import { TooltipComponent } from './page-components/tooltip/tooltip.component';
 import { ThreejsComponent } from './page-components/threejs/threejs.component';
 import { ComponentNavigationService } from './services/component-navigation.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,13 +27,10 @@ import { NgCircleProgressModule } from 'ng-circle-progress';
 @NgModule({
   declarations: [
     AppComponent,
-    HomepageComponent,
     NotFoundComponent,
     ProjectsComponent,
     ProjectComponent,
     SearchComponent,
-    TypewriteComponent,
-    TooltipComponent,
     ThreejsComponent,
     ThreejsWrapperComponent,
     ProjectBaseComponent,

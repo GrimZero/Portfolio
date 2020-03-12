@@ -3,7 +3,6 @@ import { Composer } from 'src/app/3D/renderer';
 import * as THREE from 'three';
 import { Scene } from 'src/app/3D/Scene';
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
-import { SceneUtils } from 'three/examples/jsm/utils/SceneUtils';
 import { Camera } from '../camera';
 import { Raycaster } from '../raycaster';
 
@@ -11,6 +10,10 @@ export class HeroScene extends Scene {
     raycaster: Raycaster;
     meshes: THREE.Mesh[] = [];
     mixer: THREE.AnimationMixer;
+    loader: GLTFLoader;
+
+    scene: THREE.Object3D;
+    character: THREE.Object3D;
 
     constructor() {
         super();
@@ -26,7 +29,15 @@ export class HeroScene extends Scene {
 
         this.raycaster = new Raycaster(camera, composer.renderer);
 
-        new GLTFLoader().load('assets/meshes/scene.glb', (gltf: GLTF) => {
+        var manager = new THREE.LoadingManager();
+        manager.onLoad = () => {
+            DataController.scene.add(this.scene);
+            DataController.scene.add(this.character);
+        }
+
+        var loader = new GLTFLoader(manager);
+
+        loader.load('assets/meshes/scene.glb', (gltf: GLTF) => {
             gltf.scene.children[0].traverse((child: THREE.Mesh) => {
                 if (child.isMesh) {
                     const material = child.material as THREE.MeshStandardMaterial;
@@ -41,23 +52,22 @@ export class HeroScene extends Scene {
                     this.meshes.push(child);
                 }
             })
-            DataController.scene.add(gltf.scene);
-            gltf.scene.scale.set(0.01, 0.01, 0.01);
+            this.scene = gltf.scene;
 
             this.raycaster.setTargets(this.meshes).subscribe(intersection => {
                 intersection.object.dispatchEvent({ type: 'click' });
             })
         });
 
-        new GLTFLoader().load('assets/meshes/character.glb', (gltf: GLTF) => {
+        loader.load('assets/meshes/character.glb', (gltf: GLTF) => {
             gltf.scene.position.add(new THREE.Vector3(-1.3, 0.2, -0.5));
             gltf.scene.rotateY(-Math.PI / 2);
-            DataController.scene.add(gltf.scene);
+            this.character = gltf.scene;
             this.mixer = new THREE.AnimationMixer(gltf.scene);
             const clips = gltf.animations;
 
             gltf.scene.traverse((e) => {
-                if(e.type === 'SkinnedMesh') {
+                if (e.type === 'SkinnedMesh') {
                     ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).color.set(0x777777)
                 }
             })

@@ -4,6 +4,7 @@ import { Composer, Renderer } from 'src/app/3D/renderer';
 import { Raycaster } from 'src/app/3D/raycaster';
 import { Camera } from 'src/app/3D/camera';
 import { HeroScene } from 'src/app/3D/scenes/hero-scene';
+import { Scene } from '../scene';
 
 @Component({
   selector: 'app-threejs',
@@ -16,6 +17,7 @@ export class ThreejsComponent implements AfterViewInit {
   camera: Camera;
   composer: Composer;
   raycaster: Raycaster;
+  scene: Scene;
 
   @Input() maxSize;
 
@@ -34,11 +36,11 @@ export class ThreejsComponent implements AfterViewInit {
     this.camera = new Camera(aspect);
 
     // Scene
-    DataController.scene = new HeroScene();
+    this.scene = new HeroScene();
 
-    this.composer = new Composer(DataController.scene, this.camera, new Renderer(this.canvas));
+    this.composer = new Composer(this.scene, this.camera, new Renderer(this.canvas));
     this.raycaster = new Raycaster(this.camera, this.composer.renderer);
-    DataController.scene.initialize(this.composer, this.camera);
+    this.scene.initialize(this.composer, this.camera);
 
     this.updateCanvas();
     this.update();
@@ -56,8 +58,8 @@ export class ThreejsComponent implements AfterViewInit {
     this.composer.render();
     this.camera.update();
 
-    if((DataController.scene as HeroScene).mixer) {
-      (DataController.scene as HeroScene).mixer.update(0.01)
+    if((this.scene as HeroScene).mixer) {
+      (this.scene as HeroScene).mixer.update(0.015);
     }
   }
 }

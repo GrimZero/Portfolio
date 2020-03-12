@@ -20,7 +20,7 @@ export class HeroScene extends Scene {
     }
 
     public initialize(composer: Composer, camera: Camera) {
-        this.addDirectionalLight(new THREE.Vector3(-3, 8, 3), 0xFFFFFF, 2, true, 0, 1000);
+        this.addDirectionalLight(new THREE.Vector3(-3, 8, 3), 0xFFFFFF, 1, true, 0, 1000);
         this.add(new THREE.AmbientLight(0xFFFFFF, 0.6));
 
         camera.addOrbitControls(composer.renderer.domElement, false, false, Math.PI / 2);
@@ -31,24 +31,24 @@ export class HeroScene extends Scene {
 
         var manager = new THREE.LoadingManager();
         manager.onLoad = () => {
-            DataController.scene.add(this.scene);
-            DataController.scene.add(this.character);
+            this.add(this.scene);
+            this.add(this.character);
         }
 
         var loader = new GLTFLoader(manager);
 
         loader.load('assets/meshes/scene.glb', (gltf: GLTF) => {
-            gltf.scene.children[0].traverse((child: THREE.Mesh) => {
+            gltf.scene.traverse((child: THREE.Mesh) => {
                 if (child.isMesh) {
                     const material = child.material as THREE.MeshStandardMaterial;
                     material.metalness = 0;
                     material.roughness = 0.8;
                     child.receiveShadow = true;
                     child.castShadow = true;
-                    material.color.set(0xAAAAAA);
+                    material.flatShading = true;
 
                     // add events
-                    child.addEventListener('click', () => console.log(child.name));
+                    child.addEventListener('click', () => {});
                     this.meshes.push(child);
                 }
             })
@@ -60,15 +60,13 @@ export class HeroScene extends Scene {
         });
 
         loader.load('assets/meshes/character.glb', (gltf: GLTF) => {
-            gltf.scene.position.add(new THREE.Vector3(-1.3, 0.2, -0.5));
-            gltf.scene.rotateY(-Math.PI / 2);
             this.character = gltf.scene;
             this.mixer = new THREE.AnimationMixer(gltf.scene);
             const clips = gltf.animations;
 
             gltf.scene.traverse((e) => {
                 if (e.type === 'SkinnedMesh') {
-                    ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).color.set(0x777777)
+                    ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).flatShading = true;
                 }
             })
 

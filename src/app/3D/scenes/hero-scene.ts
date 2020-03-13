@@ -48,7 +48,7 @@ export class HeroScene extends Scene {
                     material.flatShading = true;
 
                     // add events
-                    child.addEventListener('click', () => {});
+                    child.addEventListener('click', () => { });
                     this.meshes.push(child);
                 }
             })
@@ -66,7 +66,9 @@ export class HeroScene extends Scene {
 
             gltf.scene.traverse((e) => {
                 if (e.type === 'SkinnedMesh') {
-                    ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).flatShading = true;
+                    const material = ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial);
+                    material.flatShading = true;
+                    material.roughness = 0.8;
                 }
             })
 

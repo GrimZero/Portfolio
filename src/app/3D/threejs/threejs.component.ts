@@ -59,7 +59,7 @@ export class ThreejsComponent implements AfterViewInit {
     this.camera.update();
 
     if((this.scene as HeroScene).mixer) {
-      (this.scene as HeroScene).mixer.update(0.015);
+      (this.scene as HeroScene).mixer.update(0.02);
     }
   }
 }

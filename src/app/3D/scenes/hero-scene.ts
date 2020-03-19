@@ -5,7 +5,6 @@ import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Camera } from '../camera';
 import { Raycaster } from '../raycaster';
 import { gsap } from 'gsap';
-import { Vector3 } from 'three';
 
 export class HeroScene extends Scene {
     raycaster: Raycaster;
@@ -30,7 +29,7 @@ export class HeroScene extends Scene {
         this.addDirectionalLight(new THREE.Vector3(-3, 8, 3), 0xFFFFFF, 1, true, 0, 1000);
         this.add(new THREE.AmbientLight(0xFFFFFF, 0.6));
 
-        camera.addOrbitControls(composer.renderer.domElement, false, false, Math.PI / 2);
+        camera.addOrbitControls(composer.renderer.domElement, true, false, Math.PI / 2);
         camera.orbitControls.object.position.set(-7, 7, -1.5);
         camera.orbitControls.target = new THREE.Vector3(0, 0, 0);
 
@@ -55,16 +54,14 @@ export class HeroScene extends Scene {
                     material.flatShading = true;
 
                     // add events
-                    child.addEventListener('click', () => { });
                     this.meshes.push(child);
+                    this.scene = gltf.scene;
 
                     switch (child.name) {
                         case 'SM_Prop_Whiteboard_02_Board_01':
                             child.addEventListener('click', () => {
                                 gsap.fromTo(child.rotation, { x: 0 }, { x: Math.PI * 2, duration: 1 });
                             });
-                            break;
-                        case 'SM_Prop_Printer_3D_01':
                             break;
                         case 'SM_Prop_Drone_Quad_01':
                             child.addEventListener('click', () => {
@@ -73,28 +70,28 @@ export class HeroScene extends Scene {
                                 }
                             });
                             break;
-
                     }
+                };
+            })
+
+            this.raycaster.setTargets(this.meshes).subscribe(intersection => {
+                intersection.object.dispatchEvent({ type: 'click' });
+            });
+        })
+
+        loader.load('assets/meshes/character.glb', (gltf: GLTF) => {
+            this.character = gltf.scene;
+            this.mixer = new THREE.AnimationMixer(gltf.scene);
+            const clips = gltf.animations;
 
             gltf.scene.traverse((e) => {
                 if (e.type === 'SkinnedMesh') {
-                    const material = ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial);
-                    material.flatShading = true;
-                    material.roughness = 0.8;
+                    ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).flatShading = true;
                 }
-            })
+            });
 
-                        gltf.scene.traverse((e) => {
-                            if (e.type === 'SkinnedMesh') {
-                                ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).flatShading = true;
-                            }
-                        });
-
-                        clips.forEach(clip => {
-                            this.mixer.clipAction(clip).play();
-                        });
-                    });
-                }
+            clips.forEach(clip => {
+                this.mixer.clipAction(clip).play();
             });
         });
     }

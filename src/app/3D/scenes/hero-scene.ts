@@ -1,10 +1,11 @@
-import { DataController } from 'src/app/3D/data-controller';
 import { Composer } from 'src/app/3D/renderer';
 import * as THREE from 'three';
 import { Scene } from 'src/app/3D/Scene';
 import { GLTFLoader, GLTF } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Camera } from '../camera';
 import { Raycaster } from '../raycaster';
+import { gsap } from 'gsap';
+import { Vector3 } from 'three';
 
 export class HeroScene extends Scene {
     raycaster: Raycaster;
@@ -17,6 +18,12 @@ export class HeroScene extends Scene {
 
     constructor() {
         super();
+    }
+
+    public update() {
+        if (this.mixer) {
+            this.mixer.update(0.015);
+        }
     }
 
     public initialize(composer: Composer, camera: Camera) {
@@ -48,30 +55,48 @@ export class HeroScene extends Scene {
                     material.flatShading = true;
 
                     // add events
-                    child.addEventListener('click', () => {});
                     this.meshes.push(child);
+
+                    switch (child.name) {
+                        case 'SM_Prop_Whiteboard_02_Board_01':
+                            child.addEventListener('click', () => {
+                                gsap.fromTo(child.rotation, { x: 0 }, { x: Math.PI * 2, duration: 1 });
+                            });
+                            break;
+                        case 'SM_Prop_Printer_3D_01':
+                            break;
+                        case 'SM_Prop_Drone_Quad_01':
+                            child.addEventListener('click', () => {
+                                if (child.position.y > -110) {
+                                    gsap.to(child.position, { y: child.position.y - 50, duration: 7, ease: "power2 inout" });
+                                }
+                            });
+                            break;
+
+                    }
+
+                    this.scene = gltf.scene;
+
+                    this.raycaster.setTargets(this.meshes).subscribe(intersection => {
+                        intersection.object.dispatchEvent({ type: 'click' });
+                    });
+
+                    loader.load('assets/meshes/character.glb', (gltf: GLTF) => {
+                        this.character = gltf.scene;
+                        this.mixer = new THREE.AnimationMixer(gltf.scene);
+                        const clips = gltf.animations;
+
+                        gltf.scene.traverse((e) => {
+                            if (e.type === 'SkinnedMesh') {
+                                ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).flatShading = true;
+                            }
+                        });
+
+                        clips.forEach(clip => {
+                            this.mixer.clipAction(clip).play();
+                        });
+                    });
                 }
-            })
-            this.scene = gltf.scene;
-
-            this.raycaster.setTargets(this.meshes).subscribe(intersection => {
-                intersection.object.dispatchEvent({ type: 'click' });
-            })
-        });
-
-        loader.load('assets/meshes/character.glb', (gltf: GLTF) => {
-            this.character = gltf.scene;
-            this.mixer = new THREE.AnimationMixer(gltf.scene);
-            const clips = gltf.animations;
-
-            gltf.scene.traverse((e) => {
-                if (e.type === 'SkinnedMesh') {
-                    ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial).flatShading = true;
-                }
-            })
-
-            clips.forEach(clip => {
-                this.mixer.clipAction(clip).play();
             });
         });
     }

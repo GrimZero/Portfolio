@@ -1,5 +1,4 @@
-import { Scene } from './scene';
-import { MeshStandardMaterialParameters, MeshStandardMaterial } from 'three';
+import { MeshStandardMaterial } from 'three';
 
 export class DataController {
     public static textParams: THREE.TextGeometryParameters = {

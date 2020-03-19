@@ -29,4 +29,5 @@ export abstract class Scene extends THREE.Scene {
     }
 
     public abstract initialize(composer: Composer, camera: Camera);
+    public abstract update();
 }

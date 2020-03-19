@@ -13,7 +13,6 @@ export class Camera extends THREE.PerspectiveCamera {
 
     setTarget(position: THREE.Vector3) {
         this.target = position;
-        this.orbitControls.enabled = false;
     }
 
     addOrbitControls(domElement: HTMLCanvasElement, zoom: boolean, pan: boolean, minAngle: number = undefined) {

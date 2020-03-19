@@ -55,6 +55,7 @@ export class HeroScene extends Scene {
                     material.flatShading = true;
 
                     // add events
+                    child.addEventListener('click', () => { });
                     this.meshes.push(child);
 
                     switch (child.name) {
@@ -75,16 +76,13 @@ export class HeroScene extends Scene {
 
                     }
 
-                    this.scene = gltf.scene;
-
-                    this.raycaster.setTargets(this.meshes).subscribe(intersection => {
-                        intersection.object.dispatchEvent({ type: 'click' });
-                    });
-
-                    loader.load('assets/meshes/character.glb', (gltf: GLTF) => {
-                        this.character = gltf.scene;
-                        this.mixer = new THREE.AnimationMixer(gltf.scene);
-                        const clips = gltf.animations;
+            gltf.scene.traverse((e) => {
+                if (e.type === 'SkinnedMesh') {
+                    const material = ((e as THREE.SkinnedMesh).material as THREE.MeshStandardMaterial);
+                    material.flatShading = true;
+                    material.roughness = 0.8;
+                }
+            })
 
                         gltf.scene.traverse((e) => {
                             if (e.type === 'SkinnedMesh') {

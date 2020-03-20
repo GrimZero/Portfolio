@@ -52,6 +52,10 @@
   filter: invert(1);
 }
 
+.no-select {
+  user-select: none;
+}
+
 .noselect {
   color: white;
   height: 6vh;
@@ -62,6 +66,10 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  * {
+    user-select: none;
+  }
 }
 
 .img-parent {

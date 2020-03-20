@@ -29,10 +29,10 @@
             </div>
         </div>
 
-        <div class="container">
-            <div class="row p-0">
+        <div class="container no-click">
+            <div class="row p-0 no-click">
                 <div *ngFor="let item of data.competences" class="col p-0 mt-xs-4 mt-md-0 text-center no-click">
-                    <circle-progress class="TekoSemiBold" 
+                    <circle-progress class="TekoSemiBold no-click" 
                         [percent]="item.amount" 
                         [radius]="75"
                         [title]=[item.name]>

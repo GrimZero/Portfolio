@@ -50,7 +50,7 @@
         },
         {
             "title": "Portfolio",
-            "preview": "assets/Projects/Website/thumbnail.jpg",
+            "preview": "assets/sprites/qr-code.png",
             "hero": "assets/Projects/Website/preview.jpg",
             "route": "portfolio",
             "softwareUsed": [

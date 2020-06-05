@@ -3,13 +3,13 @@
         <div class="row m-0 p-0">
             <div class="col">
                 <div class="row container">
-                    <h3 class="white m-0 float-left TekoSemiBold" style="font-size: 55pt;">ABOUT</h3>
-                    <h3 class="red ml-2 float-left TekoSemiBold" style="font-size: 55pt;">ME</h3>
+                    <h3 class="white m-0 float-left pixelated" style="font-size: 85pt;">ABOUT</h3>
+                    <h3 class="red ml-2 float-left pixelated" style="font-size: 85pt;">ME</h3>
                 </div>
-                <p class="white text-justify HindMedium" style="font-size: 14pt;" *ngFor="let item of data.about">
+                <p class="white text-justify pixelated" style="font-size: 22pt;" *ngFor="let item of data.about">
                     {{item}}
                 </p>
-                <button class="py-3 px-5 TekoMedium" style="font-size: 20pt;">GET IN TOUCH!</button>
+                <button class="py-3 px-5 pixelated" style="font-size: 35pt;" (click)="onNavigate(data.contact[3].link)">GET IN TOUCH!</button>
             </div>
         </div>
     </div>
@@ -22,9 +22,9 @@
     <div class="col">
         <div class="container text-center mt-2">
             <div class="d-inline-block">
-                <div class="row TekoSemiBold px-0">
-                    <h3 class="white m-0" style="font-size: 55pt;">MY</h3>
-                    <h3 class="red ml-2" style="font-size: 55pt;">SKILLS</h3>
+                <div class="row pixelated px-0">
+                    <h3 class="white m-0" style="font-size: 85pt;">MY</h3>
+                    <h3 class="red ml-2" style="font-size: 85pt;">SKILLS</h3>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
         <div class="container no-click">
             <div class="row p-0 no-click">
                 <div *ngFor="let item of data.competences" class="col p-0 mt-xs-4 mt-md-0 text-center no-click">
-                    <circle-progress class="TekoSemiBold no-click" 
+                    <circle-progress class="pixelated no-click" 
                         [percent]="item.amount" 
                         [radius]="75"
                         [title]=[item.name]>

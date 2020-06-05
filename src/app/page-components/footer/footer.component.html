@@ -1,7 +1,7 @@
 <footer class="footer" *ngIf="data">
     <div class="row m-0 mt-2">
         <button *ngFor="let item of data.contact" class="resize col-3" (click)="onNavigate(item.link)">
-            <p class="TekoRegular link-size mb-1">{{item.text}}</p>
+            <p class="pixelated link-size mb-1">{{item.text}}</p>
         </button>
     </div>
 </footer>

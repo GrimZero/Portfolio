@@ -142,3 +142,13 @@ canvas {
   outline: none;
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
 }
+
+@font-face {
+  font-family: 'KenPixel Nova';
+  src: url("assets/fonts/KenPixel\ Nova.ttf");
+}
+
+.pixelated {
+  font-family: "KenPixel Nova";
+  line-height: 1em;
+}

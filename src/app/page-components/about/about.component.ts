@@ -18,4 +18,8 @@ export class AboutComponent implements OnInit {
     this.about.getAbout().subscribe(observer => this.data = observer);
   }
 
+  onNavigate(path: string) {
+    window.open(path, '_blank');
+  }
+
 }

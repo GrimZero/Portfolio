@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="col p-0">
+        <div class="my-3">
+            <div class="row pixelated px-0">
+                <div class="col row m-0">
+                    <h3 class="white m-0 title-scale">{{white}}</h3>
+                    <h3 class="red ml-2 title-scale">{{red}}</h3>
+                </div>
+                <div class="mr-0 ml-auto row">
+                    <div class="col pixelated white my-auto" style="font-size: 40pt;"
+                        *ngFor="let item of project.softwareUsed">
+                        {{item}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <img [src]=[project.hero]>
+    </div>
+    <div class="row mt-2 text-justify">
+        <div class="col-md-6 text-box-parent">
+            <div class="row pixelated m-0">
+                <h3 class="white m-0 sub-title">PROJECT</h3>
+                <h3 class="red ml-2 sub-title">DETAILS</h3>
+            </div>
+            <p class="pixelated white text-justify m-0 p-0 hide-if-big pr-3" style="font-size: 20pt;">
+                {{project.details}}
+            </p>
+        </div>
+        <div class="col-md-6 px-2 text-box-parent" >
+            <div class="row pixelated mx-0">
+                <h3 class="white m-0 sub-title">WORKING</h3>
+                <h3 class="red ml-2 sub-title">PROCESS</h3>
+            </div>
+            <p class="pixelated white text-justify m-0 p-0 hide-if-big pr-3" style="font-size: 20pt;">
+                {{project.implementation}}
+            </p>
+        </div>
+    </div>
+    <div class="text-center" style="margin-top: 15px;">
+        <button class="m-0 py-2 px-4 pixelated white" style="font-size: 30pt;" [routerLink]="['/Projects']">BACK TO PROJECTS</button>
+    </div>
+</div>

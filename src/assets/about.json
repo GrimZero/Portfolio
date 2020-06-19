@@ -1,0 +1,61 @@
+{
+    "name": "TORBEN VAN ASSCHE",
+    "title": "GAME DEVELOPER",
+    "birthDate": "1995-11-21",
+    "pictureURL": "assets/sprites/photo-zoomed.jpg",
+    "chibiURL": "assets/sprites/chibi.png",
+    "hero": "As a developer I pride myself on versatility, I want to create tools and games that people will play. By doing so I want to leave a lasting footprint in the code I helped write and lay the foundations for other ideas to sprout. As a graduate of Digital Arts and Entertainment, I have been taught the work ethic that is required to make a project succeed. And I am always looking for the my next mission to make something amazing happen.",
+    "about": [
+        "Since I graduated, I've been looking for an opportunity to put my skills to the test. I want to make something, a game that people will talk about. When I know the basics of something, I want to delve deeper and figure out more about how it works. Between the various tasks that a game developer needs to be able to do, I have tried my hand at any and all of the different disciplines. Programming, 3D, Rigging, animation and even writing. I have tried to do a little bit of everything so I can grasp what other people want when they talk about what they do.",
+        "But thats all about work ethic, There is also a little bit of room for other things. When I am not making a game I spend most of my time playing games or going to the gym. Spare time is also spent with friends, or working on my 3D printer. There are lots of things that I could talk about, but I only have so much space on the screen!"
+    ],
+    "competences": [
+        {
+            "name": "C#",
+            "amount": 70,
+            "color": "#111111"
+        },
+        {
+            "name": "UNITY",
+            "amount": 90,
+            "color": "#111111"
+        },
+        {
+            "name": "C++",
+            "amount": 50,
+            "color": "#111111"
+        },
+        {
+            "name": "3D",
+            "amount": 65,
+            "color": "#111111"
+        },
+        {
+            "name": "WEB",
+            "amount": 40,
+            "color": "#111111"
+        }
+    ],
+    "contact": [
+        {
+            "text": "GITHUB",
+            "link": "https://github.com/torbenvanassche",
+            "img": "assets/svg/contact/github.svg"
+        },
+        {
+            "text": "LINKEDIN",
+            "link": "https://www.linkedin.com/in/torben-van-assche-931982153/",
+            "img": "assets/svg/contact/linkedin.svg"
+        },
+        {
+            "text": "DISCORD",
+            "link": "https://discordapp.com/channels/@me/Protagonist-kun#5509/",
+            "img": "assets/svg/contact/discord.svg"
+        },
+        {
+            "text": "MAIL",
+            "link": "mailto:torbenvanassche.dev@gmail.com",
+            "img": "assets/svg/contact/envelope.svg"
+        }
+    ]
+}

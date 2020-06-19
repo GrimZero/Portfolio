@@ -1,0 +1,54 @@
+@import "src/variables";
+
+.noclick {
+  pointer-events: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
+button {
+  background-color: $red;
+  border: none;
+  color: $white; 
+  outline-style: none;
+}
+
+.sub-title {
+  font-size: 45pt;
+}
+
+@media screen and (max-width: 450px) {
+  .text-box-parent {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .title-scale {
+    font-size: 50pt;
+  }
+}
+
+@media screen and (min-width: 450px) {
+  .hide-if-big {
+    height: 14vh; 
+    overflow-y: scroll;
+  }
+
+  .title-scale {
+    font-size: 55pt;
+  }
+}
+
+@media (orientation: portrait) {
+  .hide-if-big {
+    height: auto;
+  }
+}

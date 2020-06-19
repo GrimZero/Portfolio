@@ -1,0 +1,154 @@
+@import "src/variables";
+
+.bar-height {
+  height: 1px;
+}
+.BarlowSemiBold {
+  font-family: Barlow Semibold;
+}
+
+.TekoRegular {
+  font-family: Teko regular;
+}
+
+.TekoMedium {
+  font-family: Teko medium;
+}
+
+.TekoSemiBold {
+  font-family: Teko Semibold;
+}
+
+.Hind {
+  font-family: Hind;
+}
+
+.HindMedium {
+  font-family: Hind medium;
+}
+
+.text-size-about {
+  font-size: 14px;
+}
+
+.red {
+  color: $red;
+}
+
+.white {
+  color: $white;
+}
+
+.badge {
+  border: 0px;
+  margin: 3px;
+}
+
+.text-white {
+  color: whitesmoke;
+}
+
+.invert {
+  filter: invert(1);
+}
+
+.no-select {
+  user-select: none;
+}
+
+.noselect {
+  color: white;
+  height: 6vh;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  * {
+    user-select: none;
+  }
+}
+
+.img-parent {
+  text-align: center;
+}
+
+.button-clear {
+  border: unset;
+  background: transparent;
+}
+
+body {
+  background-color: $blue;
+  background-image: url('assets/background.png');
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100%;
+}
+
+html {
+  background-color: $blue;
+  background-image: linear-gradient(to top, $blue 0%, $blue 4%);
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100%;
+}
+
+.grayscale {
+  filter: grayscale(1);
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+body,
+html {
+  overflow-x: hidden !important;
+}
+
+.no-click {
+  pointer-events: none;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}
+
+@font-face {
+  font-family: 'KenPixel Nova';
+  src: url("assets/fonts/KenPixel\ Nova.ttf");
+}
+
+.pixelated {
+  font-family: "KenPixel Nova";
+  line-height: 1em;
+}

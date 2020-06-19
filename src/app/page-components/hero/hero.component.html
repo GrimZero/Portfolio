@@ -1,0 +1,17 @@
+<div class="row m-0" *ngIf="data">
+    <div class="col-lg-4 col-md-12 col-sm-12 hero-text-margin margin-top-title" >
+        <div class="row m-0 p-0 h-100">
+            <div class="col">
+                <h3 class="red m-0 pixelated" style="font-size: 40pt;">{{data.title}}</h3>
+                <p class="m-0 white pixelated" style="font-size: 60pt">{{data.name}}</p>
+                <p class="white text-justify pixelated" style="font-size: 23pt">{{data.hero}}</p>
+                <div class="row">
+                    <button class="py-3 px-5 pixelated mx-2 mb-3" style="font-size: 35pt;" [routerLink]="['/About']">ABOUT ME</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-5 col-md-12 text-center image-fullscreen p-0" id="dimensions">
+        <app-threejs-wrapper [maxSize]=900></app-threejs-wrapper>
+    </div>
+</div>

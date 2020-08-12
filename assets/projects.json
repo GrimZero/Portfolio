@@ -74,7 +74,7 @@
       "title": "Cubic",
       "preview": "assets/Projects/Cubic/thumbnail.png",
       "hero": "",
-      "route": "cubic",
+      "route": "Cubic",
       "softwareUsed": ["ThreeJS", "GSAP"]
     }
   ]

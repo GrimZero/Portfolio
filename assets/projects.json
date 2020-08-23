@@ -73,8 +73,13 @@
     {
       "title": "Cubic",
       "preview": "assets/Projects/Cubic/thumbnail.png",
-      "hero": "",
       "route": "Cubic",
+      "softwareUsed": ["ThreeJS", "GSAP"]
+    },
+    {
+      "title": "World Carer",
+      "preview": "assets/Projects/WorldCarer/thumbnail.jpg",
+      "url": "https://torbenv.itch.io/world-carer",
       "softwareUsed": ["ThreeJS", "GSAP"]
     }
   ]

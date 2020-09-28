@@ -9,6 +9,7 @@
         "WPF",
         "EMGUCV"
       ],
+      "id":"TOOL",
       "what": "For a project involving scanning of tangible fabrics, I was tasked to make a tool that could read and modify texture data. It would be used to scan an existing fabric and digitize it. Whereafter it would get grayscaled and as such can be used as a base material for PBR. The VIZIO scanner that was used to scan the fabrics outputs the PBR materials and after processing they are processed and imported into the library.",
       "why": "This was created as an automation tool for artists to use so that they would not have to manually adjust the images into a working grayscale image.",
       "how": "I created this in WPF, while also using Unity running server side as a database, The application hooks into the VIZIO scanner process and reads the textures when it is done scanning them and generating the textures. These textures are then grayscaled (along with packing the metallic and roughness together to save some space) and imported into a scriptable object that is generated and added to the database. The entire image processing is handled by EmguCV, a wrapper library of OpenCV."
@@ -18,6 +19,7 @@
       "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
       "hero": "assets/Projects/DeputyDonut/preview.png",
       "route": "DeputyDonut",
+      "id":"GAME",
       "softwareUsed": [
         "Unity",
         "3DsMax",
@@ -31,6 +33,7 @@
       "preview": "assets/Projects/MetaHider/thumbnail.jpg",
       "hero": "assets/Projects/MetaHider/preview.jpg",
       "route": "unity-metadata-hider",
+      "id":"TOOL",
       "softwareUsed": [
         "Unity",
         "Console"
@@ -43,6 +46,7 @@
       "title": "PLEX MEDIA MANAGER",
       "preview": "assets/Projects/PlexManager/thumbnail.jpg",
       "route": "plextool",
+      "id":"TOOL",
       "softwareUsed": [
         "WPF"
       ],
@@ -55,6 +59,7 @@
       "preview": "assets/sprites/qr-code.png",
       "hero": "assets/Projects/Website/preview.jpg",
       "route": "portfolio",
+      "id":"VARIOUS",
       "softwareUsed": [
         "Angular"
       ],
@@ -66,6 +71,7 @@
       "preview": "assets/Projects/NodeEditor/thumbnail.png",
       "hero": "assets/Projects/NodeEditor/preview.png",
       "route": "node-editor",
+      "id":"TOOL",
       "softwareUsed": [
         "Unity",
         "xNode"
@@ -78,10 +84,28 @@
       "title": "WORLD CARER",
       "preview": "assets/Projects/WorldCarer/thumbnail.jpg",
       "url": "https://torbenv.itch.io/world-carer",
+      "route": "world-carer",
+      "id":"GAME",
       "softwareUsed": [
-        "ThreeJS",
-        "GSAP"
-      ]
+        "UNITY"
+      ],
+      "what": "This is a project created for the Extra Credits Game Jam. Together with a friend I created this game as a first gamejam experience!",
+      "why": "Mostly for fun! We eagerly waited for the theme to be announced, and got started as soon as the clock started ticking. The theme was announced to be 'Take care' so we made sure to honor the theme and make a fun little game over the weekend.",
+      "how":"As a joint effort, we each had stuff we took responsibility for. For me that was the main functionality of the key components. i.e. the camera rotation around the world, the UI, The asteroid spawning and the score system, as well as the entire customizable settings menu for the gameplay. All these systems working together with the ones created by my colleague. I decided that the player should get absolute control over the difficulty of the game, to tailor the game to whoever wants to play it rather than skillcap the game!"
+    },
+    {
+      "title": "AI-SURVIVAL",
+      "preview": "assets/Projects/AI-Survival/thumbnail.jpg",
+      "hero": "assets/Projects/AI-Survival/preview.jpg",
+      "route": "ai-survival",
+      "id":"VARIOUS",
+      "softwareUsed": [
+        "BOX2D",
+        "C++"
+      ],
+      "what": "An AI framework based entirely on C++, created to research and understand different AI behaviours, the framework was provided to us and the goal was to create a functioning AI that can survive and wanders around looking for items. The 'player' can pick up weapons as well as items and I wrote an AI to handle the interactions with the surroundings.",
+      "why": "At first this was just an assignment, but after we had to hand in I was quite curious about how I could improve this system.",
+      "how":"Written entirely in a custom C++ engine, the framework I used for this engine was very barebones. This left me in charge of implementing various steering behaviours; seeking, wandering, fleeing, shooting... All these behaviours needed to be coded to work appropriately with each other to reach the resulting artificial player and make it wander around as long as possible."
     }
   ]
 }

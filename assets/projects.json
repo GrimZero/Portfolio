@@ -106,6 +106,24 @@
       "what": "An AI framework based entirely on C++, created to research and understand different AI behaviours, the framework was provided to us and the goal was to create a functioning AI that can survive and wanders around looking for items. The 'player' can pick up weapons as well as items and I wrote an AI to handle the interactions with the surroundings.",
       "why": "At first this was just an assignment, but after we had to hand in I was quite curious about how I could improve this system.",
       "how":"Written entirely in a custom C++ engine, the framework I used for this engine was very barebones. This left me in charge of implementing various steering behaviours; seeking, wandering, fleeing, shooting... All these behaviours needed to be coded to work appropriately with each other to reach the resulting artificial player and make it wander around as long as possible."
+    },
+    {
+      "title": "",
+      "preview": "https://via.placeholder.com/200",
+      "route": "text-game",
+      "id":"VARIOUS"
+    },
+    {
+      "title": "MASTER OF TILES",
+      "preview": "assets/Projects/MasterOfTiles/thumbnail.png",
+      "url": "https://torbenv.itch.io/master-of-tiles",
+      "route": "master-of-tiles",
+      "id":"GAME",
+      "softwareUsed": [
+        "UNITY"
+      ],
+      "what": "Unlock doors by activating buttons in a certain order, building the background music loop as you go. The goal is to reach the end of the loop and construct the soundtrack, by pressing the buttons in the right order to create it. The concept we are going for is that the loop will have notes that build up over time, and every level is made up of several rooms. Every iteration of the loop we are planning to add an additional soundtrack in the future so rooms can get more complex as they keep looping back to the original",
+      "how":"As the only programmer, It was my job to make sure they have the tools. Since they weren't that familiar with using Unity this presented additional challenges. The code that took the largest chunk of the 'Looping' mechanic was to find a way to make an infinite world generator with the tiles. This, as well as setting up character animations based on its movement(Custom animation controller and character controller) and naturally the games menu and navigation. Additionally I took up a little of a leading and game design role to make sure the project got handled with care and we could deliver in the end. The audio system I made, that allows for parametric control of all the values of an AudioSource, proved very useful, as we can easily create new audio sources and set the volume based on the SFX that should be played at that time."
     }
   ]
 }

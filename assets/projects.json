@@ -108,7 +108,7 @@
       "how":"Written entirely in a custom C++ engine, the framework I used for this engine was very barebones. This left me in charge of implementing various steering behaviours; seeking, wandering, fleeing, shooting... All these behaviours needed to be coded to work appropriately with each other to reach the resulting artificial player and make it wander around as long as possible."
     },
     {
-      "title": "",
+      "title": "TEXT-GAME",
       "preview": "https://via.placeholder.com/200",
       "route": "text-game",
       "id":"VARIOUS"

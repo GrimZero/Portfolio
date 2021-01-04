@@ -151,6 +151,7 @@
     {
       "title": "MASTER OF TILES",
       "preview": "assets/Projects/MasterOfTiles/thumbnail.png",
+      "hero": "assets/Projects/MasterOfTiles/preview.png",
       "url": "https://torbenv.itch.io/master-of-tiles",
       "route": "master-of-tiles",
       "id": "GAME",

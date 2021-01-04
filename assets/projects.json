@@ -9,121 +9,169 @@
         "WPF",
         "EMGUCV"
       ],
-      "id":"TOOL",
-      "what": "For a project involving scanning of tangible fabrics, I was tasked to make a tool that could read and modify texture data. It would be used to scan an existing fabric and digitize it. Whereafter it would get grayscaled and as such can be used as a base material for PBR. The VIZIO scanner that was used to scan the fabrics outputs the PBR materials and after processing they are processed and imported into the library.",
-      "why": "This was created as an automation tool for artists to use so that they would not have to manually adjust the images into a working grayscale image.",
-      "how": "I created this in WPF, while also using Unity running server side as a database, The application hooks into the VIZIO scanner process and reads the textures when it is done scanning them and generating the textures. These textures are then grayscaled (along with packing the metallic and roughness together to save some space) and imported into a scriptable object that is generated and added to the database. The entire image processing is handled by EmguCV, a wrapper library of OpenCV."
+      "id": "TOOL",
+      "what": [
+        "Scan existing fabrics.",
+        "Read and modify scanned texture data.",
+        "Grayscale and use as base material for PBR.",
+        "Scanned textures inputted into a database."
+      ],
+      "why": [
+        "Automation tool, converts to grayscale to easily create various textures.",
+        "Easy color manipulation based on default gray image.",
+        "3D scan people to predetermine sizes.",
+        "Reduce need to send packages back and forth."
+      ],
+      "how": [
+        "Scan the texture with VIZIO.",
+        "Grayscale textures on GPU using EmguCV.",
+        "Hook into scanner and output to database.",
+        "Generate Scriptable object and store data."
+      ]
     },
     {
       "title": "DEPUTY DONUT",
       "preview": "assets/Projects/DeputyDonut/thumbnail.jpg",
       "hero": "assets/Projects/DeputyDonut/preview.png",
       "route": "DeputyDonut",
-      "id":"GAME",
+      "id": "GAME",
       "softwareUsed": [
         "Unity",
         "3DsMax",
         "Photoshop"
       ],
-      "what": "In this couch co-op game you play as either an officer or a donut truck. The goal of the game is for the police to recover his donuts, because the truck ran off without giving him his order! The player is meant to battle the truck with various power ups to try and get the truck to stop and get himself a reward. While the truck has to try and avoid getting caught.",
-      "how": "I picked up the role of a technical artist. With a team of 4 programmers, we all needed to jump in  to help our artist. Most of my time was spent helping to create the models and rigging, as 3 people is enough to do the programming. This project was made entirely in Unity and was reported on a weekly basis and had daily stand-up just like with a SCRUM team."
+      "what": [
+        "Couch co-op game where you play as either an officer or a donut truck. ",
+        "The truck ran off without giving the officer his order! Battle the truck as the officer or defend yourself as the truck driver."
+      ],
+      "how": [
+        "Technical artist.",
+        "Creation of 3D meshes and rigging. ",
+        "4 programmers and an artist.",
+        "weekly report group project."
+      ]
     },
     {
       "title": "METADATA HIDER",
       "preview": "assets/Projects/MetaHider/thumbnail.jpg",
       "hero": "assets/Projects/MetaHider/preview.jpg",
       "route": "unity-metadata-hider",
-      "id":"TOOL",
+      "id": "TOOL",
       "softwareUsed": [
         "Unity",
         "Console"
       ],
-      "what": "A tool that takes the unity-generated meta files and hides / unhides them.",
-      "why": "Unity creates a metadata file for every file and directory in the project, this can quickly get cluttered and make it hard to identify objects in the windows explorer. Therefore I felt like this should be done automattically.",
-      "how": "Windows allows access to the flags controlling various parameters of files, and as such we can modify the properties of said files. As an added bonus I made sure I could watch for file changes in a directory, and not have to manually hide the files when a new one is created. The settings can be overridden from the console application running in the background, and there is logging to keep track of which files were hidden when and where they are located that can be read back whenever."
-    },
-    {
-      "title": "PLEX MEDIA MANAGER",
-      "preview": "assets/Projects/PlexManager/thumbnail.jpg",
-      "route": "plextool",
-      "id":"TOOL",
-      "softwareUsed": [
-        "WPF"
+      "what": [
+        "A tool that takes the unity-generated meta files and hides / unhides them."
       ],
-      "what": "This program manages data for me on a plex server and does not require user interference. Whenever a file is moved as well, both the original location and the destination are logged, to make sure that if a file goes corrupt or missing for any reason I can easily track down what and where the file is to resolve it. ",
-      "why": "Managing a database of assets or files, even on a smaller scale can be quite tedious. When a file is downloaded I needed to manually move the files to a new directory, creating one in the process where required. However, after doing this for a few weeks I realised I could write something to do this for me.",
-      "how": "Most of the process happens automatically. Using several API's to check what a file is and where it is supposed to go, I can figure out what goes where and make sure everything is in the right place. Matching a downloaded movie to its IMDB page, makes it possible to correctly identify the movie and as such find possible typos in the file system. I used a fuzzy search to make sure there is a margin for error. Additionally, this tool uses the FileSystemWatcher to make sure that files get transferred automatically. To move files around I am using a kernel32.dll property to speed up the process of moving the objects around. This is a significant increase in performance compared to the regular file moving operations in C#. With a little added complexity, I was able to speed up and async move files at about 10 times the speed of the regular operation."
-    },
-    {
-      "title": "PORTFOLIO",
-      "preview": "assets/sprites/qr-code.png",
-      "hero": "assets/Projects/Website/preview.jpg",
-      "route": "portfolio",
-      "id":"VARIOUS",
-      "softwareUsed": [
-        "Angular"
+      "why": [
+        "Declutters the Windows file browser from unity Generated meta files."
       ],
-      "why": "Creating a nice looking portfolio is one of the things that every developer should have, and considering I had to learn the ins and outs of Angular. I felt it appropriate to make it using this.",
-      "how": "Coming from C# and starting to learn javascript, followed by typescript has its challenges, but it ended up being a fun project nonetheless. Working with Typescript and the Angular framework was a lot easier as it is a more object oriented approach to Javascript. Additional research into threejs and WebGL rendering in the browser, along with some modelling was quite a nice addition. Threejs is fully rendered on the front-end, it works in a canvas using the WebGL renderer. On top of that, there was a lot of optimization to be done with the models. Threejs has support for FBX, but using GlTF files results in a much quicker loadtime."
+      "how": [
+        "Search the directories specified for meta files",
+        "Rescan for files on changes in one of the directories",
+        "Request the internal information of the file from Windows",
+        "Modify the file's flags to hide it.",
+        "Keep track of the files that are hidden.",
+        "Files can be specified to be ignored."
+      ]
     },
     {
       "title": "NODE EDITOR",
       "preview": "assets/Projects/NodeEditor/thumbnail.png",
       "hero": "assets/Projects/NodeEditor/preview.png",
       "route": "node-editor",
-      "id":"TOOL",
+      "id": "TOOL",
       "softwareUsed": [
         "Unity",
         "xNode"
       ],
-      "what": "This project is a node editor, created in unity, to make it possible to create a branching dialogue system with events inside Unity.",
-      "why": "For a narrative builder I decided it would be nice to have a node editor. working together with a writer, he needed a tool to be able to write events and dialogue without needing to write code. So I wrote a node editor so that he could easily design the NPC and world the way he wanted without needing to write any code.",
-      "how": "To make one there are different available API's to use, I tried both the Unity experimental Shadergraph API and xNode. While I was working with the ShaderGraph API, I found myself quite lost, there was not all the much documentation and with the API still being experimental it was bound to be a nuisance to get everything right. I found myself stuck working with USS and UIElements in the UnityEngine, and after running into one too manny roadblocks, I decided to look for an alternative. The alternative was xNode, an open-source framework that allows you to make a custom node editor the way you want to."
+      "what": [
+        "A node editor that makes it possible to create a state machine."
+      ],
+      "why": [
+        "Narrative builder",
+        "Working together with people without a need for coding experience.",
+        "Easily setting up a connective graph and different languages."
+      ],
+      "how": [
+        "Testing different API's (ShaderGraph vs xNode)",
+        "Learning about USS and UIElements.",
+        "Creating a multi-purpose graph editor."
+      ]
     },
     {
       "title": "WORLD CARER",
       "preview": "assets/Projects/WorldCarer/thumbnail.jpg",
+      "hero": "",
       "url": "https://torbenv.itch.io/world-carer",
       "route": "world-carer",
-      "id":"GAME",
+      "id": "GAME",
       "softwareUsed": [
         "UNITY"
       ],
-      "what": "This is a project created for the Extra Credits Game Jam. Together with a friend I created this game as a first gamejam experience!",
-      "why": "Mostly for fun! We eagerly waited for the theme to be announced, and got started as soon as the clock started ticking. The theme was announced to be 'Take care' so we made sure to honor the theme and make a fun little game over the weekend.",
-      "how":"As a joint effort, we each had stuff we took responsibility for. For me that was the main functionality of the key components. i.e. the camera rotation around the world, the UI, The asteroid spawning and the score system, as well as the entire customizable settings menu for the gameplay. All these systems working together with the ones created by my colleague. I decided that the player should get absolute control over the difficulty of the game, to tailor the game to whoever wants to play it rather than skillcap the game!"
+      "what": [
+        "Extra Credits Game Jam project, theme: 'TAKE CARE'.",
+        "First game-jam experience, I had a great time!",
+        "Protect the earth from incoming asteroid fire by creating shields around the sections."
+      ],
+      "how": [
+        "Joint effort of another programmer and me.",
+        "Focus on user controls, UI, The asteroid spawning and the score system.",
+        "Fuly customizable settings and stored between sessions."
+      ]
     },
     {
       "title": "AI-SURVIVAL",
       "preview": "assets/Projects/AI-Survival/thumbnail.jpg",
       "hero": "assets/Projects/AI-Survival/preview.jpg",
       "route": "ai-survival",
-      "id":"VARIOUS",
+      "id": "VARIOUS",
       "softwareUsed": [
         "BOX2D",
         "C++"
       ],
-      "what": "An AI framework based entirely on C++, created to research and understand different AI behaviours, the framework was provided to us and the goal was to create a functioning AI that can survive and wanders around looking for items. The 'player' can pick up weapons as well as items and I wrote an AI to handle the interactions with the surroundings.",
-      "why": "At first this was just an assignment, but after we had to hand in I was quite curious about how I could improve this system.",
-      "how":"Written entirely in a custom C++ engine, the framework I used for this engine was very barebones. This left me in charge of implementing various steering behaviours; seeking, wandering, fleeing, shooting... All these behaviours needed to be coded to work appropriately with each other to reach the resulting artificial player and make it wander around as long as possible."
+      "what": [
+        "Learning various AI behaviours and interactions.",
+        "Create an AI to survive against zombies roaming the map while scavenging and mapping out the area."
+      ],
+      "how": [
+        "Custom C++ framework",
+        "Finite State Machine and Behaviour Tree.",
+        "Implementing various steering behaviours; seeking, wandering, fleeing, shooting... ",
+        "Behaviours coded within state machines and self-contained within the auto-player."
+      ]
     },
     {
       "title": "",
       "preview": "https://via.placeholder.com/200",
       "route": "text-game",
-      "id":"VARIOUS"
+      "id": "VARIOUS"
     },
     {
       "title": "MASTER OF TILES",
       "preview": "assets/Projects/MasterOfTiles/thumbnail.png",
       "url": "https://torbenv.itch.io/master-of-tiles",
       "route": "master-of-tiles",
-      "id":"GAME",
+      "id": "GAME",
       "softwareUsed": [
         "UNITY"
       ],
-      "what": "Unlock doors by activating buttons in a certain order, building the background music loop as you go. The goal is to reach the end of the loop and construct the soundtrack, by pressing the buttons in the right order to create it. The concept we are going for is that the loop will have notes that build up over time, and every level is made up of several rooms. Every iteration of the loop we are planning to add an additional soundtrack in the future so rooms can get more complex as they keep looping back to the original",
-      "how":"As the only programmer, It was my job to make sure they have the tools. Since they weren't that familiar with using Unity this presented additional challenges. The code that took the largest chunk of the 'Looping' mechanic was to find a way to make an infinite world generator with the tiles. This, as well as setting up character animations based on its movement(Custom animation controller and character controller) and naturally the games menu and navigation. Additionally I took up a little of a leading and game design role to make sure the project got handled with care and we could deliver in the end. The audio system I made, that allows for parametric control of all the values of an AudioSource, proved very useful, as we can easily create new audio sources and set the volume based on the SFX that should be played at that time."
+      "what": [
+        "Ludum Dare 47, theme: 'STUCK IN A LOOP'.",
+        "Press the button to unlock a door and build up the soundtrack.",
+        "Every button press adds to the soundtrack which loops on itself.",
+        "Complete the loop to reset the music and play again.",
+        "(expansion plans to add more depth to the music when the loop finishes)"
+      ],
+      "how": [
+        "Creating tools for people unfamiliar with Unity",
+        "World and tile generator for the levels (expandable)",
+        "Character sprite animation tools (custom controller)",
+        "Audio system with full parametric control of all settings accessible through Unity.",
+        "Audio manager that creates, manages and disposes sound sources when necessary (cached)"
+      ],
+      "devlog": "https://torbenv.itch.io/master-of-tiles/devlog/184567/the-writhing-of-the-code"
     }
   ]
 }

@@ -87,17 +87,16 @@
         "xNode"
       ],
       "what": [
-        "A node editor that makes it possible to create a state machine."
+        "A node editor that makes it possible to create a state machine.",
+        "Custom graphs are more versatile and allow full customization and events, while leaving out reliance on Unity for the logic.",
+        "Functional, Conditional and Text nodes."
       ],
       "why": [
-        "Narrative builder",
+        "Narrative builder for everyone to use, not just developers.",
         "Working together with people without a need for coding experience.",
-        "Easily setting up a connective graph and different languages."
-      ],
-      "how": [
+        "Easily setting up a connective graph and different languages.",
         "Testing different API's (ShaderGraph vs xNode)",
-        "Learning about USS and UIElements.",
-        "Creating a multi-purpose graph editor."
+        "Learning about USS and UIElements."
       ]
     },
     {
@@ -143,10 +142,58 @@
       ]
     },
     {
-      "title": "",
-      "preview": "https://via.placeholder.com/200",
-      "route": "text-game",
-      "id": "VARIOUS"
+      "title": "SPRITE ANIMATOR",
+      "preview": "assets/Projects/SpriteAnimator/thumbnail.png",
+      "hero": "assets/Projects/SpriteAnimator/preview.png",
+      "route": "sprite-animator",
+      "id": "TOOL",
+      "softwareUsed": [
+        "Unity"
+      ],
+      "what": [
+        "Automatically slice sprites.",
+        "Set up frame events with C# jobs.",
+        "Animation events & controller.",
+        "Customizable animation speed."
+      ],
+      "why": [
+        "Easily add and modify animation data.",
+        "No animation controller overhead.",
+        "Easy setup from editor window from spritesheet."
+      ],
+      "how": [
+        "DOTS based individual sprite animation.",
+        "Replace all unity events with tasks.",
+        "Odin Inspector data serializer."
+      ]
+    },
+    {
+      "title": "ITEM DATABASE",
+      "preview": "assets/Projects/ItemDatabase/thumbnail.png",
+      "hero": "assets/Projects/ItemDatabase/preview.png",
+      "route": "item-system",
+      "id": "TOOL",
+      "softwareUsed": [
+        "Unity"
+      ],
+      "what": [
+        "Create and manage items.",
+        "Set up components and crafting recipes.",
+        "Add Actions to items without UnityEvents.",
+        "Add relevant data for the item in editor.",
+        "Lootable chests and drop tables.",
+        "Configurable item stack sizes."
+      ],
+      "why": [
+        "Easily add and modify item data.",
+        "Convenient data serialization.",
+        "Read/Write data from XML file."
+      ],
+      "how": [
+        "Dynamic array for types and effect dropdown.",
+        "Custom class serialization to JSON.",
+        "Reflecting methods from item classes. (inheritance identifier)"
+      ]
     },
     {
       "title": "MASTER OF TILES",
@@ -168,7 +215,6 @@
       "how": [
         "Creating tools for people unfamiliar with Unity",
         "World and tile generator for the levels (expandable)",
-        "Character sprite animation tools (custom controller)",
         "Audio system with full parametric control of all settings accessible through Unity.",
         "Audio manager that creates, manages and disposes sound sources when necessary (cached)"
       ],

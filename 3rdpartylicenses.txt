@@ -346,9 +346,6 @@ Apache-2.0
    limitations under the License.
 
 
-ng-circle-progress
-MIT
-
 nx-workspace
 MIT
 
